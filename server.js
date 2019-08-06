@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const http = require("http").Server(app);
+const io = require("socket.io")(http);
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -12,13 +14,24 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
-
-// Send every other request to the React app
-// Define any API routes before this runs
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+app.get("/", (req, res) => {
+  res.render("index.ejs");
 });
+io.sockets.on("connection", function(socket) {
+  socket.on("username", function(username) {
+    socket.username = username;
+    io.emit("is_online", '🔵 <i>' + socket.username + ' join the chat..</i>');
+  });
 
-app.listen(PORT, () => {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
+  socket.on("disconnect", function(username) {
+    io.emit('is_online', '🔴 <i>' + socket.username + ' left the chat..</i>');
+  });
+
+  socket.on('chat_message', function(message) {
+    io.emit('chat_message', '<strong>' + socket.username + '</strong>: ' + message);
+  });
+})
+
+const server = http.listen(8080, function() {
+  console.log("listening on port 8080");
 });
