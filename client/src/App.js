@@ -19,7 +19,7 @@ class App extends Component {
     this.socket = io("/");
     this.socket.on("message", message => {
       this.setState({
-        messages: [message, ...this.state.messages]
+        messages: [ ...this.state.messages, message]
       });
     })
   }
@@ -52,7 +52,7 @@ class App extends Component {
         from: this.state.userName
       }
       this.setState({
-        messages: [message, ...this.state.messages],
+        messages: [ ...this.state.messages, message],
         message: ""
       });
       this.socket.emit("message", message)
