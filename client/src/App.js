@@ -1,19 +1,20 @@
 import React, {Component} from "react";
-import {Socket} from 'react-socket-io';
 import axios from "axios";
+import socketIOClient from "socket.io-client";
 import "./App.css";
 
-const uri = "http://localhost:8080";
-const options = {transports: ["websocket"]};
-
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      userName: "",
+      message: "",
+      nameSubmitted: false,
+      messages: [],
+      endpoint: "http://localhost:8080/"
+    }
+  }
 
-  state = {
-    userName: "",
-    message: "",
-    nameSubmitted: false,
-    messages: []
-  };
 
   componentDidMount() {
     axios.get("/messages").then(response => {
@@ -39,26 +40,33 @@ class App extends Component {
     });
   };
 
-  updateSubmit = () => {
+  updateSubmit = (e) => {
+    e.preventDefault();
+    const socket = socketIOClient(this.state.endpoint);
+    var username = this.state.userName;
+    socket.emit("username", username);
     this.setState({
       nameSubmitted: true
     })
   };
+
 
   handleSubmit = (e) => {
     e.preventDefault();
     axios.post("/messages", {"name": this.state.userName, "message": this.state.message}).then(response => {
       console.log(response);
       this.setState({
-        messages: response.data
+        messages: response.data,
+        message: ""
       });
       console.log(this.state.messages);
     });
   };
 
   render() {
+   
     return (
-      <Socket uri={uri} options={options}>
+      // <Socket uri={uri} options={options}>
         <div className="App">
           {this.state.nameSubmitted ? (<div id="entrance">
             <ul id="messages">
@@ -67,11 +75,12 @@ class App extends Component {
                   <div style={{borderBottom: "5px solid forrestgreen"}} key={i}>
                     <h3>{msg.name}</h3>
                     <span>{msg.message}</span>
+                    
                   </div>
                 );
               })}
             </ul>
-            <button className="btn btn-info" onClick={this.refresh}>Refresh</button>
+            <button className="btn btn-info">Refresh</button>
             <form action="/messages" method="POST" id="chatForm">
               <input id="userName" name="userName" value={this.state.userName} onChange={this.handleChange} disabled/>
               <input name="message" value={this.state.message} onChange={this.handleChange} id="txt"
@@ -85,7 +94,7 @@ class App extends Component {
             <button id="enter" className="btn btn-success" onClick={this.updateSubmit}>Enter</button>
           </div>)}
         </div>
-      </Socket>
+      // </Socket>
     );
   }
 }
