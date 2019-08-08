@@ -1,92 +1,21 @@
-import React, {Component} from "react";
-import io from "socket.io-client";
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Signup from './components/pages/Signup'
+import Chat from './components/Chat'
 import "./App.css";
 
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      userName: "",
-      message: "",
-      nameSubmitted: false,
-      messages: [],
-      endpoint: "http://localhost:3001/"
-    }
-  }
-
-
-  componentDidMount() {
-    this.socket = io("/");
-    this.socket.on("message", message => {
-      this.setState({
-        messages: [ ...this.state.messages, message]
-      });
-    })
-  }
-
-
-  handleChange = (e) => {
-    const {name, value} = e.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  updateSubmit = (e) => {
-    e.preventDefault();
-    const socket = io(this.state.endpoint);
-    var username = this.state.userName;
-    socket.emit("username", username);
-    this.setState({
-      nameSubmitted: true
-    })
-  };
-
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    const body = e.target.value
-    if(e.keyCode === 13 && body) {
-      const message = {
-        body,
-        from: this.state.userName
-      }
-      this.setState({
-        messages: [ ...this.state.messages, message],
-        message: ""
-      });
-      this.socket.emit("message", message)
-      
-    }
-
-  };
-
   render() {
-   const messages = this.state.messages.map((msg,i) => {
-     return (
-       <li key={i}>
-         <b>{msg.from}:</b> <p>{msg.body}</p>
-       </li> 
-     )
-   })
     return (
-        <div className="App">
-          {this.state.nameSubmitted ? (<div id="entrance">
-            <ul id="messages">
-             {messages}
-            </ul>
-            <div id="chatForm">
-              <span className="userName" name="userName">{this.state.userName}</span>
-              <input className="msg" name="message" value={this.state.message} onChange={this.handleChange} id="txt"
-                     placeholder="Type your message here & press enter..." onKeyUp={this.handleSubmit}/>
-              </div>
-          </div>) : (<div id="user" className="offset-md-5">
-            <input onChange={this.handleChange} name="userName" value={this.state.userName} type="text"
-                   placeholder="Enter a username" id="userName"/>
-            <button id="enter" className="btn btn-success" onClick={this.updateSubmit}>Enter</button>
-          </div>)}
+      <Router>
+        <div>
+          <Switch>
+          <Route exact path="/" component={Chat} />
+          <Route exact path="/signup" component={Signup} />
+          </Switch>
         </div>
+      </Router>
     );
   }
 
