@@ -40,7 +40,7 @@ class Signup extends Component {
                         onChange={this.handleInputChange} />
                             <div className="buttons">
                                 <button className="waves-effect waves-light btn signup" onClick={this.handleFormSubmit}>Signup</button>
-                                <a className="waves-effect waves-light btn login" href="/loginPage">Login</a>
+                                <a className="waves-effect waves-light btn login" href="/login">Login</a>
                             </div>
                     </div>
                 </div>
