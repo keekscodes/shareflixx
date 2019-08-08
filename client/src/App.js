@@ -25,14 +25,6 @@ class App extends Component {
   }
 
 
-  refresh = () => {
-    axios.get("/messages").then(response => {
-      this.setState({
-        messages: response.data
-      })
-    })
-  };
-
   handleChange = (e) => {
     const {name, value} = e.target;
     this.setState({
@@ -83,7 +75,6 @@ class App extends Component {
             <ul id="messages">
              {messages}
             </ul>
-            <button className="btn btn-info">Refresh</button>
             <div id="chatForm">
               <input id="userName" name="userName" value={this.state.userName} onChange={this.handleChange} disabled/>
               <input name="message" value={this.state.message} onChange={this.handleChange} id="txt"
