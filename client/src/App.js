@@ -4,6 +4,7 @@ import Signup from './components/pages/Signup'
 import Chat from './components/Chat'
 import "./App.css";
 
+
 class App extends Component {
   render() {
     return (
@@ -17,6 +18,8 @@ class App extends Component {
       </Router>
     );
   }
+
+
 }
 
 export default App;
