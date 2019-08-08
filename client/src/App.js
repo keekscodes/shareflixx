@@ -1,6 +1,5 @@
 import React, {Component} from "react";
-import axios from "axios";
-import socketIOClient from "socket.io-client";
+import io from "socket.io-client";
 import "./App.css";
 
 class App extends Component {
@@ -17,10 +16,11 @@ class App extends Component {
 
 
   componentDidMount() {
-    axios.get("/messages").then(response => {
+    this.socket = io("/");
+    this.socket.on("message", message => {
       this.setState({
-        messages: response.data
-      })
+        messages: [message, ...this.state.messages]
+      });
     })
   }
 
@@ -42,7 +42,7 @@ class App extends Component {
 
   updateSubmit = (e) => {
     e.preventDefault();
-    const socket = socketIOClient(this.state.endpoint);
+    const socket = io(this.state.endpoint);
     var username = this.state.userName;
     socket.emit("username", username);
     this.setState({
@@ -53,48 +53,48 @@ class App extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("/messages", {"name": this.state.userName, "message": this.state.message}).then(response => {
-      console.log(response);
+    const body = e.target.value
+    if(e.keyCode === 13 && body) {
+      const message = {
+        body,
+        from: this.state.userName
+      }
       this.setState({
-        messages: response.data,
+        messages: [message, ...this.state.messages],
         message: ""
       });
-      console.log(this.state.messages);
-    });
+      this.socket.emit("message", message)
+      
+    }
+
   };
 
   render() {
-   
+   const messages = this.state.messages.map((msg,i) => {
+     return (
+       <li key={i}>
+         <b>{msg.from}:</b> <p>{msg.body}</p>
+       </li> 
+     )
+   })
     return (
-      // <Socket uri={uri} options={options}>
         <div className="App">
           {this.state.nameSubmitted ? (<div id="entrance">
             <ul id="messages">
-              {this.state.messages.map((msg, i) => {
-                return (
-                  <div style={{borderBottom: "5px solid forrestgreen"}} key={i}>
-                    <h3>{msg.name}</h3>
-                    <span>{msg.message}</span>
-                    
-                  </div>
-                );
-              })}
+             {messages}
             </ul>
             <button className="btn btn-info">Refresh</button>
-            <form action="/messages" method="POST" id="chatForm">
+            <div id="chatForm">
               <input id="userName" name="userName" value={this.state.userName} onChange={this.handleChange} disabled/>
               <input name="message" value={this.state.message} onChange={this.handleChange} id="txt"
-                     placeholder="type your message here..."/>
-              <button onClick={this.handleSubmit}>Send</button>
-            </form>
-
+                     placeholder="type your message here..." onKeyUp={this.handleSubmit}/>
+              </div>
           </div>) : (<div id="user" className="offset-md-5">
             <input onChange={this.handleChange} name="userName" value={this.state.userName} type="text"
                    placeholder="Enter a username" id="userName"/>
             <button id="enter" className="btn btn-success" onClick={this.updateSubmit}>Enter</button>
           </div>)}
         </div>
-      // </Socket>
     );
   }
 }
