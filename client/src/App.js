@@ -76,9 +76,9 @@ class App extends Component {
              {messages}
             </ul>
             <div id="chatForm">
-              <input id="userName" name="userName" value={this.state.userName} onChange={this.handleChange} disabled/>
-              <input name="message" value={this.state.message} onChange={this.handleChange} id="txt"
-                     placeholder="type your message here..." onKeyUp={this.handleSubmit}/>
+              <span className="userName" name="userName">{this.state.userName}</span>
+              <input className="msg" name="message" value={this.state.message} onChange={this.handleChange} id="txt"
+                     placeholder="Type your message here & press enter..." onKeyUp={this.handleSubmit}/>
               </div>
           </div>) : (<div id="user" className="offset-md-5">
             <input onChange={this.handleChange} name="userName" value={this.state.userName} type="text"
