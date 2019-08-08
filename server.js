@@ -1,5 +1,5 @@
 const express = require("express");
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3001;
 const app = express();
 const bodyParser = require("body-parser");
 var server = require("http").createServer(app);
@@ -21,6 +21,12 @@ app.get("/", (req, res) => {
   res.send("hello world");
 });
 
+
+// Send every other request to the React app
+// Define any API routes before this runs
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 app.post("/messages", (req, res) => {
   console.log(req.body);
@@ -54,5 +60,5 @@ io.on("connection", socket => {
 });
 
 server.listen(port, function () {
-  console.log("listening on port 8080");
+  console.log("listening on port 3001");
 });
