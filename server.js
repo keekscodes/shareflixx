@@ -21,26 +21,12 @@ app.get("/", (req, res) => {
   res.send("hello world");
 });
 
-
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.post("/messages", (req, res) => {
-  console.log(req.body);
-  const {name, message} = req.body;
-
-  const messages = {
-    name,
-    message
-  }
-  io.emit("message", messages)
-  res.json(messages);
-  res.status(200).end();
-
-});
 io.on("connection", socket => {
   console.log("New client connected");
 
@@ -60,5 +46,5 @@ io.on("connection", socket => {
 });
 
 server.listen(port, function () {
-  console.log("listening on port 3001");
+  console.log("listening on port:", port);
 });
