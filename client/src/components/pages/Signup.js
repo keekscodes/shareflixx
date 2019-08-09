@@ -31,15 +31,15 @@ class Signup extends Component {
             <div>
                 {/* <Navbar /> */}
                 <div className='container'>
-                    <div className="form signup-form">
+                    <div className="form signup-form" style={{"width": "400px", "margin": "50px auto"}}>
                         <input type="text" name="username" placeholder="username" 
                         onChange={this.handleInputChange}/>
                         <input type="text" name="email" placeholder="email"
                         onChange={this.handleInputChange} />
                         <input type="password" name="password" placeholder="password"
                         onChange={this.handleInputChange} />
-                            <div className="buttons">
-                                <button className="waves-effect waves-light btn signup" onClick={this.handleFormSubmit}>Signup</button>
+                            <div className="buttons" style={{"marginLeft" : "20%", "marginTop": "10px"}}>
+                                <button className="waves-effect waves-light btn signup" onClick={this.handleFormSubmit}  style={{"width": "45%","margin": "2px"}}>Signup</button>
                                 <a className="waves-effect waves-light btn login" href="/login">Login</a>
                             </div>
                     </div>
