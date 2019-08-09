@@ -18,6 +18,32 @@ class Show extends Component {
                     </Col>
                 </Row>
                 </Container>
+
+        <Container fluid>
+                <Row>
+                    <Col size="md-6">
+                    <h5
+                     style={{
+                        backgroundColor:"indigo",
+                        fontSize:"20px",
+                        borderColor:"black",
+                        borderStyle:"solid",
+                        margin:"0%",
+                        padding:"0%",
+                        position:"relative",
+                        top:"20px",
+                        textAlign:"center",
+                        color:"white",
+                        width:"30%",
+                        borderTopLeftRadius:"4em",
+                        borderTopRightRadius:"4em",
+                        // backgroundImage:`url(${"http://images4.fanpop.com/image/photos/23100000/Green-leaf-close-up-green-23162757-2560-1920.jpg"})`,
+                        // backgroundSize: "100px"
+                        }}>Group Name</h5>
+                    </Col>
+                </Row>
+        </Container>
+
           <Container fluid>
             <Row>
               <Col size="md-6">

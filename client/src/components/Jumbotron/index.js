@@ -8,7 +8,7 @@ function Jumbotron({ children }) {
          clear: "both", 
          padding:"5%",
          marginLeft:"0em",
-         marginTop:"2%", 
+        //  marginTop:"2%", 
          textAlign: "center",
          backgroundColor:"steelblue"
          }}
