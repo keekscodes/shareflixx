@@ -42,7 +42,7 @@ io.on("connection", socket => {
     })
   })
   
-  socket.on("disconnect", (username) => socket.broadcast.emit("username", '🔴' + socket.username + ' left the chat..'));
+  socket.on("disconnect", (username) => socket.username ? socket.broadcast.emit("username", '🔴' + socket.username + ' left the chat..') : "");
 });
 
 server.listen(port, function () {
