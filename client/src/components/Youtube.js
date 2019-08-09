@@ -3,8 +3,19 @@ import io from "socket.io-client";
 
 class Youtube extends Component {
 
+    
     state = {
       }
+
+    // var player;
+    // function onYouTubeIframeAPIReady() {
+    //     player = new YT.Player('existing-iframe-example', {
+    //         events: {
+    //           'onReady': onPlayerReady,
+    //           'onStateChange': onPlayerStateChange
+    //         }
+    //     });
+    //   }
 
     render() {
 
@@ -12,6 +23,7 @@ class Youtube extends Component {
 
         <div >
 
+        <input type="Video" style={{"maxWidth": "300px", "marginRight": ".5em", "marginBottom": ".5em", "float": "left"}} className="form-control" id="inputVideoId" placeholder="Video ID / URL" />
         <iframe id="existing-iframe-example"
                 width="640" height="360"
                 src="https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1"
