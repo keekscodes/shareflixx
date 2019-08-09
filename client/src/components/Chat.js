@@ -4,11 +4,13 @@ import io from "socket.io-client";
 class Chat extends Component {
   constructor() {
     super();
+
     this.state = {
       userName: "",
       message: "",
       nameSubmitted: false,
       messages: [],
+      users: [],
       endpoint: "http://localhost:3001/"
     }
   }
@@ -16,32 +18,42 @@ class Chat extends Component {
 
   componentDidMount() {
     this.socket = io(this.state.endpoint);
-    this.socket.on("message", message => {
-      this.setState({
-        messages: [ ...this.state.messages, message]
+    this.socket.on("connect", () => {
+      console.log("connected");
+      
+      this.socket.on("username", (username) => {
+        console.log(username)
+        this.setState({
+          users: [...this.state.users, username]
+        });
       });
+          this.socket.on("message", message => {
+            this.setState({
+              messages: [ ...this.state.messages, message]
+            });
+          })
     })
   }
 
 
+  
   handleChange = (e) => {
     const {name, value} = e.target;
     this.setState({
       [name]: value
     });
   };
-
+  
   updateSubmit = (e) => {
     e.preventDefault();
-    const socket = io(this.state.endpoint);
     var username = this.state.userName;
-    socket.emit("username", username);
+    this.socket.emit("username", username)
     this.setState({
       nameSubmitted: true
-    })
+    });
   };
-
-
+  
+  
   handleSubmit = (e) => {
     e.preventDefault();
     const body = e.target.value
@@ -57,29 +69,40 @@ class Chat extends Component {
       this.socket.emit("message", message)
       
     }
-
+    
   };
-
+  
   render() {
-   const messages = this.state.messages.map((msg,i) => {
-     return (
-       <li key={i}>
+    const messages = this.state.messages.map((msg,i) => {
+      console.log(this.state.messages);
+      return (
+        <li key={i}>
          <b>{msg.from}:</b> <p>{msg.body}</p>
        </li> 
      )
-   })
+   });
+
+   const activeUsers = this.state.users.map((usr,i) => {
     return (
-        <div className="App">
+      <div key={i}>
+      {usr}
+      </div>
+      );
+    })
+    
+    return (
+      <div className="App">
           {this.state.nameSubmitted ? (<div id="entrance">
             <ul id="messages">
-             {messages}
+            {activeUsers}
+            {messages}
             </ul>
             <div id="chatForm">
               <span className="userName" name="userName">{this.state.userName}</span>
               <input className="msg" name="message" value={this.state.message} onChange={this.handleChange} id="txt"
                      placeholder="Type your message here & press enter..." onKeyUp={this.handleSubmit}/>
               </div>
-          </div>) : (<div id="user" className="offset-md-5">
+          </div>) : (<div id="user">
             <input onChange={this.handleChange} name="userName" value={this.state.userName} type="text"
                    placeholder="Enter a username" id="userName"/>
             <button id="enter" className="btn btn-success" onClick={this.updateSubmit}>Enter</button>

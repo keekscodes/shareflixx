@@ -5,8 +5,6 @@ const bodyParser = require("body-parser");
 var server = require("http").createServer(app);
 const io = require("socket.io")(server);
 
-
-
 // Define middleware here
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.json());
@@ -14,7 +12,6 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-
 
 // Define API routes here
 app.get("/", (req, res) => {
@@ -31,18 +28,21 @@ io.on("connection", socket => {
   console.log("New client connected");
 
   socket.on("username", (username) => {
-    return console.log("Connected as username:", username)
+
+    socket.username = username;
+    socket.broadcast.emit("username", '🔵' + socket.username + ' joined the chat..');
   });
 
   socket.on("message", body => {
     console.log(body);
     socket.broadcast.emit("message", {
       body: body.body,
-      from: body.from
+      from: body.from,
+ 
     })
   })
   
-  socket.on("disconnect", () => console.log("Client disconnected"));
+  socket.on("disconnect", (username) => socket.username ? socket.broadcast.emit("username", '🔴' + socket.username + ' left the chat..') : "");
 });
 
 server.listen(port, function () {
