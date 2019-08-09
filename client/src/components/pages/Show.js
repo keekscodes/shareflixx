@@ -23,6 +23,7 @@ class Show extends Component {
               <Col size="md-6">
                 <Jumbotron>
                     <Embed>
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/lXMskKTw3Bc" title="The best thing you'll ever see"></iframe>
                     </Embed>
                   {/* <h1>What Books Should I Read?</h1> */}
                 </Jumbotron>
