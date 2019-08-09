@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import io from "socket.io-client";
+import moment from "moment";
 
 class Chat extends Component {
   constructor() {
@@ -60,7 +61,8 @@ class Chat extends Component {
     if(e.keyCode === 13 && body) {
       const message = {
         body,
-        from: this.state.userName
+        from: this.state.userName,
+        time: moment().format('llll')
       }
       this.setState({
         messages: [ ...this.state.messages, message],
@@ -77,7 +79,7 @@ class Chat extends Component {
       console.log(this.state.messages);
       return (
         <li key={i}>
-         <b>{msg.from}:</b> <p>{msg.body}</p>
+         <b>{msg.from} ({msg.time}):</b> <p>{msg.body}</p>
        </li> 
      )
    });
