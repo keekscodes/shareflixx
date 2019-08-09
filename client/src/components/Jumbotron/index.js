@@ -7,7 +7,7 @@ function Jumbotron({ children }) {
          width: "100%", 
          clear: "both", 
          marginLeft:"0em",
-         marginTop:"20em", 
+         marginTop:"2%", 
          textAlign: "center",
          }}
       className="jumbotron"
