@@ -38,7 +38,7 @@ io.on("connection", socket => {
     socket.broadcast.emit("message", {
       body: body.body,
       from: body.from,
- 
+      time: body.time
     })
   })
   
