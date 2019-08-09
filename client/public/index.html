@@ -87,7 +87,16 @@
       }
       function onPlayerStateChange(event) {
         changeBorderColor(event.data);
+
+    }
+
+    function play() {
+      if (playerStatus == -1 || playerStatus == 2) {
+          player.playVideo();
+      } else {
+          player.pauseVideo();
       }
+    }
     </script>
   </body>
 </html>

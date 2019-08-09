@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import io from "socket.io-client";
 
+var playerStatus = -1;
+
 class Youtube extends Component {
 
     
@@ -9,12 +11,12 @@ class Youtube extends Component {
 
 
 
+
     render() {
 
         return (
 
         <div >
-
         <input type="Video" style={{"maxWidth": "300px", "marginRight": ".5em", "marginBottom": ".5em"}} className="form-control" id="inputVideoId" placeholder="Enter Video ID / URL" />
         <iframe id="existing-iframe-example"
                 width="640" height="360"
@@ -23,8 +25,8 @@ class Youtube extends Component {
                 style={{"border": "solid 4px #37474F"}}
         ></iframe>
 
-        <script id='iframe-demo' src='https://www.youtube.com/iframe_api' >
-        </script>
+        {/* <script id='iframe-demo' src='https://www.youtube.com/iframe_api' >
+        </script> */}
         <br></br>
         <button id="playButton" onClick="playVideo(roomnum)" style={{"marginTop": "0.5em"}} className="btn btn-primary"><i className="fa fa-play"></i> Play / <i className="fa fa-pause"></i> Pause</button>
 
