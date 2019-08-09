@@ -6,9 +6,11 @@ function Jumbotron({ children }) {
       style={{
          width: "100%", 
          clear: "both", 
+         padding:"5%",
          marginLeft:"0em",
          marginTop:"2%", 
          textAlign: "center",
+         backgroundColor:"steelblue"
          }}
       className="jumbotron"
     >
