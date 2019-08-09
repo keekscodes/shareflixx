@@ -1,8 +1,9 @@
-.title {
+.page-footer {
     width: 100%;
     text-align: center;
-    font-size: 3rem;
+    font-size: 2rem;
+    margin-top: 1em;
     /* text-decoration: overline underline; */
-    background-color:DodgerBlue;
+    /* background-color:steelblue; */
     color:white;
   }

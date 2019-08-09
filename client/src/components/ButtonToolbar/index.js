@@ -1,6 +1,6 @@
 import React from "react";
 
-function Jumbotron({ children }) {
+function ButtonToolbar({ children }) {
   return (
     <div className="btn-toolbar" role="toolbar">
       {children}

@@ -1,22 +1,22 @@
 import React from "react";
 
-function Jumbotron({ children }) {
+function Card({ children }) {
   return (
     <div
       style={{
          width: "100%", 
          clear: "both", 
-         padding:"5%",
+        //  padding:"5%",
          marginLeft:"0em",
         //  marginTop:"2%", 
-         textAlign: "center",
-         backgroundColor:"steelblue"
+        //  textAlign: "center",
+         backgroundColor:"white"
          }}
-      className="jumbotron"
+      className="card"
     >
       {children}
     </div>
   );
 }
 
-export default Jumbotron;
+export default Card;
