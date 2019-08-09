@@ -4,6 +4,7 @@ import Signup from './components/pages/Signup'
 import Login from './components/pages/Login'
 import Chat from './components/Chat'
 import "./App.css";
+import Youtube from "./components/Youtube";
 
 
 class App extends Component {
@@ -15,6 +16,8 @@ class App extends Component {
           <Route exact path="/" component={Chat} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/youtube" component={Youtube} />
+
           </Switch>
         </div>
       </Router>
