@@ -28,9 +28,12 @@ class Show extends Component {
             <Row>
                 <Col size="md-6">
                 <ButtonToolbar>
-                    <Button>Play</Button>
-                    <Button>Pause</Button>
-                    <Button>Stop</Button>
+                    <Button>▶</Button>
+                    <Button>&#9616;&nbsp;&#9612;</Button>
+                    <Button>&#9632;</Button>
+                    <Button>Invite</Button>
+                    <Button>Skip</Button>
+                    <Button>Leave</Button>
                 </ButtonToolbar>
                 </Col>
             </Row>
