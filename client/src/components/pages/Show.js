@@ -5,17 +5,28 @@ import Title from "../Title";
 import Button from "../Button";
 import ButtonToolbar from "../ButtonToolbar";
 import Footer from "../Footer";
+import Card from "../Card";
+import Chat from "../Chat";
 import { Col, Row, Container } from "../Grid";
 
 class Show extends Component {
     render() {
         return (
             <div>
+       
             <Container fluid>
                 <Row>
                     <Col size="md-6">
                         <Title>App Name</Title>
                     </Col>
+
+                     <Col size="md-6">
+                     <Container>
+                        <Button>Home</Button>
+                        <Button>Logout</Button>
+                    </Container>
+                    </Col>
+
                 </Row>
                 </Container>
 
@@ -54,6 +65,43 @@ class Show extends Component {
                   {/* <h1>What Books Should I Read?</h1> */}
                 </Jumbotron>
                 </Col>
+                
+                <Col size="md-6">
+                <Jumbotron>
+                    <Row>
+                        <Col size="md-6">
+                            <Container fluid>
+                                <Chat></Chat>
+                            </Container> 
+                        {/* <Card>
+                            <div class="card-body">
+                                <h5 class="card-title">Chat Window</h5>
+                                <p class="card-text">Hello.</p>
+                            </div>
+                        </Card> */}
+                        </Col>
+                        <Col size="md-6">
+                        <Card>
+                        <div class="card-body">
+                                <h5 class="card-title">Users</h5>
+                                <ul>
+                                    <li>Me</li>
+                                </ul>
+                            </div>
+                        </Card>
+                        </Col>
+                    </Row>
+                    <Row>
+                        {/* <Container fluid
+                        style={{
+                           backgroundColor:"white"
+                        }}>
+                        <Chat></Chat>
+                        </Container> */}
+                    </Row>
+                </Jumbotron>
+                </Col>
+
             </Row>
             </Container>
         <Container fluid>
@@ -65,6 +113,7 @@ class Show extends Component {
                     <Button>&#9632;</Button>
                     <Button>Invite</Button>
                     <Button>Skip</Button>
+                    <Button>Make me the host</Button>
                     <Button>Leave</Button>
                 </ButtonToolbar>
                 </Col>
