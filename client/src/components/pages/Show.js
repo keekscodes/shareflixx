@@ -4,17 +4,20 @@ import Embed from "../Embed";
 import Title from "../Title";
 import Button from "../Button";
 import ButtonToolbar from "../ButtonToolbar";
+import Footer from "../Footer";
 import { Col, Row, Container } from "../Grid";
 
 class Show extends Component {
     render() {
         return (
             <div>
+            <Container fluid>
                 <Row>
                     <Col size="md-6">
                         <Title>App Name</Title>
                     </Col>
                 </Row>
+                </Container>
           <Container fluid>
             <Row>
               <Col size="md-6">
@@ -25,6 +28,8 @@ class Show extends Component {
                 </Jumbotron>
                 </Col>
             </Row>
+            </Container>
+        <Container fluid>
             <Row>
                 <Col size="md-6">
                 <ButtonToolbar>
@@ -37,7 +42,14 @@ class Show extends Component {
                 </ButtonToolbar>
                 </Col>
             </Row>
-            </Container>
+        </Container>
+        <Container fluid>
+        <Row>
+            <Col size="md-6">
+                <Footer>Here's our nice footer</Footer>
+            </Col>
+        </Row>
+        </Container>
             </div>
             );
         }
