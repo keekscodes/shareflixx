@@ -5,7 +5,6 @@ import moment from "moment";
 class Chat extends Component {
   constructor() {
     super();
-
     this.state = {
       userName: "",
       message: "",
@@ -15,7 +14,6 @@ class Chat extends Component {
       endpoint: "http://localhost:3001/"
     }
   }
-
 
   componentDidMount() {
     this.socket = io(this.state.endpoint);
@@ -28,15 +26,21 @@ class Chat extends Component {
           users: [...this.state.users, username]
         });
       });
-          this.socket.on("message", message => {
-            this.setState({
-              messages: [ ...this.state.messages, message]
-            });
-          })
+
+      this.socket.on("message", message => {
+        this.setState({
+          messages: [ ...this.state.messages, message]
+        });
+      });
+      this.socket.on("messages", data => {
+        console.log("You have joined room", data)
+      })
+
     })
+    this.socket.emit('room', "abc");
   }
-
-
+  
+  
   
   handleChange = (e) => {
     const {name, value} = e.target;
