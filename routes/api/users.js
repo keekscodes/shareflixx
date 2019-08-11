@@ -7,6 +7,29 @@ const Users = mongoose.model('Users');
 //POST new user route (optional, everyone has access)
 router.post('/', auth.optional, (req, res, next) => {
   const { body: { user } } = req;
+  // console.log(req.body);
+
+  if(!user.firstName) {
+    return res.status(422).json({
+      errors: {
+        firstName: 'is required',
+      },
+    });
+  }
+  if(!user.lastName) {
+    return res.status(422).json({
+      errors: {
+        lastName: 'is required',
+      },
+    });
+  }
+  if(!user.username) {
+    return res.status(422).json({
+      errors: {
+        username: 'is required',
+      },
+    });
+  }
 
   if(!user.email) {
     return res.status(422).json({
@@ -36,6 +59,27 @@ router.post('/', auth.optional, (req, res, next) => {
 router.post('/login', auth.optional, (req, res, next) => {
   const { body: { user } } = req;
 
+  if(!user.firstName) {
+    return res.status(422).json({
+      errors: {
+        firstName: 'is required',
+      },
+    });
+  }
+  if(!user.lastName) {
+    return res.status(422).json({
+      errors: {
+        lastName: 'is required',
+      },
+    });
+  }
+  if(!user.username) {
+    return res.status(422).json({
+      errors: {
+        username: 'is required',
+      },
+    });
+  }
   if(!user.email) {
     return res.status(422).json({
       errors: {

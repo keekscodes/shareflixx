@@ -36,7 +36,7 @@ class Chat extends Component {
         console.log("You have joined room", data)
       })
 
-    })
+    });
     this.socket.emit('room', "abc");
   }
   

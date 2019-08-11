@@ -18,12 +18,15 @@ class Signup extends Component {
     
     handleFormSubmit = event => {
         event.preventDefault();
+        const {firstName, lastName, username, email, password} = this.state
         const user = {
-            firstName: "",
-            lastName: "",
-            username: "",
-            email: "",
-            password: ""
+            user: {
+                firstName,
+                lastName,
+                username,
+                email,
+                password
+            }
         }
         axios.post("/api/users", user).then(res => {
             console.log(res);
@@ -38,7 +41,7 @@ class Signup extends Component {
             <div>
                 {/* <Navbar /> */}
                 <div className='container'>
-                    <form className="form signup-form" style={{"width": "400px", "margin": "50px auto"}}>
+                    <div className="form signup-form" style={{"width": "400px", "margin": "50px auto"}}>
                         <input type="text" name="firstName" placeholder="First Name" 
                         onChange={this.handleInputChange} value={this.state.firstName}/>
                         <input type="text" name="lastName" placeholder="lastName" 
@@ -53,7 +56,7 @@ class Signup extends Component {
                                 <button className="waves-effect waves-light btn signup" onClick={this.handleFormSubmit}  style={{"width": "45%","margin": "2px"}}>Signup</button>
                                 <a className="waves-effect waves-light btn login" href="/login">Login</a>
                             </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         );
