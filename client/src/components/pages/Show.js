@@ -9,6 +9,7 @@ import Card from "../Card";
 import Chat from "../Chat";
 import Youtube from "../Youtube";
 import { Col, Row, Container } from "../Grid";
+import Modal from "../Modal";
 
 class Show extends Component {
     render() {
@@ -21,12 +22,20 @@ class Show extends Component {
                         <Title>App Name</Title>
                     </Col>
 
-                     <Col size="md-6">
+                    <Col size="md-3">
+                        <button style={{"backgroundColor": "#06088d"}} type="button" className="nonmobile-hide btn btn-info btn-sm invite-button" data-toggle="modal" data-target="#inviteModal"><i style={{"width": "30px", "height": "30px"}} className="fas fa-user-plus"></i><h5>Invite</h5></button>
+                        <Modal></Modal>
+                        <a class="navbar-brand js-scroll-trigger" href="/show"><img src="/../../../public/logo.jpg" alt="App logo" height="40" width="40" /> Shareflix</a>
+                    </Col>
+
+                     <Col size="md-3">
                      <Container>
                         <Button>Home</Button>
                         <Button>Logout</Button>
                     </Container>
                     </Col>
+
+
 
                 </Row>
                 </Container>
@@ -61,7 +70,7 @@ class Show extends Component {
               <Col size="md-6">
                 <Jumbotron>
                     {/* <Embed>
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/lXMskKTw3Bc" title="The best thing you'll ever see"></iframe>
+                    <iframe className="embed-responsive-item" src="https://www.youtube.com/embed/lXMskKTw3Bc" title="The best thing you'll ever see"></iframe>
                     </Embed> */}
                     <Youtube></Youtube>
                   {/* <h1>What Books Should I Read?</h1> */}
@@ -84,8 +93,8 @@ class Show extends Component {
                         </Col>
                         <Col size="md-6">
                         <Card>
-                        <div class="card-body">
-                                <h5 class="card-title">Users</h5>
+                        <div className="card-body">
+                                <h5 className="card-title">Users</h5>
                                 <ul>
                                     <li>Me</li>
                                 </ul>
