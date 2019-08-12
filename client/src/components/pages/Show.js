@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Navbar from "../Navbar";
+import NavHeader from "../NavHeader";
 import Jumbotron from "../Jumbotron";
 // import Embed from "../Embed";
 import Title from "../Title";
@@ -20,10 +20,10 @@ class Show extends Component {
       <div>
 
         <Container fluid>
-        <Navbar></Navbar>
+          <NavHeader></NavHeader>
           <Row>
             <Col size="md-6">
-              <Title>App Name</Title>
+              {/* <Title>App Name</Title> */}
             </Col>
 
             <Col size="md-3">

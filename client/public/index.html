@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
@@ -11,6 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
     <!-- Compiled and minified materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -19,8 +21,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <!-- Font awesome -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
     <!--
+    
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
@@ -37,8 +42,9 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
@@ -54,55 +60,60 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script type="text/javascript">
-      var tag = document.createElement('script');
-      tag.id = 'iframe-demo';
-      tag.src = 'https://www.youtube.com/iframe_api';
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    
-      var player;
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player('existing-iframe-example', {
-            events: {
-              'onReady': onPlayerReady,
-              'onStateChange': onPlayerStateChange
+        var tag = document.createElement('script');
+        tag.id = 'iframe-demo';
+        tag.src = 'https://www.youtube.com/iframe_api';
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('existing-iframe-example', {
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            document.getElementById('existing-iframe-example').style.borderColor = '#FF6D00';
+        }
+
+        function changeBorderColor(playerStatus) {
+            var color;
+            if (playerStatus == -1) {
+                color = "#37474F"; // unstarted = gray
+            } else if (playerStatus == 0) {
+                color = "#FFFF00"; // ended = yellow
+            } else if (playerStatus == 1) {
+                color = "#33691E"; // playing = green
+            } else if (playerStatus == 2) {
+                color = "#DD2C00"; // paused = red
+            } else if (playerStatus == 3) {
+                color = "#AA00FF"; // buffering = purple
+            } else if (playerStatus == 5) {
+                color = "#FF6DOO"; // video cued = orange
             }
-        });
-      }
-      function onPlayerReady(event) {
-        document.getElementById('existing-iframe-example').style.borderColor = '#FF6D00';
-      }
-      function changeBorderColor(playerStatus) {
-        var color;
-        if (playerStatus == -1) {
-          color = "#37474F"; // unstarted = gray
-        } else if (playerStatus == 0) {
-          color = "#FFFF00"; // ended = yellow
-        } else if (playerStatus == 1) {
-          color = "#33691E"; // playing = green
-        } else if (playerStatus == 2) {
-          color = "#DD2C00"; // paused = red
-        } else if (playerStatus == 3) {
-          color = "#AA00FF"; // buffering = purple
-        } else if (playerStatus == 5) {
-          color = "#FF6DOO"; // video cued = orange
+            if (color) {
+                document.getElementById('existing-iframe-example').style.borderColor = color;
+            }
         }
-        if (color) {
-          document.getElementById('existing-iframe-example').style.borderColor = color;
+
+        function onPlayerStateChange(event) {
+            changeBorderColor(event.data);
+
         }
-      }
-      function onPlayerStateChange(event) {
-        changeBorderColor(event.data);
 
-    }
-
-    function play() {
-      if (playerStatus == -1 || playerStatus == 2) {
-          player.playVideo();
-      } else {
-          player.pauseVideo();
-      }
-    }
+        function play() {
+            if (playerStatus == -1 || playerStatus == 2) {
+                player.playVideo();
+            } else {
+                player.pauseVideo();
+            }
+        }
     </script>
-  </body>
+</body>
+
 </html>
