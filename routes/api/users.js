@@ -59,31 +59,12 @@ router.post('/', auth.optional, (req, res, next) => {
 router.post('/login', auth.optional, (req, res, next) => {
   const { body: { user } } = req;
 
-  if(!user.firstName) {
-    return res.status(422).json({
-      errors: {
-        firstName: 'is required',
-      },
-    });
-  }
-  if(!user.lastName) {
-    return res.status(422).json({
-      errors: {
-        lastName: 'is required',
-      },
-    });
-  }
+  console.log(req.body);
+ 
   if(!user.username) {
     return res.status(422).json({
       errors: {
         username: 'is required',
-      },
-    });
-  }
-  if(!user.email) {
-    return res.status(422).json({
-      errors: {
-        email: 'is required',
       },
     });
   }
@@ -96,7 +77,9 @@ router.post('/login', auth.optional, (req, res, next) => {
     });
   }
 
-  return passport.authenticate('local', { session: false }, (err, passportUser, info) => {
+  return passport.authenticate('local', { successRedirect: '/',
+  failureRedirect: '/login',
+  failureFlash: true }, (err, passportUser, info) => {
     if(err) {
       return next(err);
     }
@@ -108,13 +91,15 @@ router.post('/login', auth.optional, (req, res, next) => {
       return res.json({ user: user.toAuthJSON() });
     }
 
-    return status(400).info;
+    return res.status(400).info;
   })(req, res, next);
 });
 
 //GET current route (required, only authenticated users have access)
 router.get('/current', auth.required, (req, res, next) => {
   const { payload: { id } } = req;
+
+  console.log(req);
 
   return Users.findById(id)
     .then((user) => {

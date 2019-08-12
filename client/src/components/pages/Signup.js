@@ -30,6 +30,12 @@ class Signup extends Component {
         }
         axios.post("/api/users", user).then(res => {
             console.log(res);
+            const {data :{user}} = res;
+            console.log(user);
+            let token = user.token;
+            if (token) {
+                sessionStorage.setItem("token", token)
+            }
         })
         // This needs to be developed . This is only a test
         this.setState({
