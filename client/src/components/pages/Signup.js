@@ -1,71 +1,65 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import axios from "axios";
+import SignupForm from "./SignupForm";
+
 class Signup extends Component {
-    state = {
-        firstName: "",
-        lastName: "",
-        username: "",
-        email: "",
-        password: "",
-        loggedIn: false
-    }
-    handleInputChange = event => {
-        const { name, value } = event.target
-        this.setState({
-            [name]: value
-        })
-    }
-    
-    handleFormSubmit = event => {
-        event.preventDefault();
-        const {firstName, lastName, username, email, password} = this.state
-        const user = {
-            user: {
-                firstName,
-                lastName,
-                username,
-                email,
-                password
-            }
-        }
-        axios.post("/api/users", user).then(res => {
-            console.log(res);
-            const {data :{user}} = res;
-            console.log(user);
-            let token = user.token;
-            if (token) {
-                sessionStorage.setItem("token", token)
-            }
-        })
-        // This needs to be developed . This is only a test
-        this.setState({
-            loggedIn: true
-        });
-    }
-    render() {
-        return (
-            <div>
-                {/* <Navbar /> */}
-                <div className='container'>
-                    <div className="form signup-form" style={{"width": "400px", "margin": "50px auto"}}>
-                        <input type="text" name="firstName" placeholder="First Name" 
-                        onChange={this.handleInputChange} value={this.state.firstName}/>
-                        <input type="text" name="lastName" placeholder="lastName" 
-                        onChange={this.handleInputChange} value={this.state.lastName}/>
-                        <input type="text" name="username" placeholder="username" 
-                        onChange={this.handleInputChange} value={this.state.username}/>
-                        <input type="text" name="email" placeholder="email"
-                        onChange={this.handleInputChange} value={this.state.email}/>
-                        <input type="password" name="password" placeholder="password"
-                        onChange={this.handleInputChange} value={this.state.password}/>
-                            <div className="buttons" style={{"marginLeft" : "20%", "marginTop": "10px"}}>
-                                <button className="waves-effect waves-light btn signup" onClick={this.handleFormSubmit}  style={{"width": "45%","margin": "2px"}}>Signup</button>
-                                <a className="waves-effect waves-light btn login" href="/login">Login</a>
-                            </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+  state = {
+    firstName: "",
+    lastName: "",
+    username: "",
+    email: "",
+    password: "",
+    loggedIn: false
+  };
+  handleInputChange = event => {
+    const {name, value} = event.target;
+    this.setState({
+      [name]: value
+    })
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    const {firstName, lastName, username, email, password} = this.state;
+    const user = {
+      user: {
+        firstName,
+        lastName,
+        username,
+        email,
+        password
+      }
+    };
+    axios.post("/api/users", user).then(res => {
+      console.log(res);
+      const {data: {user}} = res;
+      console.log(user);
+      let token = user.token;
+      if (token) {
+        sessionStorage.setItem("token", token)
+      }
+    });
+    // This needs to be developed . This is only a test
+    this.setState({
+      loggedIn: true
+    });
+  };
+
+  render() {
+    return (
+      <React.Fragment>
+        <SignupForm
+          firstName={this.state.firstName}
+          lastName={this.state.lastName}
+          username={this.state.username}
+          email={this.state.email}
+          password={this.state.password}
+          handleInputChange={this.handleInputChange}
+          handleFormSubmit={this.handleFormSubmit}
+        />
+      </React.Fragment>
+    );
+  }
 }
+
 export default Signup;

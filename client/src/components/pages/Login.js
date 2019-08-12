@@ -1,74 +1,52 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
+import LoginForm from "./LoginForm";
 import axios from "axios";
 
 class Login extends Component {
 
-    state = {
-        username: "",
-        password: "",
-        loggedIn: false
-    }
+  state = {
+    username: "",
+    password: "",
+    loggedIn: false
+  }
 
-    handleInputChange = event => {
-        const { name, value } = event.target
-        this.setState({
-            [name]: value
-        })
-    }
-    
-    handleFormSubmit = event => {
-        event.preventDefault();
+  handleInputChange = event => {
+    const {name, value} = event.target
+    this.setState({
+      [name]: value
+    })
+  }
 
-        const {username, password} = this.state;
+  handleFormSubmit = event => {
+    event.preventDefault();
+    let token = sessionStorage.getItem("token")
+    console.log(token);
 
-        const user = {
-            user: {
-                username,
-                password
-            }
-        }
-        // axios.post("/api/users/login", user).then(function(response) {
-        //     console.log(response);
-            
-        // });
+    axios.get("/api/users/current", {
+      headers: {
+        'Content-Type': "application/json",
+        'Authorization': "Token " + token
+      }
+    }).then(res => {
+      console.log(res);
+      this.setState({
+        loggedIn: true
+      });
+    })
+    // This needs to be developed . This is only a test
+  }
 
-        let token = sessionStorage.getItem("token")
-        console.log(token);
-
-        axios.get("/api/users/current", {
-            headers: {
-                'Content-Type': "application/json",
-                'Authorization': "Token " + token
-            }
-        }).then(res => {
-            console.log(res);
-        })
-        // This needs to be developed . This is only a test
-        this.setState({
-            loggedIn: true
-        });
-    }
-
-    render() {
-        return (
-            <div>
-                {/* <Navbar /> */}
-                <div className='container'>
-                    <div className="form login-form" style={{"width": "400px" , "margin": "50px auto"}}>
-                        <input type="text" name="username" placeholder="username" value={this.state.username} onChange={this.handleInputChange}/>
-                        <input type="text" name="password" placeholder="password" value={this.state.password} onChange={this.handleInputChange}/>
-                            <div className="buttons" style={{"marginLeft" : "20%", "marginTop": "10px"}}>
-                                <button className="waves-effect waves-light btn login" style={{"width": "45%","margin": "2px"}} onClick={this.handleFormSubmit}>Login</button>
-                                <a className="waves-effect waves-light btn signup" href="/signup">Signup</a>
-                            </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-
-
+  render() {
+    return (
+      <React.Fragment>
+        <LoginForm
+          username={this.state.username}
+          password={this.state.password}
+          handleInputChange={this.handleInputChange}
+          handleFormSubmit={this.handleFormSubmit}/>
+      </React.Fragment>
+    );
+  }
 
 
 }

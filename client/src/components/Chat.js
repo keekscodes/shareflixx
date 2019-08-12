@@ -19,7 +19,7 @@ class Chat extends Component {
     this.socket = io(this.state.endpoint);
     this.socket.on("connect", () => {
       console.log("connected");
-      
+
       this.socket.on("username", (username) => {
         console.log(username)
         this.setState({
@@ -29,7 +29,7 @@ class Chat extends Component {
 
       this.socket.on("message", message => {
         this.setState({
-          messages: [ ...this.state.messages, message]
+          messages: [...this.state.messages, message]
         });
       });
       this.socket.on("messages", data => {
@@ -39,16 +39,15 @@ class Chat extends Component {
     });
     this.socket.emit('room', "abc");
   }
-  
-  
-  
+
+
   handleChange = (e) => {
     const {name, value} = e.target;
     this.setState({
       [name]: value
     });
   };
-  
+
   updateSubmit = (e) => {
     e.preventDefault();
     var username = this.state.userName;
@@ -57,63 +56,63 @@ class Chat extends Component {
       nameSubmitted: true
     });
   };
-  
-  
+
+
   handleSubmit = (e) => {
     e.preventDefault();
     const body = e.target.value
-    if(e.keyCode === 13 && body) {
+    if (e.keyCode === 13 && body) {
       const message = {
         body,
         from: this.state.userName,
         time: moment().format('llll')
       }
       this.setState({
-        messages: [ ...this.state.messages, message],
+        messages: [...this.state.messages, message],
         message: ""
       });
       this.socket.emit("message", message)
-      
+
     }
-    
+
   };
-  
+
   render() {
-    const messages = this.state.messages.map((msg,i) => {
+    const messages = this.state.messages.map((msg, i) => {
       console.log(this.state.messages);
       return (
         <li key={i}>
-         <b>{msg.from} ({msg.time}):</b> <p>{msg.body}</p>
-       </li> 
-     )
-   });
+          <b>{msg.from} ({msg.time}):</b> <p>{msg.body}</p>
+        </li>
+      )
+    });
 
-   const activeUsers = this.state.users.map((usr,i) => {
-    return (
-      <div key={i}>
-      {usr}
-      </div>
+    const activeUsers = this.state.users.map((usr, i) => {
+      return (
+        <div key={i}>
+          {usr}
+        </div>
       );
     })
-    
+
     return (
       <div className="App">
-          {this.state.nameSubmitted ? (<div id="entrance">
-            <ul id="messages">
+        {this.state.nameSubmitted ? (<div id="entrance">
+          <ul id="messages">
             {activeUsers}
             {messages}
-            </ul>
-            <div id="chatForm">
-              <span className="userName" name="userName">{this.state.userName}</span>
-              <input className="msg" name="message" value={this.state.message} onChange={this.handleChange} id="txt"
-                     placeholder="Type your message here & press enter..." onKeyUp={this.handleSubmit}/>
-              </div>
-          </div>) : (<div id="user">
-            <input onChange={this.handleChange} name="userName" value={this.state.userName} type="text"
-                   placeholder="Enter a username" id="userName"/>
-            <button id="enter" className="btn btn-success" onClick={this.updateSubmit}>Enter</button>
-          </div>)}
-        </div>
+          </ul>
+          <div id="chatForm">
+            <span className="userName" name="userName">{this.state.userName}</span>
+            <input className="msg" name="message" value={this.state.message} onChange={this.handleChange} id="txt"
+                   placeholder="Type your message here & press enter..." onKeyUp={this.handleSubmit}/>
+          </div>
+        </div>) : (<div id="user">
+          <input onChange={this.handleChange} name="userName" value={this.state.userName} type="text"
+                 placeholder="Enter a username" id="userName"/>
+          <button id="enter" className="btn btn-success" onClick={this.updateSubmit}>Enter</button>
+        </div>)}
+      </div>
     );
   }
 }
