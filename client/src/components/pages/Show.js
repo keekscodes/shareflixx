@@ -31,10 +31,10 @@ class Show extends Component {
             </Col>
 
             <Col size="md-3">
-            <Container>
+            {/* <Container> */}
             <Button>Home</Button>
             <Button>Logout</Button>
-            </Container>
+            {/* </Container> */}
             </Col>
 
           </Row>
@@ -118,7 +118,7 @@ class Show extends Component {
         <Container fluid>
           <Row>
             <Col size="md-6">
-              <ButtonToolbar>
+              {/* <ButtonToolbar>
                 <Button>▶</Button>
                 <Button>&#9616;&nbsp;&#9612;</Button>
                 <Button>&#9632;</Button>
@@ -126,17 +126,13 @@ class Show extends Component {
                 <Button>Skip</Button>
                 <Button>Make me the host</Button>
                 <Button>Leave</Button>
-              </ButtonToolbar>
+              </ButtonToolbar> */}
             </Col>
           </Row>
         </Container>
-        <Container fluid>
-          <Row>
-            <Col size="md-6">
-              <Footer>Here's our nice footer</Footer>
-            </Col>
-          </Row>
-        </Container>
+
+        <Footer></Footer>
+
       </div>
     );
   }
