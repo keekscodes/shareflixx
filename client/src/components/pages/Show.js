@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import Jumbotron from "../Jumbotron";
-import Embed from "../Embed";
+// import Embed from "../Embed";
 import Title from "../Title";
 import Button from "../Button";
 import ButtonToolbar from "../ButtonToolbar";
 import Footer from "../Footer";
 import Card from "../Card";
 import Chat from "../Chat";
+import Youtube from "../Youtube";
 import { Col, Row, Container } from "../Grid";
 
 class Show extends Component {
@@ -59,9 +60,10 @@ class Show extends Component {
             <Row>
               <Col size="md-6">
                 <Jumbotron>
-                    <Embed>
+                    {/* <Embed>
                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/lXMskKTw3Bc" title="The best thing you'll ever see"></iframe>
-                    </Embed>
+                    </Embed> */}
+                    <Youtube></Youtube>
                   {/* <h1>What Books Should I Read?</h1> */}
                 </Jumbotron>
                 </Col>
