@@ -1,50 +1,52 @@
-import React, { Component } from "react";
-
+import React, {Component} from "react";
+import LoginForm from "./LoginForm";
+import axios from "axios";
 
 class Login extends Component {
 
-    state = {
-        username: "",
-        password: "",
-        loggedIn: false
-    }
+  state = {
+    username: "",
+    password: "",
+    loggedIn: false
+  }
 
-    handleInputChange = event => {
-        const { name, value } = event.target
-        this.setState({
-            [name]: value
-        })
-    }
-    
-    handleFormSubmit = event => {
-        event.preventDefault();
+  handleInputChange = event => {
+    const {name, value} = event.target
+    this.setState({
+      [name]: value
+    })
+  }
 
-        // This needs to be developed . This is only a test
-        this.setState({
-            loggedIn: true
-        });
-    }
+  handleFormSubmit = event => {
+    event.preventDefault();
+    let token = sessionStorage.getItem("token")
+    console.log(token);
 
-    render() {
-        return (
-            <div>
-                {/* <Navbar /> */}
-                <div className='container'>
-                    <div className="form login-form" style={{"width": "400px" , "margin": "50px auto"}}>
-                        <input type="text" name="username" placeholder="username" />
-                        <input type="text" name="password" placeholder="password" />
-                            <div className="buttons" style={{"marginLeft" : "20%", "marginTop": "10px"}}>
-                                <button className="waves-effect waves-light btn login" style={{"width": "45%","margin": "2px"}}>Login</button>
-                                <a className="waves-effect waves-light btn signup" href="/signup">Signup</a>
-                            </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+    axios.get("/api/users/current", {
+      headers: {
+        'Content-Type': "application/json",
+        'Authorization': "Token " + token
+      }
+    }).then(res => {
+      console.log(res);
+      this.setState({
+        loggedIn: true
+      });
+    })
+    // This needs to be developed . This is only a test
+  }
 
-
-
+  render() {
+    return (
+      <React.Fragment>
+        <LoginForm
+          username={this.state.username}
+          password={this.state.password}
+          handleInputChange={this.handleInputChange}
+          handleFormSubmit={this.handleFormSubmit}/>
+      </React.Fragment>
+    );
+  }
 
 
 }
