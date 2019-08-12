@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Navbar from "../Navbar";
 import Jumbotron from "../Jumbotron";
 // import Embed from "../Embed";
 import Title from "../Title";
@@ -19,6 +20,7 @@ class Show extends Component {
       <div>
 
         <Container fluid>
+        <Navbar></Navbar>
           <Row>
             <Col size="md-6">
               <Title>App Name</Title>
@@ -41,9 +43,8 @@ class Show extends Component {
         </Container>
 
         <Container fluid>
-          <Row>
-            <Col size="md-6">
-              <h5
+         
+              {/* <h5
                 style={{
                   backgroundColor: "indigo",
                   fontSize: "20px",
@@ -60,9 +61,8 @@ class Show extends Component {
                   borderTopRightRadius: "4em",
                   // backgroundImage:`url(${"http://images4.fanpop.com/image/photos/23100000/Green-leaf-close-up-green-23162757-2560-1920.jpg"})`,
                   // backgroundSize: "100px"
-                }}>Group Name</h5>
-            </Col>
-          </Row>
+                }}>Group Name</h5> */}
+      
         </Container>
 
         <Container fluid>
