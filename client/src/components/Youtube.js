@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import io from "socket.io-client";
+import Embed from "./Embed";
 
 var playerStatus = -1;
 
@@ -16,14 +17,17 @@ class Youtube extends Component {
 
         return (
 
-        <div >
+        <div>
+           
         <input type="Video" style={{"maxWidth": "300px", "marginRight": ".5em", "marginBottom": ".5em"}} className="form-control" id="inputVideoId" placeholder="Enter Video ID / URL" />
+        <Embed>
         <iframe id="existing-iframe-example"
                 width="640" height="360"
                 src="https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1"
                 frameborder="0.7"
                 style={{"border": "solid 4px #37474F"}}
         ></iframe>
+        </Embed>
 
         {/* <script id='iframe-demo' src='https://www.youtube.com/iframe_api' >
         </script> */}
