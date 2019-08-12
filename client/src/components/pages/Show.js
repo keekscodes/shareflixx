@@ -10,31 +10,21 @@ import Chat from "../Chat";
 import Youtube from "../Youtube";
 import {Col, Row, Container} from "../Grid";
 
-import Modal from "../Modal";
-import Logo from '../Logo/logo.jpg';
-
 class Show extends Component {
   render() {
     return (
       <div>
-
         <Container fluid>
           <Row>
             <Col size="md-6">
               <Title>App Name</Title>
             </Col>
 
-            <Col size="md-3">
-            <button style={{"backgroundColor": "#06088d"}} type="button" className="nonmobile-hide btn btn-info btn-sm invite-button" data-toggle="modal" data-target="#inviteModal"><i style={{"width": "30px", "height": "30px"}} className="fas fa-user-plus"></i><h5>Invite</h5></button>
-            <Modal></Modal>
-            <a class="navbar-brand js-scroll-trigger" href="/show"><img src={Logo} alt="App logo" height="40px" width="100px" /></a>
-            </Col>
-
-            <Col size="md-3">
-            {/* <Container> */}
-            <Button>Home</Button>
-            <Button>Logout</Button>
-            {/* </Container> */}
+            <Col size="md-6">
+              <Container>
+                <Button>Home</Button>
+                <Button>Logout</Button>
+              </Container>
             </Col>
 
           </Row>
@@ -118,7 +108,7 @@ class Show extends Component {
         <Container fluid>
           <Row>
             <Col size="md-6">
-              {/* <ButtonToolbar>
+              <ButtonToolbar>
                 <Button>▶</Button>
                 <Button>&#9616;&nbsp;&#9612;</Button>
                 <Button>&#9632;</Button>
@@ -126,13 +116,17 @@ class Show extends Component {
                 <Button>Skip</Button>
                 <Button>Make me the host</Button>
                 <Button>Leave</Button>
-              </ButtonToolbar> */}
+              </ButtonToolbar>
             </Col>
           </Row>
         </Container>
-
-        <Footer></Footer>
-
+        <Container fluid>
+          <Row>
+            <Col size="md-6">
+              <Footer>Here's our nice footer</Footer>
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }

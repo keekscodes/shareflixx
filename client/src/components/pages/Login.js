@@ -8,18 +8,18 @@ class Login extends Component {
     username: "",
     password: "",
     loggedIn: false
-  }
+  };
 
   handleInputChange = event => {
-    const {name, value} = event.target
+    const {name, value} = event.target;
     this.setState({
       [name]: value
     })
-  }
+  };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    let token = sessionStorage.getItem("token")
+    let token = sessionStorage.getItem("token");
     console.log(token);
 
     axios.get("/api/users/current", {
@@ -34,7 +34,7 @@ class Login extends Component {
       });
     })
     // This needs to be developed . This is only a test
-  }
+  };
 
   render() {
     return (
@@ -47,8 +47,6 @@ class Login extends Component {
       </React.Fragment>
     );
   }
-
-
 }
 
 

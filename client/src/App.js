@@ -6,6 +6,7 @@ import Show from './components/pages/Show'
 import Chat from './components/Chat'
 import "./App.css";
 import Youtube from "./components/Youtube";
+import Authorization from "./components/pages/Authorization";
 
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
         <div>
           <Switch>
             <Route exact path="/" component={Chat}/>
+            <Route exact path="/logup" component={Authorization}/>
             <Route exact path="/signup" component={Signup}/>
             <Route exact path="/login" component={Login}/>
             <Route exact path="/show" component={Show}/>

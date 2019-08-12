@@ -9,7 +9,7 @@ class Signup extends Component {
     username: "",
     email: "",
     password: "",
-    loggedIn: false
+    signedUp: false
   };
   handleInputChange = event => {
     const {name, value} = event.target;
@@ -41,7 +41,7 @@ class Signup extends Component {
     });
     // This needs to be developed . This is only a test
     this.setState({
-      loggedIn: true
+      signedUp: true
     });
   };
 
