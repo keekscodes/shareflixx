@@ -10,6 +10,7 @@ import Chat from "../Chat";
 import Youtube from "../Youtube";
 import { Col, Row, Container } from "../Grid";
 import Modal from "../Modal";
+import Logo from '/../../../public/logo.jpg';
 
 class Show extends Component {
     render() {
@@ -25,7 +26,7 @@ class Show extends Component {
                     <Col size="md-3">
                         <button style={{"backgroundColor": "#06088d"}} type="button" className="nonmobile-hide btn btn-info btn-sm invite-button" data-toggle="modal" data-target="#inviteModal"><i style={{"width": "30px", "height": "30px"}} className="fas fa-user-plus"></i><h5>Invite</h5></button>
                         <Modal></Modal>
-                        <a class="navbar-brand js-scroll-trigger" href="/show"><img src="/../../../public/logo.jpg" alt="App logo" height="15" width="20" /> Shareflix</a>
+                        <a class="navbar-brand js-scroll-trigger" href="/show"><img src={Logo} alt="App logo" height="15" width="20" /> Shareflix</a>
                     </Col>
 
                      <Col size="md-3">
