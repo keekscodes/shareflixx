@@ -19,25 +19,24 @@ app.get("/", (req, res) => {
   res.send("hello world");
 });
 
-  // io.on("connection", socket => {
-  //   socket.on("room", room => {
-  //     socket.join(room);
-  //     socket.in("abc").broadcast.emit("messages", "abc");
-  //   })
-  // });
-
+// io.on("connection", socket => {
+//   socket.on("room", room => {
+//     socket.join(room);
+//     socket.in("abc").broadcast.emit("messages", "abc");
+//   })
+// });
 
 
 io.on("connection", socket => {
   console.log("New client connected");
   console.log(socket.handshake);
-  
+
   socket.on("username", (username) => {
-    
+
     socket.username = username;
     socket.broadcast.emit("username", '🔵' + socket.username + ' joined the chat..');
   });
-  
+
   socket.on("message", body => {
     console.log(body);
     socket.broadcast.emit("message", {
@@ -46,12 +45,12 @@ io.on("connection", socket => {
       time: body.time
     });
   });
-  
-    socket.on("room", (room) => {
-      socket.join(room);
-      socket.in("abc").emit("messages", "abc");
-    })
-  
+
+  socket.on("room", (room) => {
+    socket.join(room);
+    socket.in("abc").emit("messages", "abc");
+  })
+
   socket.on("disconnect", (username) => socket.username ? socket.broadcast.emit("username", '🔴' + socket.username + ' left the chat..') : "");
 });
 // io.sockets.in("abc").emit('messages', "waddup peeps");
