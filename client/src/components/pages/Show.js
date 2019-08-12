@@ -10,7 +10,7 @@ import Chat from "../Chat";
 import Youtube from "../Youtube";
 import { Col, Row, Container } from "../Grid";
 import Modal from "../Modal";
-import Logo from '/../../../public/logo.jpg';
+import Logo from '../Logo/logo.jpg';
 
 class Show extends Component {
     render() {
