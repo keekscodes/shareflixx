@@ -9,6 +9,8 @@ import Card from "../Card";
 import Chat from "../Chat";
 import Youtube from "../Youtube";
 import {Col, Row, Container} from "../Grid";
+import Modal from "../Modal";
+import Logo from '../Logo/logo.jpg';
 
 class Show extends Component {
   render() {
@@ -19,12 +21,17 @@ class Show extends Component {
             <Col size="md-6">
               <Title>App Name</Title>
             </Col>
+            <Col size="md-3">
+            <button style={{"backgroundColor": "#06088d", "height": "auto"}} type="button" className="nonmobile-hide btn btn-info btn-sm invite-button" data-toggle="modal" data-target="#inviteModal"><h5>Invite</h5><i style={{"width": "30px", "height": "30px"}} className="fas fa-user-plus"></i></button>
+            <Modal></Modal>
+            <a class="navbar-brand js-scroll-trigger" href="/show"><img src={Logo} alt="App logo" height="40px" width="100px" /></a>
+            </Col>
 
-            <Col size="md-6">
-              <Container>
-                <Button>Home</Button>
-                <Button>Logout</Button>
-              </Container>
+            <Col size="md-3">
+            <Container>
+            <Button>Home</Button>
+            <Button>Logout</Button>
+            </Container>
             </Col>
 
           </Row>
@@ -105,7 +112,7 @@ class Show extends Component {
 
           </Row>
         </Container>
-        <Container fluid>
+        {/* <Container fluid>
           <Row>
             <Col size="md-6">
               <ButtonToolbar>
@@ -119,14 +126,10 @@ class Show extends Component {
               </ButtonToolbar>
             </Col>
           </Row>
-        </Container>
-        <Container fluid>
-          <Row>
-            <Col size="md-6">
-              <Footer>Here's our nice footer</Footer>
-            </Col>
-          </Row>
-        </Container>
+        </Container> */}
+
+        <Footer></Footer>
+
       </div>
     );
   }
