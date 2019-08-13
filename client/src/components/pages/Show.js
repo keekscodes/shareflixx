@@ -20,7 +20,7 @@ class Show extends Component {
         </div>
         <Container fluid>
 
-          <Row>
+          {/* <Row> */}
             <Col size="md-6">
               <h5          
                 style={{
@@ -41,18 +41,18 @@ class Show extends Component {
                   // backgroundImage:`url(${"http://images4.fanpop.com/image/photos/23100000/Green-leaf-close-up-green-23162757-2560-1920.jpg"})`,
                   // backgroundSize: "100px"
 
-                }}>Group Name</h5> */}
+                }}>Group Name</h5> /}
       
         {/* </Container> */}
 
                 {/* }}>Group Name</h5>
 
                   borderTopRightRadius: "4em",                
-                }}>Group Name</h5> 
+                }}>Group Name</h5> */}
 
             </Col>
-          </Row>
-        </Container> */}
+          {/* </Row> */}
+        </Container> 
 
         <Container fluid>
           <Row>
