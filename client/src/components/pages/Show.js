@@ -79,7 +79,7 @@ class Show extends Component {
                 <Row>
                   <Col size="md-6">
                     <Container fluid>
-                      <Chat></Chat>
+                      <Chat/>
                     </Container>
                     {/* <Card>
                             <div class="card-body">
@@ -90,8 +90,8 @@ class Show extends Component {
                   </Col>
                   <Col size="md-6">
                     <Card>
-                      <div class="card-body">
-                        <h5 class="card-title">Users</h5>
+                      <div className="card-body">
+                        <h5 className="card-title">Users</h5>
                         <ul>
                           <li>Me</li>
                         </ul>
