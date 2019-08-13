@@ -3,6 +3,7 @@ import io from "socket.io-client";
 import Embed from "./Embed";
 import ButtonToolbar from "./ButtonToolbar";
 import Button from "./Button";
+import Modal from "./Modal";
 
 var playerStatus = -1;
 
@@ -26,6 +27,11 @@ class Youtube extends Component {
       <div>
         <input type="Video" style={{"maxWidth": "300px", "marginRight": ".5em", "marginBottom": ".5em"}}
                className="form-control" id="inputVideoId" placeholder="Enter Video ID / URL"/>
+
+        <button style={{"float": "left", "backgroundColor": "indigo", "height" : "auto" , "marginBottom": ".5em"}} type="button" className="nonmobile-hide btn btn-info btn-sm invite-button" data-toggle="modal" data-target="#inviteModal"><span>Invite   </span><i style={{"width": "20px", "height": "20px"}} className="fas fa-user-plus"></i></button>
+        <Modal></Modal>
+
+
         <Embed>
           <iframe id="existing-iframe-example"
                   width="640" height="360"
@@ -60,6 +66,8 @@ class Youtube extends Component {
        <Button id="hostbutton" onClick={this.changeHost}>
        <i className="fas fa-users"></i> Make me the host!
         </Button>
+
+       
 
         {/* <button id="hostbutton" onClick={this.changeHost} style={{"marginTop": "0.5em"}}
                 className="btn btn-primary"><i className="fas fa-users"></i> Make me the host!
