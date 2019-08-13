@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Jumbotron from "../Jumbotron";
+import Navigation from "../Navigation";
 // import Embed from "../Embed";
 import Title from "../Title";
 import Button from "../Button";
@@ -16,31 +17,40 @@ class Show extends Component {
   render() {
     return (
       <div>
-        <Container fluid>
-          <Row>
-            <Col size="md-6">
-              <Title>App Name</Title>
-            </Col>
-            <Col size="md-3">
-            <button style={{"backgroundColor": "#06088d", "height": "auto"}} type="button" className="nonmobile-hide btn btn-info btn-sm invite-button" data-toggle="modal" data-target="#inviteModal"><h5>Invite</h5><i style={{"width": "30px", "height": "30px"}} className="fas fa-user-plus"></i></button>
+
+        
+       <div className="mb-5">
+
+        <Navigation></Navigation>
+       </div>
+        
+          {/* <Container fluid> */}
+        
+          {/* <Row> */}
+            {/* <Col size="md-6">
+              {/* <Title>App Name</Title> */}
+            {/* </Col>  */}
+
+            {/* <Col size="md-3">
+            <button style={{"backgroundColor": "#06088d"}} type="button" className="nonmobile-hide btn btn-info btn-sm invite-button" data-toggle="modal" data-target="#inviteModal"><i style={{"width": "30px", "height": "30px"}} className="fas fa-user-plus"></i><h5>Invite</h5></button>
             <Modal></Modal>
-            <a class="navbar-brand js-scroll-trigger" href="/show"><img src={Logo} alt="App logo" height="130px" width="130px" /></a>
-            </Col>
+            <a class="navbar-brand js-scroll-trigger" href="/show"><img src={Logo} alt="App logo" height="40px" width="100px" /></a>
+            </Col> */}
 
-            <Col size="md-3">
-            <Container>
-            <Button>Home</Button>
+            {/* <Col size="md-3">
+            {/* <Container> */}
+            {/* <Button>Home</Button>
             <Button>Logout</Button>
-            </Container>
-            </Col>
+            {/* </Container> */}
+            {/* </Col>  */}
 
-          </Row>
-        </Container>
+
+          {/* </Row> */}
+        {/* </Container> */}
 
         <Container fluid>
-          <Row>
-            <Col size="md-6">
-              <h5
+         
+              {/* <h5
                 style={{
                   backgroundColor: "indigo",
                   fontSize: "20px",
@@ -57,9 +67,8 @@ class Show extends Component {
                   borderTopRightRadius: "4em",
                   // backgroundImage:`url(${"http://images4.fanpop.com/image/photos/23100000/Green-leaf-close-up-green-23162757-2560-1920.jpg"})`,
                   // backgroundSize: "100px"
-                }}>Group Name</h5>
-            </Col>
-          </Row>
+                }}>Group Name</h5> */}
+      
         </Container>
 
         <Container fluid>
@@ -70,7 +79,6 @@ class Show extends Component {
                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/lXMskKTw3Bc" title="The best thing you'll ever see"></iframe>
                     </Embed> */}
                 <Youtube></Youtube>
-                {/* <h1>What Books Should I Read?</h1> */}
               </Jumbotron>
             </Col>
 
