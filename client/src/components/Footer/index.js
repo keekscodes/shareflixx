@@ -7,6 +7,7 @@ function Footer() {
     <footer className="page-footer" style={{"background": "rgb(2, 17, 49)",
     "color": "rgb(235, 235, 235)", "height": "auto"}}>
 
+
         <div class="container">
             <div class="row">
                 <div class="col l4  s6">
@@ -22,7 +23,7 @@ function Footer() {
             </div>
         </div>
         <div className="footer-copyright">
-            <div className="container">
+            <div style={{"margin" : "0 auto"}}>
                 © 2019 APP NAME
             </div>
         </div>
