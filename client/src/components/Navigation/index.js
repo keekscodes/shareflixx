@@ -82,6 +82,7 @@
 // export default Navigation;
 
 import React from "react";
+import Logo from '../Logo/logo.png';
 
 function Navigation() {
   return (
@@ -90,6 +91,7 @@ function Navigation() {
         <a className="navbar-brand" href="/">
           Video Phone
         </a>
+        <a class="navbar-brand js-scroll-trigger" href="/show"><img src={Logo} alt="App logo" height="40px" width="100px" /></a>
 
         <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul className="navbar-nav justify-content-end float-left">

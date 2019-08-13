@@ -10,8 +10,8 @@ import Card from "../Card";
 import Chat from "../Chat";
 import Youtube from "../Youtube";
 import {Col, Row, Container} from "../Grid";
-import Modal from "../Modal";
-import Logo from '../Logo/logo.png';
+
+
 
 class Show extends Component {
   render() {
@@ -23,10 +23,40 @@ class Show extends Component {
 
         <Navigation></Navigation>
        </div>
+        
+          {/* <Container fluid> */}
+        
+          {/* <Row> */}
+            {/* <Col size="md-6">
+              <Title>App Name</Title>
+            </Col>  */}
+
+            {/* <Col size="md-3"> */}
+
+            {/* <Modal></Modal> */}
+
+            {/* </Col> */}
+
+            {/* <Col size="md-3">
+            <Container> 
+            <Button>Home</Button>
+            <Button>Logout</Button>
+            </Container> 
+            </Col>  */}
+
+
+          {/* </Row>
+        </Container> */}
+
+        {/* <Container fluid> */}
+         
+              {/* <h5
+              
        <Container fluid>
           <Row>
             <Col size="md-6">
               <h5
+              
                 style={{
                   backgroundColor: "indigo",
                   fontSize: "20px",
@@ -43,6 +73,11 @@ class Show extends Component {
                   borderTopRightRadius: "4em",
                   // backgroundImage:`url(${"http://images4.fanpop.com/image/photos/23100000/Green-leaf-close-up-green-23162757-2560-1920.jpg"})`,
                   // backgroundSize: "100px"
+
+                }}>Group Name</h5> */}
+      
+        {/* </Container> */}
+
                 }}>Group Name</h5>
             </Col>
           </Row>
