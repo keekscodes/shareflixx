@@ -78,10 +78,10 @@ class Show extends Component {
       
         {/* </Container> */}
 
-                }}>Group Name</h5>
+                {/* }}>Group Name</h5>
             </Col>
           </Row>
-        </Container>
+        </Container> */}
 
         <Container fluid>
           <Row>
