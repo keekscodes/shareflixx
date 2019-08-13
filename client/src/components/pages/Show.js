@@ -22,7 +22,9 @@ class Show extends Component {
               <Title>App Name</Title>
             </Col>
             <Col size="md-3">
-            <button style={{"backgroundColor": "#06088d", "height": "auto"}} type="button" className="nonmobile-hide btn btn-info btn-sm invite-button" data-toggle="modal" data-target="#inviteModal"><h5>Invite</h5><i style={{"width": "30px", "height": "30px"}} className="fas fa-user-plus"></i></button>
+
+
+<button style={{"backgroundColor": "#06088d", "height": "auto"}} type="button" className="nonmobile-hide btn btn-info btn-sm invite-button" data-toggle="modal" data-target="#inviteModal"><h5>Invite</h5><i style={{"width": "30px", "height": "30px"}} className="fas fa-user-plus"></i></button>
             <Modal></Modal>
             <a class="navbar-brand js-scroll-trigger" href="/show"><img src={Logo} alt="App logo" height="130px" width="130px" /></a>
             </Col>
