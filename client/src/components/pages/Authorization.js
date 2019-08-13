@@ -42,6 +42,7 @@ class Authorization extends Component {
       console.log(res);
       setTimeout(() => {
         this.setState({
+          signedUp: true,
           loggedIn: true
         });
 
@@ -73,7 +74,6 @@ class Authorization extends Component {
 
       setTimeout(() => {
         this.setState({
-          signedUp: true,
           active: true,
           loggedIn: false
         });
@@ -99,27 +99,27 @@ class Authorization extends Component {
           </div>
           <div className="form">
             {this.state.active ? (
-              this.state.loggedIn ? 
-              (<Redirect to="/show"/>): (
-              <LoginForm
-                active={active}
-                username={username}
-                handleInputChange={this.handleInputChange}
-                password={password}
-                loginSubmit={this.loginSubmit}
-              />) 
+              this.state.loggedIn ?
+                (<Redirect to="/show"/>) : (
+                  <LoginForm
+                    active={active}
+                    username={username}
+                    handleInputChange={this.handleInputChange}
+                    password={password}
+                    loginSubmit={this.loginSubmit}
+                  />)
             ) : (
-              this.state.signedUp ? (<Redirect to="/authorization" />) : (
-              <SignupForm
-                active={active}
-                firstName={firstName}
-                lastName={lastName}
-                handleInputChange={this.handleInputChange}
-                email={email}
-                username={username}
-                password={password}
-                signupSubmit={this.signupSubmit}
-              />)
+              this.state.signedUp ? (<Redirect to="/authorization"/>) : (
+                <SignupForm
+                  active={active}
+                  firstName={firstName}
+                  lastName={lastName}
+                  handleInputChange={this.handleInputChange}
+                  email={email}
+                  username={username}
+                  password={password}
+                  signupSubmit={this.signupSubmit}
+                />)
             )}
           </div>
         </div>
