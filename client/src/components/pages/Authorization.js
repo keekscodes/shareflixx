@@ -101,6 +101,7 @@ class Authorization extends Component {
               <SignupForm
                 active={active}
                 firstName={firstName}
+                lastName={lastName}
                 handleInputChange={this.handleInputChange}
                 email={email}
                 username={username}
