@@ -4,20 +4,20 @@ import Navigation from "../Navigation";
 // import Embed from "../Embed";
 import Title from "../Title";
 import Button from "../Button";
-import ButtonToolbar from "../ButtonToolbar";
+// import ButtonToolbar from "../ButtonToolbar";
 import Footer from "../Footer";
 import Card from "../Card";
 import Chat from "../Chat";
 import Youtube from "../Youtube";
 import {Col, Row, Container} from "../Grid";
-
 import Modal from "../Modal";
-import Logo from '../Logo/logo.jpg';
+import Logo from '../Logo/logo.png';
 
 class Show extends Component {
   render() {
     return (
       <div>
+
         
        <div className="mb-5">
 
@@ -43,6 +43,7 @@ class Show extends Component {
             <Button>Logout</Button>
             {/* </Container> */}
             {/* </Col>  */}
+
 
           {/* </Row> */}
         {/* </Container> */}
@@ -86,7 +87,7 @@ class Show extends Component {
                 <Row>
                   <Col size="md-6">
                     <Container fluid>
-                      <Chat></Chat>
+                      <Chat/>
                     </Container>
                     {/* <Card>
                             <div class="card-body">
@@ -97,8 +98,8 @@ class Show extends Component {
                   </Col>
                   <Col size="md-6">
                     <Card>
-                      <div class="card-body">
-                        <h5 class="card-title">Users</h5>
+                      <div className="card-body">
+                        <h5 className="card-title">Users</h5>
                         <ul>
                           <li>Me</li>
                         </ul>
@@ -119,10 +120,10 @@ class Show extends Component {
 
           </Row>
         </Container>
-        <Container fluid>
+        {/* <Container fluid>
           <Row>
             <Col size="md-6">
-              {/* <ButtonToolbar>
+              <ButtonToolbar>
                 <Button>▶</Button>
                 <Button>&#9616;&nbsp;&#9612;</Button>
                 <Button>&#9632;</Button>
@@ -130,10 +131,10 @@ class Show extends Component {
                 <Button>Skip</Button>
                 <Button>Make me the host</Button>
                 <Button>Leave</Button>
-              </ButtonToolbar> */}
+              </ButtonToolbar>
             </Col>
           </Row>
-        </Container>
+        </Container> */}
 
         <Footer></Footer>
 

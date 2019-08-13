@@ -1,5 +1,12 @@
 const express = require('express');
 const path = require('path');
+const port = process.env.PORT || 3001;
+
+//Initiate our app
+const app = express();
+var server = require("http").createServer(app);
+const io = require("socket.io")(server);
+
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const cors = require('cors');
@@ -11,9 +18,6 @@ mongoose.promise = global.Promise;
 
 //Configure isProduction variable
 const isProduction = process.env.NODE_ENV === 'production';
-
-//Initiate our app
-const app = express();
 
 //Configure our app
 app.use(cors());
@@ -36,6 +40,34 @@ require('./models/Users');
 require('./config/passport');
 var routes = require('./routes')
 app.use("/", routes);
+
+
+io.on("connection", socket => {
+  console.log("New client connected");
+  console.log(socket.handshake);
+
+  socket.on("username", (username) => {
+
+    socket.username = username;
+    socket.broadcast.emit("username", '🔵' + socket.username + ' joined the chat..');
+  });
+
+  socket.on("message", body => {
+    console.log(body);
+    socket.broadcast.emit("message", {
+      body: body.body,
+      from: body.from,
+      time: body.time
+    });
+  });
+
+  socket.on("room", (room) => {
+    socket.join(room);
+    socket.in("abc").emit("messages", "abc");
+  })
+
+  socket.on("disconnect", (username) => socket.username ? socket.broadcast.emit("username", '🔴' + socket.username + ' left the chat..') : "");
+});
 
 //Error handlers & middlewares
 // if(!isProduction) {
@@ -62,4 +94,4 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(3001, () => console.log('Server running on http://localhost:3001/'));
+server.listen(port, () => console.log('Server running on http://localhost:3001/'));
