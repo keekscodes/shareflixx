@@ -44,8 +44,7 @@ class LandingPage extends React.Component {
                 <Button
                   color="danger"
                   size="lg"
-                  href="./login"
-                  target="_blank"
+                  href="/login"
                   rel="noopener noreferrer"
                 >
                   Get Started
@@ -55,11 +54,6 @@ class LandingPage extends React.Component {
           </div>
         </Parallax>
         <div className={classNames(classes.main, classes.mainRaised)}>
-          {/* <div className={classes.container}>
-            <ProductSection />
-            <TeamSection />
-            <WorkSection />
-          </div> */}
         </div>
         <Footer />
       </div>
