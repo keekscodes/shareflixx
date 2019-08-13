@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import io from "socket.io-client";
 import Embed from "./Embed";
+import ButtonToolbar from "./ButtonToolbar";
+import Button from "./Button";
 
 var playerStatus = -1;
 
@@ -37,20 +39,34 @@ class Youtube extends Component {
         {/* <script id='iframe-demo' src='https://www.youtube.com/iframe_api' >
         </script> */}
         <br></br>
-        <button id="playButton" onClick={this.playVideo}style={{"marginTop": "0.5em"}} className="btn btn-primary">
+       <ButtonToolbar>
+
+        <Button id="playButton" onClick={this.playVideo}>
           <i className="fa fa-play"></i> Play / <i className="fa fa-pause"></i> Pause
-        </button>
+        </Button>
 
-        <button id="syncbutton" onClick={this.syncVideo} style={{"marginTop": "0.5em"}}
+        {/* <button id="playButton" onClick={this.playVideo}style={{"marginTop": "0.5em"}} className="btn btn-primary">
+          <i className="fa fa-play"></i> Play / <i className="fa fa-pause"></i> Pause
+        </button> */}
+
+        <Button id="syncbutton" onClick={this.syncVideo}>
+        <i className="fa fa-sync"></i> Sync
+        </Button>
+
+        {/* <button id="syncbutton" onClick={this.syncVideo} style={{"marginTop": "0.5em"}}
                 className="btn btn-primary"><i className="fa fa-sync"></i> Sync
-        </button>
-        <br/>
-        <button id="hostbutton" onClick={this.changeHost} style={{"marginTop": "0.5em"}}
+        </button> */}
+       
+       <Button id="hostbutton" onClick={this.changeHost}>
+       <i className="fas fa-users"></i> Make me the host!
+        </Button>
+
+        {/* <button id="hostbutton" onClick={this.changeHost} style={{"marginTop": "0.5em"}}
                 className="btn btn-primary"><i className="fas fa-users"></i> Make me the host!
-        </button>
+        </button> */}
+
+      </ButtonToolbar>
       </div>
-
-
     );
 
   }
