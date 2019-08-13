@@ -23,7 +23,7 @@ function Footer() {
                     </span>
                 </div>
             </div>
-        {/* </div> */}
+        </div>
         <div className="footer-copyright">
             <div style={{"margin" : "0 auto"}}>
                 © 2019 APP NAME
