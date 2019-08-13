@@ -1,10 +1,8 @@
 import React, {Component} from "react";
 import Jumbotron from "../Jumbotron";
 import Navigation from "../Navigation";
-// import Embed from "../Embed";
 import Title from "../Title";
 import Button from "../Button";
-// import ButtonToolbar from "../ButtonToolbar";
 import Footer from "../Footer";
 import Card from "../Card";
 import Chat from "../Chat";
@@ -17,13 +15,10 @@ class Show extends Component {
   render() {
     return (
       <div>
-
-        
-       <div className="mb-5">
-
-        <Navigation></Navigation>
-       </div>
-       <Container fluid>
+        <div className="mb-5">
+          <Navigation/>
+        </div>
+        <Container fluid>
           <Row>
             <Col size="md-6">
               <h5
@@ -65,24 +60,19 @@ class Show extends Component {
                 <Row>
                   <Col size="md-12">
                     <Container fluid>
-                      <div style={{height: "440px", overflow: "scroll"}}>
-                      <Chat/>
-
-                          </div>
+                      <div style={{height: "440px", overflow: "auto"}}>
+                        <Chat/>
+                      </div>
                     </Container>
                   </Col>
-                 
                 </Row>
                 <Row>
-                 
                 </Row>
               </Jumbotron>
             </Col>
-
           </Row>
         </Container>
         <Footer></Footer>
-
       </div>
     );
   }

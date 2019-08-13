@@ -17,7 +17,6 @@ function Footer() {
                         <a class="grey-text text-lighten-3" href="" target="_blank">Mike | </a>
                         <a class="grey-text text-lighten-3" href="" target="_blank">Sajad | </a>
                         <a class="grey-text text-lighten-3" href="" target="_blank">Steven</a>
-
                     </span>
                 </div>
             </div>
