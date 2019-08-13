@@ -1,7 +1,5 @@
 import React, {Component} from "react";
-// import Navbar from "../Navbar";
 import Jumbotron from "../Jumbotron";
-// import Header from "../Header";
 import Navigation from "../Navigation";
 // import Embed from "../Embed";
 import Title from "../Title";
