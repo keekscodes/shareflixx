@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer className="page-footer" style={{"background": "rgb(2, 17, 49)",
     "color": "rgb(235, 235, 235)", "height": "auto"}}>
-        <div className="container">
+        {/* <div className="container"> */}
             <div className="row">
                 <div className="col l4  s6">
                     <h6 className="white-text">Developers <i className="fab fa-github" style={{fontSize: "20px", color:"#ffffff"}}></i> </h6>
@@ -19,9 +19,9 @@ function Footer() {
                     </span>
                 </div>
             </div>
-        </div>
+        {/* </div> */}
         <div className="footer-copyright">
-            <div className="container">
+            <div style={{"margin" : "0 auto"}}>
                 © 2019 APP NAME
             </div>
         </div>
