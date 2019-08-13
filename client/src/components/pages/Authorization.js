@@ -15,6 +15,11 @@ class Authorization extends Component {
     email: "",
     signedUp: false
   };
+
+  componentDidMount() {
+    this.isTokenExpired() ? (console.log("Please sign in or sign up")) : (window.location.href="/show");
+  }
+
   handleClick = (e) => {
     this.setState({
       active: !this.state.active
@@ -30,26 +35,51 @@ class Authorization extends Component {
 
   loginSubmit = event => {
     event.preventDefault();
-    let token = sessionStorage.getItem("token");
-    console.log(token);
-
-    axios.get("/api/users/current", {
-      headers: {
-        'Content-Type': "application/json",
-        'Authorization': "Token " + token
+    // console.log(token);
+    const {username, password} = this.state;
+    let logInUser = {
+      user: {
+        username,
+        password
       }
-    }).then(res => {
+    }
+    axios.post("/api/users/login", logInUser).then(res => {
+      localStorage.setItem("token", res.data.user.token);
       console.log(res);
-      setTimeout(() => {
-        this.setState({
-          signedUp: true,
-          loggedIn: true
-        });
+    }).then(() => {
+      let token = localStorage.getItem("token");
 
-      }, 2000)
-    });
+      axios.get("/api/users/current", {
+        headers: {
+          'Content-Type': "application/json",
+          'Authorization': "Token " + token
+        }
+      }).then(res => {
+        console.log(res);
+        setTimeout(() => {
+          this.setState({
+            signedUp: true,
+            loggedIn: true
+          });
+  
+        }, 2000)
+      });
+    })
     // This needs to be developed . This is only a test
   };
+
+  isTokenExpired = () => {
+    let token = localStorage.getItem("token");
+
+    if (token) {
+      setTimeout(() => {
+        localStorage.removeItem("token");
+      }, 3000)
+      return false
+    } else {
+      return true
+    }
+  }
 
   signupSubmit = event => {
     event.preventDefault();
@@ -69,7 +99,7 @@ class Authorization extends Component {
       console.log(user);
       let token = user.token;
       if (token) {
-        sessionStorage.setItem("token", token)
+        localStorage.setItem("token", token)
       }
 
       setTimeout(() => {

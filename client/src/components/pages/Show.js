@@ -12,6 +12,35 @@ import {Col, Row, Container} from "../Grid";
 
 
 class Show extends Component {
+  state = {
+    toggle: false
+  }
+  componentDidMount() {
+    this.isTokenExpired() ? (this.logOut()) : (this.reloadPage());
+  }
+  logOut = () => {
+    window.location.reload();
+    return window.location.href="/login";
+    // this.reloadPage();
+  }
+  reloadPage = () => {
+    setTimeout(() => {
+      window.location.reload();
+    },3000)
+  }
+  isTokenExpired = () => {
+    let token = localStorage.getItem("token");
+
+    if (token) {
+      setTimeout(() => {
+        localStorage.removeItem("token");
+      }, 3000)
+      return false
+    } else {
+      return true
+    }
+  }
+
   render() {
     return (
       <div>
@@ -20,7 +49,7 @@ class Show extends Component {
         </div>
         <Container fluid>
 
-          <Row>
+          {/* <Row> */}
             <Col size="md-6">
               <h5          
                 style={{
@@ -36,11 +65,23 @@ class Show extends Component {
                   color: "white",
                   width: "30%",
                   borderTopLeftRadius: "4em",
-                  borderTopRightRadius: "4em",                
+
+                  borderTopRightRadius: "4em",
+                  // backgroundImage:`url(${"http://images4.fanpop.com/image/photos/23100000/Green-leaf-close-up-green-23162757-2560-1920.jpg"})`,
+                  // backgroundSize: "100px"
+
                 }}>Group Name</h5> 
+      
+        {/* </Container> */}
+
+                {/* }}>Group Name</h5>
+
+                  borderTopRightRadius: "4em",                
+                }}>Group Name</h5> */}
+
             </Col>
-          </Row>
-        </Container>
+          {/* </Row> */}
+        </Container> 
 
         <Container fluid>
           <Row>

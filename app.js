@@ -25,7 +25,7 @@ app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({secret: 'passport-tutorial', cookie: {maxAge: 60000}, resave: false, saveUninitialized: false}));
+app.use(session({secret: 'passport-tutorial', cookie: {maxAge: 3000}, resave: false, saveUninitialized: false}));
 
 if (!isProduction) {
   app.use(errorHandler());
@@ -39,12 +39,13 @@ mongoose.set('debug', true);
 require('./models/Users');
 require('./config/passport');
 var routes = require('./routes')
+// may need to check here and try to separate the routes instead of having it bundled up.
 app.use("/", routes);
 
 
 io.on("connection", socket => {
   console.log("New client connected");
-  console.log(socket.handshake);
+  // console.log(socket.handshake);
 
   socket.on("username", (username) => {
 
