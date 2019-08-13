@@ -93,12 +93,12 @@ class Chat extends Component {
           {usr}
         </div>
       );
-    })
+    });
 
     return (
       <div className="App">
-        {this.state.nameSubmitted ? (<div id="entrance">
-          <ul id="messages">
+        {this.state.nameSubmitted ? (<div id="entrance container">
+          <ul id="messages row">
             {activeUsers}
             {messages}
           </ul>
@@ -107,7 +107,10 @@ class Chat extends Component {
             <input className="msg" name="message" value={this.state.message} onChange={this.handleChange} id="txt"
                    placeholder="Type your message here & press enter..." onKeyUp={this.handleSubmit}/>
           </div>
-        </div>) : (<div id="user">
+
+        </div>
+
+        ) : (<div id="user">
           <input onChange={this.handleChange} name="userName" value={this.state.userName} type="text"
                  placeholder="Enter a username" id="userName"/>
           <button id="enter" className="btn btn-success" onClick={this.updateSubmit}>Enter</button>
