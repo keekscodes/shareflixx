@@ -59,7 +59,7 @@ router.post('/', auth.optional, (req, res, next) => {
 router.post('/login', auth.optional, (req, res, next) => {
   const {body: {user}} = req;
 
-  console.log(req.body);
+  console.log(req);
 
   if (!user.username) {
     return res.status(422).json({
@@ -78,9 +78,7 @@ router.post('/login', auth.optional, (req, res, next) => {
   }
 
   return passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/login',
-    failureFlash: true
+    session: false
   }, (err, passportUser, info) => {
     if (err) {
       return next(err);
@@ -89,7 +87,7 @@ router.post('/login', auth.optional, (req, res, next) => {
     if (passportUser) {
       const user = passportUser;
       user.token = passportUser.generateJWT();
-
+      // res.redirect("/show");
       return res.json({user: user.toAuthJSON()});
     }
 
@@ -101,7 +99,7 @@ router.post('/login', auth.optional, (req, res, next) => {
 router.get('/current', auth.required, (req, res, next) => {
   const {payload: {id}} = req;
 
-  console.log(req);
+  // console.log(req);
 
   return Users.findById(id)
     .then((user) => {
