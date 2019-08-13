@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 function SignupForm (props) {
     return (
@@ -13,7 +14,7 @@ function SignupForm (props) {
         <input className="form-styling" type="text" name="username" placeholder="" value={props.username} onChange={props.handleInputChange}/>
         <label htmlFor="password">Password</label>
         <input className="form-styling" type="password" name="password" placeholder="" value={props.password} onChange={props.handleInputChange}/>
-          <a className="btn-signup" onClick={props.signupSubmit}>Sign Up</a>
+          <Link to="/authorization" className="btn-signup" onClick={props.signupSubmit}>Sign Up</Link>
       </form>
     );
 }

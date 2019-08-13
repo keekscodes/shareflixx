@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 function LoginForm(props) {
   return (
@@ -12,7 +13,7 @@ function LoginForm(props) {
       <input type="checkbox" id="checkbox"/>
       <label htmlFor="checkbox"><span className="ui"></span>Keep me signed in</label>
       <div className="btn-animate">
-        <a className="btn-signin" onClick={props.loginSubmit}>Sign in</a>
+        <Link to="/show" className="btn-signin" onClick={props.loginSubmit}>Sign in</Link>
       </div>
       <a href="#">Forgot your password?</a>
     </form>
