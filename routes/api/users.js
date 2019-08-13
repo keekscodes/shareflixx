@@ -6,24 +6,24 @@ const Users = mongoose.model('Users');
 
 //POST new user route (optional, everyone has access)
 router.post('/', auth.optional, (req, res, next) => {
-  const { body: { user } } = req;
+  const {body: {user}} = req;
   // console.log(req.body);
 
-  if(!user.firstName) {
+  if (!user.firstName) {
     return res.status(422).json({
       errors: {
         firstName: 'is required',
       },
     });
   }
-  if(!user.lastName) {
+  if (!user.lastName) {
     return res.status(422).json({
       errors: {
         lastName: 'is required',
       },
     });
   }
-  if(!user.username) {
+  if (!user.username) {
     return res.status(422).json({
       errors: {
         username: 'is required',
@@ -31,7 +31,7 @@ router.post('/', auth.optional, (req, res, next) => {
     });
   }
 
-  if(!user.email) {
+  if (!user.email) {
     return res.status(422).json({
       errors: {
         email: 'is required',
@@ -39,7 +39,7 @@ router.post('/', auth.optional, (req, res, next) => {
     });
   }
 
-  if(!user.password) {
+  if (!user.password) {
     return res.status(422).json({
       errors: {
         password: 'is required',
@@ -52,16 +52,16 @@ router.post('/', auth.optional, (req, res, next) => {
   finalUser.setPassword(user.password);
 
   return finalUser.save()
-    .then(() => res.json({ user: finalUser.toAuthJSON() }));
+    .then(() => res.json({user: finalUser.toAuthJSON()}));
 });
 
 //POST login route (optional, everyone has access)
 router.post('/login', auth.optional, (req, res, next) => {
-  const { body: { user } } = req;
+  const {body: {user}} = req;
 
   console.log(req.body);
- 
-  if(!user.username) {
+
+  if (!user.username) {
     return res.status(422).json({
       errors: {
         username: 'is required',
@@ -69,7 +69,7 @@ router.post('/login', auth.optional, (req, res, next) => {
     });
   }
 
-  if(!user.password) {
+  if (!user.password) {
     return res.status(422).json({
       errors: {
         password: 'is required',
@@ -77,18 +77,20 @@ router.post('/login', auth.optional, (req, res, next) => {
     });
   }
 
-  return passport.authenticate('local', { successRedirect: '/',
-  failureRedirect: '/login',
-  failureFlash: true }, (err, passportUser, info) => {
-    if(err) {
+  return passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+  }, (err, passportUser, info) => {
+    if (err) {
       return next(err);
     }
 
-    if(passportUser) {
+    if (passportUser) {
       const user = passportUser;
       user.token = passportUser.generateJWT();
 
-      return res.json({ user: user.toAuthJSON() });
+      return res.json({user: user.toAuthJSON()});
     }
 
     return res.status(400).info;
@@ -97,17 +99,17 @@ router.post('/login', auth.optional, (req, res, next) => {
 
 //GET current route (required, only authenticated users have access)
 router.get('/current', auth.required, (req, res, next) => {
-  const { payload: { id } } = req;
+  const {payload: {id}} = req;
 
   console.log(req);
 
   return Users.findById(id)
     .then((user) => {
-      if(!user) {
+      if (!user) {
         return res.sendStatus(400);
       }
 
-      return res.json({ user: user.toAuthJSON() });
+      return res.json({user: user.toAuthJSON()});
     });
 });
 

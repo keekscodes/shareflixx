@@ -4,8 +4,9 @@ import "./style.css";
 
 function Footer() {
   return (
-    <footer class="page-footer" style={{"background": "rgb(2, 17, 49)",
+    <footer className="page-footer" style={{"background": "rgb(2, 17, 49)",
     "color": "rgb(235, 235, 235)", "height": "auto"}}>
+
         <div class="container">
             <div class="row">
                 <div class="col l4  s6">
@@ -16,12 +17,13 @@ function Footer() {
                         <a class="grey-text text-lighten-3" href="" target="_blank">Mike | </a>
                         <a class="grey-text text-lighten-3" href="" target="_blank">Sajad | </a>
                         <a class="grey-text text-lighten-3" href="" target="_blank">Steven</a>
+
                     </span>
                 </div>
             </div>
         </div>
-        <div class="footer-copyright">
-            <div class="container">
+        <div className="footer-copyright">
+            <div className="container">
                 © 2019 APP NAME
             </div>
         </div>

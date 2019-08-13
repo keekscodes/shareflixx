@@ -1,11 +1,25 @@
 import React, {Component} from "react";
 import io from "socket.io-client";
 import Embed from "./Embed";
+import ButtonToolbar from "./ButtonToolbar";
+import Button from "./Button";
 
 var playerStatus = -1;
 
 class Youtube extends Component {
   state = {}
+
+  playVideo = () => {
+    return "playVideo(roomnum)"
+  }
+
+  syncVideo = () => {
+    return "syncVideo(roomnum);syncAlert();"
+  }
+
+  changeHost = () => {
+    return "changeHost(roomnum)"
+  }
 
   render() {
     return (
@@ -16,7 +30,8 @@ class Youtube extends Component {
           <iframe id="existing-iframe-example"
                   width="640" height="360"
                   src="https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1"
-                  frameborder="0.7"
+                  frameBorder="0.7"
+                  title="youtube"
                   style={{"border": "solid 4px #37474F"}}
           ></iframe>
         </Embed>
@@ -24,20 +39,34 @@ class Youtube extends Component {
         {/* <script id='iframe-demo' src='https://www.youtube.com/iframe_api' >
         </script> */}
         <br></br>
-        <button id="playButton" onClick="playVideo(roomnum)" style={{"marginTop": "0.5em"}} className="btn btn-primary">
+       <ButtonToolbar>
+
+        <Button id="playButton" onClick={this.playVideo}>
           <i className="fa fa-play"></i> Play / <i className="fa fa-pause"></i> Pause
-        </button>
+        </Button>
 
-        <button id="syncbutton" onClick="syncVideo(roomnum);syncAlert()" style={{"marginTop": "0.5em"}}
+        {/* <button id="playButton" onClick={this.playVideo}style={{"marginTop": "0.5em"}} className="btn btn-primary">
+          <i className="fa fa-play"></i> Play / <i className="fa fa-pause"></i> Pause
+        </button> */}
+
+        <Button id="syncbutton" onClick={this.syncVideo}>
+        <i className="fa fa-sync"></i> Sync
+        </Button>
+
+        {/* <button id="syncbutton" onClick={this.syncVideo} style={{"marginTop": "0.5em"}}
                 className="btn btn-primary"><i className="fa fa-sync"></i> Sync
-        </button>
-        <br/>
-        <button id="hostbutton" onClick="changeHost(roomnum)" style={{"marginTop": "0.5em"}}
+        </button> */}
+       
+       <Button id="hostbutton" onClick={this.changeHost}>
+       <i className="fas fa-users"></i> Make me the host!
+        </Button>
+
+        {/* <button id="hostbutton" onClick={this.changeHost} style={{"marginTop": "0.5em"}}
                 className="btn btn-primary"><i className="fas fa-users"></i> Make me the host!
-        </button>
+        </button> */}
+
+      </ButtonToolbar>
       </div>
-
-
     );
 
   }

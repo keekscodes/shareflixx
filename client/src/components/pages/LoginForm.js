@@ -1,24 +1,23 @@
-import React, {Component} from 'react';
+import React from "react";
+import {Link} from "react-router-dom";
 
-class LoginForm extends Component {
-  render() {
-    return (
-      <div className='container'>
-        <div className="form login-form" style={{"width": "400px", "margin": "50px auto"}}>
-          <input type="text" name="username" placeholder="username" value={this.props.username}
-                 onChange={this.props.handleInputChange}/>
-          <input type="text" name="password" placeholder="password" value={this.props.password}
-                 onChange={this.props.handleInputChange}/>
-          <div className="buttons" style={{"marginLeft": "20%", "marginTop": "10px"}}>
-            <button className="waves-effect waves-light btn login" style={{"width": "45%", "margin": "2px"}}
-                    onClick={this.props.handleFormSubmit}>Login
-            </button>
-            <a className="waves-effect waves-light btn signup" href="/signup">Signup</a>
-          </div>
-        </div>
+function LoginForm(props) {
+  return (
+    <form className={props.active ? "form-signin" : "form-signup-left"} action="" method="post" name="form">
+      <label htmlFor="username">Username</label>
+      <input className="form-styling" type="text" name="username" placeholder="" value={props.username}
+             onChange={props.handleInputChange}/>
+      <label htmlFor="password">Password</label>
+      <input className="form-styling" type="password" name="password" placeholder="" value={props.password}
+             onChange={props.handleInputChange}/>
+      <input type="checkbox" id="checkbox"/>
+      <label htmlFor="checkbox"><span className="ui"></span>Keep me signed in</label>
+      <div className="btn-animate">
+        <Link to="/show" className="btn-signin" onClick={props.loginSubmit}>Sign in</Link>
       </div>
-    );
-  }
+      <a href="#">Forgot your password?</a>
+    </form>
+  );
 }
 
 export default LoginForm;
