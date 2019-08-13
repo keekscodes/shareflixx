@@ -15,6 +15,11 @@ class Authorization extends Component {
     email: "",
     signedUp: false
   };
+
+  componentDidMount() {
+    this.isTokenExpired() ? (console.log("Please sign in or sign up")) : (window.location.href="/show");
+  }
+
   handleClick = (e) => {
     this.setState({
       active: !this.state.active
@@ -64,11 +69,16 @@ class Authorization extends Component {
   };
 
   isTokenExpired = () => {
-    
-  }
+    let token = localStorage.getItem("token");
 
-  logOut = () => {
-
+    if (token) {
+      setTimeout(() => {
+        localStorage.removeItem("token");
+      }, 3000)
+      return false
+    } else {
+      return true
+    }
   }
 
   signupSubmit = event => {
