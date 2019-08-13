@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Redirect} from "react-router-dom"
 import axios from 'axios';
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
@@ -39,10 +40,13 @@ class Authorization extends Component {
       }
     }).then(res => {
       console.log(res);
-      this.setState({
-        loggedIn: true
-      });
-    })
+      setTimeout(() => {
+        this.setState({
+          loggedIn: true
+        });
+
+      }, 2000)
+    });
     // This needs to be developed . This is only a test
   };
 
@@ -66,11 +70,16 @@ class Authorization extends Component {
       if (token) {
         sessionStorage.setItem("token", token)
       }
+
+      setTimeout(() => {
+        this.setState({
+          signedUp: true,
+          active: true,
+          loggedIn: false
+        });
+      }, 2000)
     });
     // This needs to be developed . This is only a test
-    this.setState({
-      signedUp: true
-    });
   };
 
   render() {
@@ -90,14 +99,17 @@ class Authorization extends Component {
           </div>
           <div className="form">
             {this.state.active ? (
+              this.state.loggedIn ? 
+              (<Redirect to="/show"/>): (
               <LoginForm
                 active={active}
                 username={username}
                 handleInputChange={this.handleInputChange}
                 password={password}
                 loginSubmit={this.loginSubmit}
-              />
+              />) 
             ) : (
+              this.state.signedUp ? (<Redirect to="/authorization" />) : (
               <SignupForm
                 active={active}
                 firstName={firstName}
@@ -107,7 +119,7 @@ class Authorization extends Component {
                 username={username}
                 password={password}
                 signupSubmit={this.signupSubmit}
-              />
+              />)
             )}
           </div>
         </div>
