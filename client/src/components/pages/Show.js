@@ -3,14 +3,14 @@ import Jumbotron from "../Jumbotron";
 // import Embed from "../Embed";
 import Title from "../Title";
 import Button from "../Button";
-import ButtonToolbar from "../ButtonToolbar";
+// import ButtonToolbar from "../ButtonToolbar";
 import Footer from "../Footer";
 import Card from "../Card";
 import Chat from "../Chat";
 import Youtube from "../Youtube";
 import {Col, Row, Container} from "../Grid";
 import Modal from "../Modal";
-import Logo from '../Logo/logo.jpg';
+import Logo from '../Logo/logo.png';
 
 class Show extends Component {
   render() {
@@ -24,7 +24,7 @@ class Show extends Component {
             <Col size="md-3">
             <button style={{"backgroundColor": "#06088d", "height": "auto"}} type="button" className="nonmobile-hide btn btn-info btn-sm invite-button" data-toggle="modal" data-target="#inviteModal"><h5>Invite</h5><i style={{"width": "30px", "height": "30px"}} className="fas fa-user-plus"></i></button>
             <Modal></Modal>
-            <a class="navbar-brand js-scroll-trigger" href="/show"><img src={Logo} alt="App logo" height="40px" width="100px" /></a>
+            <a class="navbar-brand js-scroll-trigger" href="/show"><img src={Logo} alt="App logo" height="130px" width="130px" /></a>
             </Col>
 
             <Col size="md-3">
