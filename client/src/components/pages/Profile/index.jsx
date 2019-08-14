@@ -13,14 +13,14 @@ class Profile extends Component {
         <div className="container-fluid">
           <div className="row border-bottom">
             <div className="col-6">
-              <h1 className="text-left">Your Profile</h1>
+              <h1 className="text-left">Manage Your Account</h1>
             </div>
           </div>
           <div className="row border-bottom">
             <div className="col-6">
               <ul className="nav nav-tabs">
                 <li className="nav-item">
-                  <a className="nav-link active" href="/overview">Overview</a>
+                  <a className="nav-link active" href="/overview">Settings</a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="/profile">Profile</a>
@@ -29,9 +29,7 @@ class Profile extends Component {
             </div>
           </div>
         </div>
-        <Footer>
 
-        </Footer>
       </div>
     )
   }
