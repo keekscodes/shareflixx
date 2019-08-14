@@ -1,10 +1,10 @@
-import React, { Profiler, Component } from "react";
+import React, {Component} from "react";
 // nodejs library to set properties for components
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 // nodejs library that concatenates classes
-import classNames from "classnames";
+// import classNames from "classnames";
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
+// import withStyles from "@material-ui/core/styles/withStyles";
 
 
 // @material-ui/icons
@@ -12,7 +12,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 // core components
 import Navigation from "../../Navigation/index";
 import Footer from "../../Footer/index";
-import Card from "../../Card"
+// import Card from "../../Card"
 import "./style.css"
 // import {Col, Row, Container} from "../../Grid";
 // import {Row, Container} from "../../GridContainer/GridContainer";
@@ -28,48 +28,46 @@ import "./style.css"
 
 class Profile extends Component {
   render() {
-    return(
+    return (
       <div>
 
-      <Navigation>
+        <Navigation>
 
-      </Navigation>
+        </Navigation>
 
-      <div className="container-fluid">
-        <div className="row border-bottom">
-          <div className="col-6">
-            <h1 className="text-left">Your Profile</h1>
+        <div className="container-fluid">
+          <div className="row border-bottom">
+            <div className="col-6">
+              <h1 className="text-left">Your Profile</h1>
+            </div>
           </div>
-        </div>
-        <div className="row border-bottom">
-          <div className="col-6">
-          <ul className="nav nav-tabs">
-  <li className="nav-item">
-    <a className="nav-link active" href="#">Overview</a>
-  </li>
-  <li className="nav-item">
-    <a className="nav-link" href="#">Profile</a>
-  </li>
+          <div className="row border-bottom">
+            <div className="col-6">
+              <ul className="nav nav-tabs">
+                <li className="nav-item">
+                  <a className="nav-link active" href="/overview">Overview</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="/profile">Profile</a>
+                </li>
 
- 
-</ul>
-            
 
+              </ul>
+
+
+            </div>
           </div>
+
+
         </div>
 
-        
-      </div>
 
-      
+        <Footer>
 
-        
-      
-      <Footer>
-
-      </Footer>
+        </Footer>
       </div>
     )
   }
 }
+
 export default Profile;

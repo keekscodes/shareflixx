@@ -22,7 +22,7 @@ class App extends Component {
             <Route exact path="/show" component={Show}/>
             <Route exact path="/youtube" component={Youtube}/>
             <Route exact path="/nav" component={Navigation}/>
-            <Route path="/profile" component={Profile} />
+            <Route path="/profile" component={Profile}/>
 
           </Switch>
         </div>

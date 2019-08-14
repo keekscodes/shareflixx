@@ -17,7 +17,7 @@ class Authorization extends Component {
   };
 
   componentDidMount() {
-    this.isTokenExpired() ? (console.log("Please sign in or sign up")) : (window.location.href="/show");
+    this.isTokenExpired() ? (console.log("Please sign in or sign up")) : (window.location.href = "/show");
   }
 
   handleClick = (e) => {
@@ -44,10 +44,10 @@ class Authorization extends Component {
       }
     }
     axios.post("/api/users/login", logInUser).then(res => {
-      localStorage.setItem("token", res.data.user.token);
+      sessionStorage.setItem("token", res.data.user.token);
       console.log(res);
     }).then(() => {
-      let token = localStorage.getItem("token");
+      let token = sessionStorage.getItem("token");
 
       axios.get("/api/users/current", {
         headers: {
@@ -61,7 +61,7 @@ class Authorization extends Component {
             signedUp: true,
             loggedIn: true
           });
-  
+
         }, 2000)
       });
     })
@@ -69,12 +69,12 @@ class Authorization extends Component {
   };
 
   isTokenExpired = () => {
-    let token = localStorage.getItem("token");
+    let token = sessionStorage.getItem("token");
 
     if (token) {
       setTimeout(() => {
-        localStorage.removeItem("token");
-      }, 3000)
+        sessionStorage.removeItem("token");
+      }, 120000)
       return false
     } else {
       return true
@@ -99,15 +99,15 @@ class Authorization extends Component {
       console.log(user);
       let token = user.token;
       if (token) {
-        localStorage.setItem("token", token)
+        sessionStorage.setItem("token", token)
+        setTimeout(() => {
+          this.setState({
+            active: true,
+            loggedIn: false
+          });
+        }, 2000)
       }
 
-      setTimeout(() => {
-        this.setState({
-          active: true,
-          loggedIn: false
-        });
-      }, 2000)
     });
     // This needs to be developed . This is only a test
   };
@@ -139,7 +139,7 @@ class Authorization extends Component {
                     loginSubmit={this.loginSubmit}
                   />)
             ) : (
-              this.state.signedUp ? (<Redirect to="/authorization"/>) : (
+              this.state.signedUp ? (<Redirect to="/login"/>) : (
                 <SignupForm
                   active={active}
                   firstName={firstName}
