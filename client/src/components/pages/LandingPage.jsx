@@ -29,22 +29,6 @@ class LandingPage extends React.Component {
     const { classes, ...rest } = this.props;
     return (
       <div>
-        {/* <Navigation>
-          
-        </Navigation> */}
-        {/* <Header
-          color="transparent"
-          routes={dashboardRoutes}
-          brand="Material Kit React"
-          rightLinks={<HeaderLinks />}
-          fixed
-          changeColorOnScroll={{
-            height: 400,
-            color: "white"
-          }}
-          {...rest}
-        /> */}
-        {/* <Parallax filter image={require("assets/img/landing-bg.jpg")}> */}
         <Parallax filter image={require("../Logo/logo.png")}>
           <div className={classes.container}>
             <GridContainer>
@@ -60,23 +44,16 @@ class LandingPage extends React.Component {
                 <Button
                   color="danger"
                   size="lg"
-                  href="./login"
-                  target="_blank"
+                  href="/login"
                   rel="noopener noreferrer"
                 >
-                  {/* <i className="fas fa-play" /> */}
-                  Sign Up
+                  Get Started
                 </Button>
               </GridItem>
             </GridContainer>
           </div>
         </Parallax>
         <div className={classNames(classes.main, classes.mainRaised)}>
-          {/* <div className={classes.container}>
-            <ProductSection />
-            <TeamSection />
-            <WorkSection />
-          </div> */}
         </div>
         <Footer />
       </div>
