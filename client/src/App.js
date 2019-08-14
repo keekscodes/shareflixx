@@ -7,6 +7,8 @@ import "./App.css";
 import Youtube from "./components/Youtube";
 import Authorization from "./components/pages/Authorization";
 import LandingPage from "./components/pages/LandingPage";
+import Navigation from "./components/Navigation/index";
+import Profile from "./components/pages/Profile/index";
 
 
 class App extends Component {
@@ -19,6 +21,9 @@ class App extends Component {
             <Route exact path="/login" component={Authorization}/>
             <Route exact path="/show" component={Show}/>
             <Route exact path="/youtube" component={Youtube}/>
+            <Route exact path="/nav" component={Navigation}/>
+            <Route path="/profile" component={Profile} />
+
           </Switch>
         </div>
       </Router>
