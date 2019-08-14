@@ -29,11 +29,11 @@ function Navigation() {
               </span>
             <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a className="dropdown-item" href="/profile">
-                Profile
+                Account
               </a>
-              <a className="dropdown-item" href="/settings">
+              {/* <a className="dropdown-item" href="/settings">
                 Account Settings
-              </a>
+              </a> */}
               <div className="dropdown-divider"/>
               <a className="dropdown-item" href="/logout">
                 Log Out
