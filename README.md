@@ -1,9 +1,43 @@
-https://project3-30992.herokuapp.com/
 
 
+# ShareFlix
+----------
+## Table of Contents 
+1. [Overview](#overview)
+2. [Technologies](#technologies)
+3. [Local Installation](#installation)
+4. [App Display](#display)
 
+<a name="preview"></a>
+## Preview 
+Our goal is to virtually connect people who are separated by distance to be able connect and watch movies/videos in real-time and allowing them to chat as well.
 
+<a name="overview"></a>
+## Overview 
+A MERN stack video-streaming app where multiple people could remotely choose and watch the same content in real-time with the ability to chat with each other.
 
+<a name="technologies"></a>
+## Technologies
+* React
+* MongoDB
+    * Mongoose
+* Express
+* HTML
+* CSS
+    * Materialize
+* JavaScript
+* Socket.io
+* auth0-js
+* MomentJS
+* Heroku
+* Git
+    * GitHub
+* React-Router
+
+<a name="display"></a>
+## App Display
+### Live Demo
+* [Click Here](https://project3-30992.herokuapp.com/)
 
 # Create React Express App
 
