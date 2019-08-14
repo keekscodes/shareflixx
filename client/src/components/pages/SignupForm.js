@@ -19,7 +19,7 @@ function SignupForm(props) {
       <label htmlFor="password">Password</label>
       <input className="form-styling" type="password" name="password" placeholder="" value={props.password}
              onChange={props.handleInputChange}/>
-      <Link to="/authorization" className="btn-signup" onClick={props.signupSubmit}>Sign Up</Link>
+      <Link to="/authorization" className="btn-signup btn-danger" onClick={props.signupSubmit}>Sign Up</Link>
     </form>
   );
 }

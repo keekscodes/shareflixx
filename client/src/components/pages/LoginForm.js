@@ -13,9 +13,9 @@ function LoginForm(props) {
       <input type="checkbox" id="checkbox"/>
       <label htmlFor="checkbox"><span className="ui"/>Keep me signed in</label>
       <div className="btn-animate">
-        <Link to="/show" className="btn-signin" onClick={props.loginSubmit}>Sign in</Link>
+        <Link to="/show" className="btn-signin btn-danger" onClick={props.loginSubmit}>Sign in</Link>
       </div>
-      <a href="/login">Forgot your password?</a>
+      <a href="/login" className="pw">Forgot your password?</a>
     </form>
   );
 }
