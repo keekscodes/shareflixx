@@ -8,7 +8,23 @@ import Modal from "./Modal";
 // var playerStatus = -1;
 
 class Youtube extends Component {
-  state = {};
+  state = {
+
+  };
+
+  handleChange = (e) => {
+    const {name, value} = e.target;
+    this.setState({
+      [name]: value
+    });
+  }
+
+  handleClick = (e) => {
+    e.preventDefault();
+    this.setState({
+
+    })
+  }
 
   playVideo = () => {
     return "playVideo(roomnum)"
@@ -26,7 +42,7 @@ class Youtube extends Component {
     return (
       <div>
         <input type="Video" style={{"maxWidth": "300px", "marginRight": ".5em", "marginBottom": ".5em"}}
-               className="form-control" id="inputVideoId" placeholder="Enter Video ID / URL"/>
+               className="form-control" id="inputVideoId" name="url" onChange={this.handleChange} placeholder="Enter Video ID / URL"/>
 
         <button style={{"float": "left", "backgroundColor": "indigo", "height": "auto", "marginBottom": ".5em"}}
                 type="button" className="nonmobile-hide btn btn-info btn-sm invite-button" data-toggle="modal"
@@ -38,7 +54,7 @@ class Youtube extends Component {
         <Embed>
           <iframe id="existing-iframe-example"
                   width="640" height="360"
-                  src="https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1"
+                  src={ this.state.url ?  this.state.url :"https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1"}
                   frameBorder="0.7"
                   title="youtube"
                   style={{"border": "solid 4px #37474F"}}
