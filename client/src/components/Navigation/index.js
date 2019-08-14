@@ -29,7 +29,7 @@ function Navigation() {
                 <i class="fa fa-user-ninja"></i>
               </a>
               <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a className="dropdown-item" href="#">
+                <a className="dropdown-item" href="/profile">
                   Profile
                 </a>
                 <a className="dropdown-item" href="#">
