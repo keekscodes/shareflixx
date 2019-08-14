@@ -30,11 +30,11 @@ class Show extends Component {
     }, 120000)
   };
   isTokenExpired = () => {
-    let token = localStorage.getItem("token");
+    let token = sessionStorage.getItem("token");
 
     if (token) {
       setTimeout(() => {
-        localStorage.removeItem("token");
+        sessionStorage.removeItem("token");
       }, 120000);
       return false
     } else {
