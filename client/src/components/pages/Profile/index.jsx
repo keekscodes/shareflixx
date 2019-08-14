@@ -2,8 +2,6 @@ import React, {Component} from "react";
 // @material-ui/icons
 
 // core components
-import Navigation from "../../Navigation/index";
-import Footer from "../../Footer/index";
 import "./style.css"
 
 class Profile extends Component {

@@ -6,3 +6,6 @@ h1 {
     font-family: 'Roboto', sans-serif;
     font-weight: 100
 }
+.dropdown-item a:hover {
+  background-color: grey;
+}
