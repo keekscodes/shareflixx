@@ -29,7 +29,7 @@ class LandingPage extends React.Component {
     const { classes, ...rest } = this.props;
     return (
       <div>
-        <Parallax filter image={require("../Logo/logo.png")}>
+        <Parallax filter image={require("../../assets/img/projector.jpg")}>
           <div className={classes.container}>
             <GridContainer>
               <GridItem xs={12} sm={12} md={6}>
