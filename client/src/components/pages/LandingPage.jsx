@@ -12,7 +12,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 // core components
 // import Logo from "../Logo/logo.png";
 // import Navigation from "../Navigation";
-import Footer from "../Footer";
+// import Footer from "../Footer";
 import Button from "../CustomButtons/Button";
 import GridContainer from "../GridContainer/GridContainer";
 import GridItem from "../GridContainer/GridItem";
@@ -58,7 +58,7 @@ class LandingPage extends React.Component {
         </Parallax>
         <div className={classNames(classes.main, classes.mainRaised)}>
         </div>
-        <Footer/>
+        {/* <Footer/> */}
       </div>
     );
   }

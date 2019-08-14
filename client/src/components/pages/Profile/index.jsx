@@ -50,18 +50,10 @@ class Profile extends Component {
                 <li className="nav-item">
                   <a className="nav-link" href="/profile">Profile</a>
                 </li>
-
-
               </ul>
-
-
             </div>
           </div>
-
-
         </div>
-
-
         <Footer>
 
         </Footer>

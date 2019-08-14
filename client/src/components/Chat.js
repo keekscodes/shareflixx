@@ -112,8 +112,8 @@ class Chat extends Component {
 
         ) : (<div id="user">
           <input onChange={this.handleChange} name="userName" value={this.state.userName} type="text"
-                 placeholder="Enter a username" id="userName"/>
-          <button id="enter" className="btn btn-success" onClick={this.updateSubmit}>Enter</button>
+                 placeholder="Enter a nickname" id="userName"/>
+          <button id="enter" className="btn btn-success" onClick={this.updateSubmit}>Start Chatting</button>
         </div>)}
       </div>
     );

@@ -35,7 +35,6 @@ class Authorization extends Component {
 
   loginSubmit = event => {
     event.preventDefault();
-    // console.log(token);
     const {username, password} = this.state;
     let logInUser = {
       user: {
@@ -65,7 +64,6 @@ class Authorization extends Component {
         }, 2000)
       });
     })
-    // This needs to be developed . This is only a test
   };
 
   isTokenExpired = () => {
@@ -109,7 +107,6 @@ class Authorization extends Component {
       }
 
     });
-    // This needs to be developed . This is only a test
   };
 
   render() {

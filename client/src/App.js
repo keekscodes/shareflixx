@@ -9,13 +9,14 @@ import Authorization from "./components/pages/Authorization";
 import LandingPage from "./components/pages/LandingPage";
 import Navigation from "./components/Navigation/index";
 import Profile from "./components/pages/Profile/index";
-
+import Footer from "./components/Footer";
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
+          <Navigation />
           <Switch>
             <Route exact path="/" component={LandingPage}/>
             <Route exact path="/login" component={Authorization}/>
@@ -25,6 +26,7 @@ class App extends Component {
             <Route path="/profile" component={Profile}/>
 
           </Switch>
+          <Footer />
         </div>
       </Router>
     );
