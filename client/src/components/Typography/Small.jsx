@@ -6,8 +6,8 @@ import withStyles from "@material-ui/core/styles/withStyles";
 // core components
 import typographyStyle from "../../assets/jss/material-kit-react/components/typographyStyle";
 
-function Small({ ...props }) {
-  const { classes, children } = props;
+function Small({...props}) {
+  const {classes, children} = props;
   return (
     <div className={classes.defaultFontStyle + " " + classes.smallText}>
       {children}

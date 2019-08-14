@@ -17,7 +17,7 @@ class Authorization extends Component {
   };
 
   componentDidMount() {
-    this.isTokenExpired() ? (console.log("Please sign in or sign up")) : (window.location.href="/show");
+    this.isTokenExpired() ? (console.log("Please sign in or sign up")) : (window.location.href = "/show");
   }
 
   handleClick = (e) => {
@@ -61,7 +61,7 @@ class Authorization extends Component {
             signedUp: true,
             loggedIn: true
           });
-  
+
         }, 2000)
       });
     })
@@ -74,7 +74,7 @@ class Authorization extends Component {
     if (token) {
       setTimeout(() => {
         localStorage.removeItem("token");
-      }, 3000)
+      }, 120000)
       return false
     } else {
       return true
@@ -100,14 +100,14 @@ class Authorization extends Component {
       let token = user.token;
       if (token) {
         localStorage.setItem("token", token)
+        setTimeout(() => {
+          this.setState({
+            active: true,
+            loggedIn: false
+          });
+        }, 2000)
       }
 
-      setTimeout(() => {
-        this.setState({
-          active: true,
-          loggedIn: false
-        });
-      }, 2000)
     });
     // This needs to be developed . This is only a test
   };
@@ -139,7 +139,7 @@ class Authorization extends Component {
                     loginSubmit={this.loginSubmit}
                   />)
             ) : (
-              this.state.signedUp ? (<Redirect to="/authorization"/>) : (
+              this.state.signedUp ? (<Redirect to="/login"/>) : (
                 <SignupForm
                   active={active}
                   firstName={firstName}

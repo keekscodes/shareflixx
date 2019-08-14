@@ -21,7 +21,7 @@ class Chat extends Component {
       console.log("connected");
 
       this.socket.on("username", (username) => {
-        console.log(username)
+        console.log(username);
         this.setState({
           users: [...this.state.users, username]
         });
@@ -51,7 +51,7 @@ class Chat extends Component {
   updateSubmit = (e) => {
     e.preventDefault();
     var username = this.state.userName;
-    this.socket.emit("username", username)
+    this.socket.emit("username", username);
     this.setState({
       nameSubmitted: true
     });
@@ -60,13 +60,13 @@ class Chat extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const body = e.target.value
+    const body = e.target.value;
     if (e.keyCode === 13 && body) {
       const message = {
         body,
         from: this.state.userName,
         time: moment().format('llll')
-      }
+      };
       this.setState({
         messages: [...this.state.messages, message],
         message: ""
@@ -98,17 +98,17 @@ class Chat extends Component {
     return (
       <div className="App">
         {this.state.nameSubmitted ? (<div id="entrance container">
-          <ul id="messages row">
-            {activeUsers}
-            {messages}
-          </ul>
-          <div id="chatForm">
-            <span className="userName" name="userName">{this.state.userName}</span>
-            <input className="msg" name="message" value={this.state.message} onChange={this.handleChange} id="txt"
-                   placeholder="Type your message here & press enter..." onKeyUp={this.handleSubmit}/>
-          </div>
+            <ul id="messages row">
+              {activeUsers}
+              {messages}
+            </ul>
+            <div id="chatForm">
+              <span className="userName" name="userName">{this.state.userName}</span>
+              <input className="msg" name="message" value={this.state.message} onChange={this.handleChange} id="txt"
+                     placeholder="Type your message here & press enter..." onKeyUp={this.handleSubmit}/>
+            </div>
 
-        </div>
+          </div>
 
         ) : (<div id="user">
           <input onChange={this.handleChange} name="userName" value={this.state.userName} type="text"

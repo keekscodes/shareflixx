@@ -11,11 +11,11 @@ function LoginForm(props) {
       <input className="form-styling" type="password" name="password" placeholder="" value={props.password}
              onChange={props.handleInputChange}/>
       <input type="checkbox" id="checkbox"/>
-      <label htmlFor="checkbox"><span className="ui"></span>Keep me signed in</label>
+      <label htmlFor="checkbox"><span className="ui"/>Keep me signed in</label>
       <div className="btn-animate">
         <Link to="/show" className="btn-signin" onClick={props.loginSubmit}>Sign in</Link>
       </div>
-      <a href="#">Forgot your password?</a>
+      <a href="/login">Forgot your password?</a>
     </form>
   );
 }

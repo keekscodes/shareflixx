@@ -10,8 +10,8 @@ import withStyles from "@material-ui/core/styles/withStyles";
 // @material-ui/icons
 
 // core components
-import Logo from "../Logo/logo.png";
-import Navigation from "../Navigation";
+// import Logo from "../Logo/logo.png";
+// import Navigation from "../Navigation";
 import Footer from "../Footer";
 import Button from "../CustomButtons/Button";
 import GridContainer from "../GridContainer/GridContainer";
@@ -26,7 +26,7 @@ import "../../assets/css/material-kit-react.css"
 
 class LandingPage extends React.Component {
   render() {
-    const { classes, ...rest } = this.props;
+    const {classes} = this.props;
     return (
       <div>
         <Parallax filter image={require("../../assets/img/projector.jpg")}>
@@ -34,13 +34,16 @@ class LandingPage extends React.Component {
             <GridContainer>
               <GridItem xs={12} sm={12} md={6}>
                 <h1 className={classes.title}>ShareFlix</h1>
-                <h4>
-                  Every landing page needs a small description after the big
+                <h3>
+                  {/* Every landing page needs a small description after the big
                   bold title, that{"'"}s why we added this text here. Add here
                   all the information that can make you or your product create
-                  the first impression.
-                </h4>
-                <br />
+                  the first impression. */}
+
+                  ShareFlix & Chill? We've got you covered. Browse our MERN Full Stack application today to watch movies
+                  with Friends & Family. ANYWHERE | ANYTIME!
+                </h3>
+                <br/>
                 <Button
                   color="danger"
                   size="lg"
@@ -55,7 +58,7 @@ class LandingPage extends React.Component {
         </Parallax>
         <div className={classNames(classes.main, classes.mainRaised)}>
         </div>
-        <Footer />
+        <Footer/>
       </div>
     );
   }

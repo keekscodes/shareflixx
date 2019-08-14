@@ -17,6 +17,7 @@ class Parallax extends React.Component {
       transform: "translate3d(0," + windowScrollTop + "px,0)"
     };
   }
+
   componentDidMount() {
     var windowScrollTop = window.pageYOffset / 3;
     this.setState({
@@ -24,15 +25,18 @@ class Parallax extends React.Component {
     });
     window.addEventListener("scroll", this.resetTransform);
   }
+
   componentWillUnmount() {
     window.removeEventListener("scroll", this.resetTransform);
   }
+
   resetTransform = () => {
     var windowScrollTop = window.pageYOffset / 3;
     this.setState({
       transform: "translate3d(0," + windowScrollTop + "px,0)"
     });
   };
+
   render() {
     const {
       classes,
