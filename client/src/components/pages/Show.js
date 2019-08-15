@@ -43,7 +43,7 @@ class Show extends Component {
           <Col size="md-6">
             <h5
               style={{
-                backgroundColor: "indigo",
+                backgroundColor: "#dc3545",
                 fontSize: "20px",
                 borderColor: "black",
                 borderStyle: "solid",
