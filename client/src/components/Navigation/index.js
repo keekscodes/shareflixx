@@ -10,7 +10,7 @@ function Navigation() {
       {/* <a className="navbar-brand" href="/">
           Video Phone
         </a> */}
-      <a className="navbar-brand js-scroll-trigger" href="/show"><img src={Logo} alt="App logo" height="65px"
+      <a className="navbar-brand js-scroll-trigger" href="/show"><img src={Logo} alt="App logo" height="70px"
                                                                       width="100px"/></a>
 
       <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
