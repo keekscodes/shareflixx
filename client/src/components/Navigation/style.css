@@ -11,7 +11,16 @@
 }
 
 .dropdown .dropdown-toggle:hover {
-    /* background-color: #ddd; */
+    background-color: #ddd;
     cursor: pointer;
     color: black;
+}
+
+/* .dropdown-item a:hover {
+    background-color: grey; 
+} */
+
+.dropdown-menu a:hover {
+    background-color: #dddddd;
+
 }
