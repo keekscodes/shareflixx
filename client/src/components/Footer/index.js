@@ -10,24 +10,24 @@ function Footer() {
     }}>
 
 
-      <div className="container">
+      {/* <div className="container"> */}
         <div className="row">
           <div className="col l4  s6">
             <h6 className="white-text">Developers <i className="fab fa-github"
-                                                     style={{fontSize: "20px", color: "#ffffff"}}/></h6>
+                                                     style={{fontSize: "17px", color: "#ffffff"}}/></h6>
             <span style={{fontSize: "13px"}}>
                         <a className="grey-text text-lighten-3" href="/show">Kimberly | </a>
                         <a className="grey-text text-lighten-3" href="/show">Laura | </a>
                         <a className="grey-text text-lighten-3" href="/show">Mike | </a>
-                        <a className="grey-text text-lighten-3" href="/show">Sajad | </a>
+                        <a className="grey-text text-lighten-3" href="https://github.com/sajadgzd">Sajad | </a>
                         <a className="grey-text text-lighten-3" href="/show">Steven</a>
                     </span>
           </div>
         </div>
-      </div>
+      {/* </div> */}
       <div className="footer-copyright">
         <div style={{"margin": "0 auto"}}>
-          © 2019 APP NAME
+          © 2019 ShareFlix
         </div>
       </div>
     </footer>
