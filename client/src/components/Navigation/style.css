@@ -11,7 +11,7 @@
 }
 
 .dropdown .dropdown-toggle:hover {
-    background-color: #ddd;
+    /* background-color: #ddd; */
     cursor: pointer;
     color: black;
 }
