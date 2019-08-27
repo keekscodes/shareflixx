@@ -13,6 +13,7 @@ class Navigation extends Component {
     sessionStorage.removeItem("token");
   }
   render() {
+    const {pathname} = window.location;
     return (
       <nav className="navbar navbar-expand-lg">
         <a className="navbar-brand js-scroll-trigger" href="/show">
@@ -39,7 +40,7 @@ class Navigation extends Component {
                 </a>             
                 <div className="dropdown-divider"/>
                 <Link className="dropdown-item" to="/login" onClick={this.logOut}>
-                  {window.location.pathname === "/show" ? ("Log Out") : "Sign In"}
+                  {pathname === "/show" ? ("Log Out") : "Sign In"}
                 </Link>
               </div>
             </li>
