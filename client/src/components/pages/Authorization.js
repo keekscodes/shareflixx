@@ -13,7 +13,8 @@ class Authorization extends Component {
     firstName: "",
     lastName: "",
     email: "",
-    signedUp: false
+    signedUp: false,
+    spinner: false
   };
 
   componentDidMount() {
@@ -33,6 +34,10 @@ class Authorization extends Component {
     })
   };
 
+  logOut = () => {
+    sessionStorage.removeItem("token");
+  }
+
   loginSubmit = event => {
     event.preventDefault();
     const {username, password} = this.state;
@@ -42,6 +47,16 @@ class Authorization extends Component {
         password
       }
     }
+
+    
+    if ((username.length && password.length) === 0) {
+      console.log("You must input a username and password")
+    } else {
+      this.setState({
+        spinner: true
+      })
+    }
+
     axios.post("/api/users/login", logInUser).then(res => {
       sessionStorage.setItem("token", res.data.user.token);
       console.log(res);
@@ -110,7 +125,7 @@ class Authorization extends Component {
   };
 
   render() {
-    const {firstName, lastName, username, email, password, active} = this.state;
+    const {firstName, lastName, username, email, password, active, spinner} = this.state;
     return (
       <div className="container">
         <div className={this.state.active ? "frame frame-short" : "frame frame-long"}>
@@ -129,6 +144,7 @@ class Authorization extends Component {
               this.state.loggedIn ?
                 (<Redirect to="/show"/>) : (
                   <LoginForm
+                    spinner={spinner}
                     active={active}
                     username={username}
                     handleInputChange={this.handleInputChange}

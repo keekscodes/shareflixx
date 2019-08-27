@@ -48,10 +48,9 @@ io.on("connection", socket => {
   // console.log(socket.handshake);
 
   socket.on("username", (username) => {
-
     socket.username = username;
     socket.broadcast.emit("username", '🔵' + socket.username + ' joined the chat..');
-  });
+  })
 
   socket.on("message", body => {
     console.log(body);
