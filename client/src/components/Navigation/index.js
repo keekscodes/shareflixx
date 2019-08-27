@@ -1,18 +1,20 @@
 import React, {Component} from "react";
 import Logo from '../Logo/logo.png';
-
-import "./style.css"
+import {Link} from 'react-router-dom';
+import "./style.css";
 
 class Navigation extends Component {
+
+  state = {
+    pathName: ""
+  }
+  
   logOut = () => {
     sessionStorage.removeItem("token");
   }
   render() {
     return (
       <nav className="navbar navbar-expand-lg">
-        {/* <a className="navbar-brand" href="/">
-            Video Phone
-          </a> */}
         <a className="navbar-brand js-scroll-trigger" href="/show">
           <img src={Logo} alt="App logo" height="70px"width="100px"/>
         </a>
@@ -34,14 +36,11 @@ class Navigation extends Component {
               <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a className="dropdown-item" href="/profile">
                   Account
-                </a>
-                {/* <a className="dropdown-item" href="/settings">
-                  Account Settings
-                </a> */}
+                </a>             
                 <div className="dropdown-divider"/>
-                <a className="dropdown-item" href="/login" onClick={this.logOut}>
-                  Log Out
-                </a>
+                <Link className="dropdown-item" to="/login" onClick={this.logOut}>
+                  {window.location.pathname === "/show" ? ("Log Out") : "Sign In"}
+                </Link>
               </div>
             </li>
           </ul>

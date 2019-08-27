@@ -21,7 +21,7 @@ class Authorization extends Component {
     this.isTokenExpired() ? (console.log("Please sign in or sign up")) : (window.location.href = "/show");
   }
 
-  handleClick = (e) => {
+  handleClick = () => {
     this.setState({
       active: !this.state.active
     })
