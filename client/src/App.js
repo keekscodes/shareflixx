@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Navigation />
+          <Route render={() => <Navigation/>}/>
           <Switch>
             <Route exact path="/" component={LandingPage}/>
             <Route exact path="/login" component={Authorization}/>

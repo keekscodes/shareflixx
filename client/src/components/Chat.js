@@ -99,7 +99,9 @@ class Chat extends Component {
       <div className="App">
         {this.state.nameSubmitted ? (<div id="entrance container">
             <ul id="messages row">
-              {activeUsers}
+             <li>
+               {activeUsers}
+              </li>
               {messages}
             </ul>
             <div id="chatForm">
