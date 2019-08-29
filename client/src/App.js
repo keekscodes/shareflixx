@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route render={() => <Navigation/>}/>
+          {/* <Route render={() => <Navigation/>}/> */}
           <Switch>
             <Route exact path="/" component={LandingPage}/>
             <Route exact path="/login" component={Authorization}/>
@@ -26,7 +26,7 @@ class App extends Component {
             <Route path="/profile" component={Profile}/>
 
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </Router>
     );

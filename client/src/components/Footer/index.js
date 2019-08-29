@@ -11,7 +11,7 @@ function Footer() {
 
 
       {/* <div className="container"> */}
-        <div className="row">
+        {/* <div className="row">
           <div className="col l4  s6">
             <h6 className="white-text">Developers <i className="fab fa-github"
                                                      style={{fontSize: "17px", color: "#ffffff"}}/></h6>
@@ -23,10 +23,11 @@ function Footer() {
                         <a className="grey-text text-lighten-3" href="/show">Steven</a>
                     </span>
           </div>
-        </div>
+        </div> */}
       {/* </div> */}
       <div className="footer-copyright">
         <div style={{"margin": "0 auto"}}>
+
           © {new Date().getFullYear()} ShareFlix
         </div>
       </div>
