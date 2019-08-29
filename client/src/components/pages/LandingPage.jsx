@@ -35,11 +35,11 @@ class LandingPage extends React.Component {
     const {classes} = this.props;
     return (
       <nav className="bg">
-          <div className={conatinerFluid}>
+              <Navigation></Navigation>
+          <div className={classes.container}>
             <GridContainer >
               <GridItem className="col-12">
 
-              <Navigation></Navigation>
               </GridItem>
               <GridItem xs={12} sm={12} md={6}>
                 <img className="mb-5" src={Logo} alt="App logo"/>
