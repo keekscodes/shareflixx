@@ -99,7 +99,7 @@ html, body * {
             background: -webkit-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%); /* Chrome10-25,Safari5.1-6 */
             background: linear-gradient(to bottom, #a90329 0%, #8f0222 44%, #6d0019 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a90329', endColorstr='#6d0019', GradientType=0); /* IE6-9 */
-        
+
     background-size: cover;
     margin-left: auto;
     margin-right: auto;
@@ -275,7 +275,7 @@ li {
     border-radius: 20px;
     margin-bottom: 20px;
     background: rgba(255, 255, 255, .2);
-    
+
 }
 
 
@@ -295,7 +295,7 @@ label {
 
 .form-signin input:focus, textarea:focus, .form-signup input:focus, textarea:focus {
     background: rgba(255, 255, 255, .3);
-    
+
     border: none;
     padding-right: 40px;
     transition: background .5s ease;
@@ -442,11 +442,6 @@ label {
     background-color: rgba(255, 255, 255, 1);
 }
 
-a.btn-signup:hover, a.btn-signin:hover {
-    cursor: pointer;
-    background-color: rgb(12, 171, 171);
-    transition: background-color .5s;
-}
 
 .forgot {
     height: 100px;
@@ -534,6 +529,12 @@ a.btn-signup:hover, a.btn-signin:hover {
     background-color: #dc3545;
     cursor: pointer;
 }
+#tg-btn:hover {
+    background: black;
+    color: white;
+}
+
+
 
 /* #tg-btn:hover {
     float: left;
@@ -552,6 +553,7 @@ a.btn-signup:hover, a.btn-signin:hover {
     left: 0px;
     top: 0px;
     transition: all .5s ease, top .5s ease .5s, height .5s ease .5s, background-color .5s ease .75s; 
+
 } */
 
 .profile-photo-down {

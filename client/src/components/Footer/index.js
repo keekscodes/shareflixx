@@ -27,9 +27,8 @@ function Footer() {
       {/* </div> */}
       <div className="footer-copyright">
         <div style={{"margin": "0 auto"}}>
-        {/* <div style={{"margin": "0 auto"}}> */}
 
-          © 2019 ShareFlix
+          © {new Date().getFullYear()} ShareFlix
         </div>
       </div>
     </footer>
