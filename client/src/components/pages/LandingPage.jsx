@@ -5,41 +5,45 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 
 // @material-ui/icons
 
 // core components
 // import Logo from "../Logo/logo.png";
-// import Navigation from "../Navigation";
 // import Footer from "../Footer";
 import Button from "../CustomButtons/Button";
 import GridContainer from "../GridContainer/GridContainer";
 import GridItem from "../GridContainer/GridItem";
+// import Grid, { Container, Col, Row } from "../Grid/index";
 // import HeaderLinks from "components/Header/HeaderLinks.jsx";
 // import NavPills from "components/NavPills/NavPills.jsx";
-import Parallax from "../Parallax/Parallax";
+import Logo from "../Logo/logo2.png";
 
 import landingPageStyle from "../../assets/views/landingPage"
 import "../../assets/css/material-kit-react.css"
+import { conatinerFluid } from "../../assets/jss/material-kit-react";
+import Navigation from "../Navigation";
+
 
 
 class LandingPage extends React.Component {
   render() {
     const {classes} = this.props;
     return (
-      <div>
-        <Parallax filter image={require("../../assets/img/projector.jpg")}>
-          <div className={classes.container}>
-            <GridContainer>
-              <GridItem xs={12} sm={12} md={6}>
-                <h1 className={classes.title}>ShareFlix</h1>
-                <h3>
-                  {/* Every landing page needs a small description after the big
-                  bold title, that{"'"}s why we added this text here. Add here
-                  all the information that can make you or your product create
-                  the first impression. */}
+      <nav className="bg">
+          <div className={conatinerFluid}>
+            <GridContainer >
+              <GridItem className="col-12">
 
+              <Navigation></Navigation>
+              </GridItem>
+              <GridItem xs={12} sm={12} md={6}>
+                <img className="mb-5" src={Logo} alt="App logo"/>
+                <h3>
                   ShareFlix & Chill? We've got you covered. Browse our MERN Full Stack application today to watch movies
                   with Friends & Family. ANYWHERE | ANYTIME!
                 </h3>
@@ -55,11 +59,10 @@ class LandingPage extends React.Component {
               </GridItem>
             </GridContainer>
           </div>
-        </Parallax>
         <div className={classNames(classes.main, classes.mainRaised)}>
         </div>
         {/* <Footer/> */}
-      </div>
+      </nav>
     );
   }
 }
@@ -68,4 +71,8 @@ LandingPage.propTypes = {
   classes: PropTypes.object
 };
 
+// export default withStyles(landingPageStyle)(LandingPage);
 export default withStyles(landingPageStyle)(LandingPage);
+
+
+
