@@ -132,9 +132,9 @@ class Authorization extends Component {
           <div className={this.state.active ? "nav" : "nav"}>
             <ul className="links">
               <li className={this.state.active ? "signin-active" : "signin-inactive"}>
-                <span id="tg-btn" className="btn"
+                <span
                       onClick={this.handleClick}
-                      style={{width: "327px"}}>Toggle Authentication <i className="fas fa-sync-alt"/>
+                      style={{width: "auto"}}> <i className="fas fa-sync-alt"/>
                 </span>
               </li>
             </ul>
