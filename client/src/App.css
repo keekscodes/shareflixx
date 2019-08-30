@@ -205,8 +205,8 @@ li {
     padding-right: 37px;
     padding-top: 20px;
     position: relative;
-    top: -175px;
-    left: 400px;
+    /* top: -175px; */
+    /* left: 400px; */
     opacity: 0;
     transition: all .5s ease;
 }
@@ -260,6 +260,10 @@ li {
 #check.checked path {
     stroke-dashoffset: 33px;
     fill: rgba(255, 255, 255, .03);
+}
+
+.form-signin-down{
+    padding: 0px 30px;
 }
 
 .form-signin input, .form-signup input, .form-signin-down input {
@@ -646,4 +650,13 @@ a.btn-goback:hover {
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
+  }
+
+  .fa-sync-alt {
+      color: black;
+  }
+
+  .fa-sync-alt:hover {
+      cursor: pointer;
+      color: green;
   }

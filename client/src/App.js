@@ -9,7 +9,7 @@ import Authorization from "./components/pages/Authorization";
 import LandingPage from "./components/pages/LandingPage";
 import Navigation from "./components/Navigation/index";
 import Profile from "./components/pages/Profile/index";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 
 class App extends Component {
   render() {

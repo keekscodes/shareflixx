@@ -1,6 +1,6 @@
 import { container, title } from "../material-kit-react";
-import Logo from "../../components/Logo/landing.png"
-import { withTheme } from "@material-ui/styles";
+// import Logo from "../../components/Logo/landing.png"
+// import { withTheme } from "@material-ui/styles";
 
 const landingPageStyle = {
   container: {
