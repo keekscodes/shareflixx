@@ -51,19 +51,26 @@
     /*position: relative;*/
 }
 
-/*#userName {*/
-/*    padding: 10px;*/
-/*    vertical-align: middle;*/
-/*}*/
+#userName {
+    padding: 10px;
+    vertical-align: middle;
+}
 
 /*.userName {*/
 /*    font-size: 20px;*/
 /*}*/
 
+/*#user {*/
+/*    height: 100vh;*/
+/*}*/
 
 .msg {
     width: 100%;
-    padding: 10px;
+    padding: 20px 0;
+    border: none;
+    color: white;
+    border-bottom: 1px solid red;
+    background-color: transparent;
     /*margin: 20px;*/
 }
 

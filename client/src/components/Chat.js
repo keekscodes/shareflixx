@@ -97,7 +97,7 @@ class Chat extends Component {
     });
 
     return (
-      <div className="container">
+      <div className="container d-flex h-100">
         {this.state.nameSubmitted ? (<div className="row">
             <div id="entrance">
               <ul id="messages row">
@@ -115,10 +115,10 @@ class Chat extends Component {
 
           </div>
 
-        ) : (<div id="user" className="row">
-          <input onChange={this.handleChange} name="userName" value={this.state.userName} type="text"
-                 placeholder="Enter a nickname" id="userName"/>
-          <button id="enter" className="btn btn-success" onClick={this.updateSubmit}>Start Chatting</button>
+        ) : (<div id="user" className="row justify-content-center align-self-center">
+            <input onChange={this.handleChange} name="userName" value={this.state.userName} type="text"
+                   placeholder="Enter a nickname" id="userName"/>
+            <button id="enter" className="btn btn-success" onClick={this.updateSubmit}>Start Chatting</button>
         </div>)}
       </div>
     );
