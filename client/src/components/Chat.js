@@ -108,9 +108,9 @@ class Chat extends Component {
               </ul>
             </div>
             <div id="chatForm">
-              <span className="userName" name="userName">{this.state.userName}</span>
+              <span className="userName" name="userName">{this.state.userName}:</span>
               <input className="msg" name="message" value={this.state.message} onChange={this.handleChange} id="txt"
-                     placeholder="Type your message here & press enter..." onKeyUp={this.handleSubmit}/>
+                     placeholder="Type your message here ..." onKeyUp={this.handleSubmit}/>
             </div>
 
           </div>
