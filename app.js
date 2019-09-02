@@ -38,7 +38,7 @@ mongoose.set('debug', true);
 //Models & routes
 require('./models/Users');
 require('./config/passport');
-var routes = require('./routes')
+var routes = require('./routes');
 // may need to check here and try to separate the routes instead of having it bundled up.
 app.use("/", routes);
 
@@ -50,10 +50,10 @@ io.on("connection", socket => {
   socket.on("username", (username) => {
     socket.username = username;
     socket.broadcast.emit("username", '🔵' + socket.username + ' joined the chat..');
-  })
+  });
 
   socket.on("message", body => {
-    console.log(body);
+    // console.log(body);
     socket.broadcast.emit("message", {
       body: body.body,
       from: body.from,
@@ -61,10 +61,12 @@ io.on("connection", socket => {
     });
   });
 
-  socket.on("room", (room) => {
+  socket.on("create", (room) => {
+    // console.log(id);
+    console.log(room);
     socket.join(room);
     socket.in("abc").emit("messages", "abc");
-  })
+  });
 
   socket.on("disconnect", (username) => socket.username ? socket.broadcast.emit("username", '🔴' + socket.username + ' left the chat..') : "");
 });

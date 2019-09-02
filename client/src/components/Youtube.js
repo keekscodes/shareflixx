@@ -1,15 +1,13 @@
 import React, {Component} from "react";
-// import io from "socket.io-client";
 import Embed from "./Embed";
-import ButtonToolbar from "./ButtonToolbar";
-import Button from "./Button";
 import Modal from "./Modal";
 
 // var playerStatus = -1;
 
 class Youtube extends Component {
   state = {
-
+    inputVal: "",
+    url: ""
   };
 
   handleChange = (e) => {
@@ -17,81 +15,44 @@ class Youtube extends Component {
     this.setState({
       [name]: value
     });
-  }
+  };
 
   handleClick = (e) => {
     e.preventDefault();
     this.setState({
-
+      url: this.state.inputVal
     })
-  }
-
-  playVideo = () => {
-    return "playVideo(roomnum)"
   };
 
-  syncVideo = () => {
-    return "syncVideo(roomnum);syncAlert();"
-  };
-
-  changeHost = () => {
-    return "changeHost(roomnum)"
-  };
 
   render() {
     return (
-      <div>
-        <input type="Video" style={{"maxWidth": "300px", "marginRight": ".5em", "marginBottom": ".5em"}}
-               className="form-control" id="inputVideoId" name="url" onChange={this.handleChange} placeholder="Enter Video ID / URL"/>
-
-        <button style={{"float": "left", "backgroundColor": "indigo", "height": "auto", "marginBottom": ".5em"}}
-                type="button" className="nonmobile-hide btn btn-info btn-sm invite-button" data-toggle="modal"
-                data-target="#inviteModal"><span>Invite   </span><i style={{"width": "20px", "height": "20px"}}
-                                                                    className="fas fa-user-plus"/></button>
-        <Modal/>
-
-
-        <Embed>
-          <iframe id="existing-iframe-example"
-                  width="640" height="360"
-                  src={ this.state.url ?  this.state.url :"https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1"}
-                  frameBorder="0.7"
-                  title="youtube"
-                  style={{"border": "solid 4px #37474F"}}
-          />
-        </Embed>
-
-        {/* <script id='iframe-demo' src='https://www.youtube.com/iframe_api' >
-        </script> */}
-        <br/>
-        <ButtonToolbar>
-
-          <Button id="playButton" onClick={this.playVideo}>
-            <i className="fa fa-play"/> Play / <i className="fa fa-pause"/> Pause
-          </Button>
-
-          {/* <button id="playButton" onClick={this.playVideo}style={{"marginTop": "0.5em"}} className="btn btn-primary">
-          <i className="fa fa-play"></i> Play / <i className="fa fa-pause"></i> Pause
-        </button> */}
-
-          <Button id="syncbutton" onClick={this.syncVideo}>
-            <i className="fa fa-sync"/> Sync
-          </Button>
-
-          {/* <button id="syncbutton" onClick={this.syncVideo} style={{"marginTop": "0.5em"}}
-                className="btn btn-primary"><i className="fa fa-sync"></i> Sync
-        </button> */}
-
-          <Button id="hostbutton" onClick={this.changeHost}>
-            <i className="fas fa-users"/> Make me the host!
-          </Button>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-9">
+            <input type="Video" style={{"width": "100%", "marginBottom": ".5em"}}
+                   className="form-control" id="inputVideoId" name="inputVal" value={this.state.inputVal} onChange={this.handleChange}
+                   placeholder="Enter Video ID / URL"/>
+          </div>
+          <div className="col-md-3">
+            <button className="btn btn-success" style={{width: "100%"}} onClick={this.handleClick}>Go</button>
+          </div>
+          <Modal/>
 
 
-          {/* <button id="hostbutton" onClick={this.changeHost} style={{"marginTop": "0.5em"}}
-                className="btn btn-primary"><i className="fas fa-users"></i> Make me the host!
-        </button> */}
+          <Embed>
+            <iframe id="existing-iframe-example"
+                    width="640" height="360"
+                    src={this.state.url ? this.state.url : "https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1"}
+                    // src="https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1"
+                    frameBorder="0.7"
+                    title="youtube"
+                    style={{"border": "solid 5px #37474F"}}
+            />
+          </Embed>
 
-        </ButtonToolbar>
+        </div>
+
       </div>
     );
 
