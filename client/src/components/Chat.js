@@ -34,10 +34,11 @@ class Chat extends Component {
       });
       this.socket.on("messages", data => {
         console.log("You have joined room", data)
-      })
+      });
+
+      this.socket.emit('create', "abc");
 
     });
-    this.socket.emit('room', "abc");
   }
 
 
@@ -96,23 +97,25 @@ class Chat extends Component {
     });
 
     return (
-      <div className="App">
-        {this.state.nameSubmitted ? (<div id="entrance container">
-            <ul id="messages row">
-             <li>
-               {activeUsers}
-              </li>
-              {messages}
-            </ul>
+      <div className="container">
+        {this.state.nameSubmitted ? (<div className="row">
+            <div id="entrance">
+              <ul id="messages row">
+                <li>
+                  {activeUsers}
+                </li>
+                {messages}
+              </ul>
+            </div>
             <div id="chatForm">
-              <span className="userName" name="userName">{this.state.userName}</span>
+              <span className="userName" name="userName">{this.state.userName}:</span>
               <input className="msg" name="message" value={this.state.message} onChange={this.handleChange} id="txt"
-                     placeholder="Type your message here & press enter..." onKeyUp={this.handleSubmit}/>
+                     placeholder="Type your message here ..." onKeyUp={this.handleSubmit}/>
             </div>
 
           </div>
 
-        ) : (<div id="user">
+        ) : (<div id="user" className="row">
           <input onChange={this.handleChange} name="userName" value={this.state.userName} type="text"
                  placeholder="Enter a nickname" id="userName"/>
           <button id="enter" className="btn btn-success" onClick={this.updateSubmit}>Start Chatting</button>

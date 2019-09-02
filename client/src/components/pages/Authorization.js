@@ -36,7 +36,7 @@ class Authorization extends Component {
 
   logOut = () => {
     sessionStorage.removeItem("token");
-  }
+  };
 
   loginSubmit = event => {
     event.preventDefault();
@@ -46,9 +46,9 @@ class Authorization extends Component {
         username,
         password
       }
-    }
+    };
 
-    
+
     if ((username.length && password.length) === 0) {
       console.log("You must input a username and password")
     } else {
@@ -87,12 +87,12 @@ class Authorization extends Component {
     if (token) {
       setTimeout(() => {
         sessionStorage.removeItem("token");
-      }, 120000)
+      }, 120000);
       return false
     } else {
       return true
     }
-  }
+  };
 
   signupSubmit = event => {
     event.preventDefault();
@@ -112,7 +112,7 @@ class Authorization extends Component {
       console.log(user);
       let token = user.token;
       if (token) {
-        sessionStorage.setItem("token", token)
+        sessionStorage.setItem("token", token);
         setTimeout(() => {
           this.setState({
             active: true,

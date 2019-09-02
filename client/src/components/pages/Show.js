@@ -1,9 +1,7 @@
 import React, {Component} from "react";
-import Jumbotron from "../Jumbotron";
 import Chat from "../Chat";
 import Youtube from "../Youtube";
-import {Col, Row, Container} from "../Grid";
-
+import Navigation from "../Navigation/index"
 
 class Show extends Component {
   state = {
@@ -38,54 +36,16 @@ class Show extends Component {
 
   render() {
     return (
-      <div className="mt-5">
-        <Container fluid>
-          <Col size="md-6">
-            <h5
-              style={{
-                backgroundColor: "#dc3545",
-                fontSize: "20px",
-                borderColor: "black",
-                borderStyle: "solid",
-                margin: "0%",
-                padding: "0%",
-                position: "relative",
-                top: "0px",
-                textAlign: "center",
-                color: "white",
-                width: "30%",
-                borderTopLeftRadius: "4em",
-
-                borderTopRightRadius: "4em",
-              }}>Group Name</h5>
-          </Col>
-        </Container>
-
-        <Container fluid>
-          <Row>
-            <Col size="md-6">
-              <Jumbotron>
-                <Youtube/>
-              </Jumbotron>
-            </Col>
-
-            <Col size="md-6">
-              <Jumbotron>
-                <Row>
-                  <Col size="md-12">
-                    <Container fluid>
-                      <div style={{height: "440px", overflow: "auto"}}>
-                        <Chat/>
-                      </div>
-                    </Container>
-                  </Col>
-                </Row>
-                <Row>
-                </Row>
-              </Jumbotron>
-            </Col>
-          </Row>
-        </Container>
+      <div id="show-route" className="container-fluid">
+        <Navigation/>
+        <div className="row">
+          <div className="col-md-9">
+            <Youtube/>
+          </div>
+          <div id="message-form" className="col-md-3">
+            <Chat/>
+          </div>
+        </div>
       </div>
     );
   }
