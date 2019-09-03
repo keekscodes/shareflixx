@@ -5,9 +5,9 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-// import { makeStyles } from '@material-ui/core/styles';
-// import Paper from '@material-ui/core/Paper';
-// import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 
 // @material-ui/icons
@@ -25,7 +25,7 @@ import Logo from "../Logo/logo2.png";
 
 import landingPageStyle from "../../assets/views/landingPage"
 import "../../assets/css/material-kit-react.css"
-// import { conatinerFluid } from "../../assets/jss/material-kit-react";
+import { conatinerFluid } from "../../assets/jss/material-kit-react";
 import Navigation from "../Navigation";
 
 
