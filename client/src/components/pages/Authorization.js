@@ -142,7 +142,7 @@ class Authorization extends Component {
           <div className="form">
             {this.state.active ? (
               this.state.loggedIn ?
-                (<Redirect to="/show"/>) : (
+                (<Redirect to={{pathname: "/show", state: {username: username}}}/>) : (
                   <LoginForm
                     spinner={spinner}
                     active={active}
