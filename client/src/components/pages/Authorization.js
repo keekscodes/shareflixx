@@ -128,7 +128,7 @@ class Authorization extends Component {
   render() {
     const {firstName, lastName, username, email, password, active, spinner} = this.state;
     return (
-      <div className="containter-fluid">
+      <div className="containter-fluid" id="login-page">
         <Navigation />
      
       <div className="container">

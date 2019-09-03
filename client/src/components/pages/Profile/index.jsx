@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Navigation from "../../Navigation/index";
 // @material-ui/icons
 
 // core components
@@ -9,9 +10,10 @@ class Profile extends Component {
     return (
       <div>
         <div className="container-fluid">
+          <Navigation />
           <div className="row border-bottom">
             <div className="col-6">
-              <h1 className="text-left">Manage Your Account</h1>
+              <h2 className="text-left">Manage Your Account</h2>
             </div>
           </div>
           <div className="row border-bottom">

@@ -9,3 +9,9 @@ h1 {
 .dropdown-item a:hover {
   background-color: grey;
 }
+
+h2 {
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100
+}
