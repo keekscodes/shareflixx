@@ -49,6 +49,7 @@ io.on("connection", socket => {
 
   socket.on("username", (username) => {
     socket.username = username;
+    // io.sockets.emit() can give you access to all clients within that socket. so this will be useful to create a "Users in room" feature
     socket.broadcast.emit("username", '🔵' + socket.username + ' joined the chat..');
   });
 

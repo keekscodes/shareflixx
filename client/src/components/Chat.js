@@ -65,7 +65,7 @@ class Chat extends Component {
     if (e.keyCode === 13 && body) {
       const message = {
         body,
-        from: this.state.userName,
+        from: this.props.username,
         time: moment().format('llll')
       };
       this.setState({
@@ -77,6 +77,10 @@ class Chat extends Component {
     }
 
   };
+
+  componentWillUnmount() {
+    this.socket.disconnect()
+  }
 
   render() {
     const messages = this.state.messages.map((msg, i) => {
@@ -98,7 +102,11 @@ class Chat extends Component {
 
     return (
       <div className="container d-flex h-100">
-        {this.state.nameSubmitted ? (<div className="row">
+        {/*{this.state.nameSubmitted ? */}
+
+
+          {/*(*/}
+        <div className="row">
             <div id="entrance">
               <ul id="messages row">
                 <li>
@@ -108,18 +116,34 @@ class Chat extends Component {
               </ul>
             </div>
             <div id="chatForm">
-              <span className="userName" name="userName">{this.state.userName}:</span>
-              <input className="msg" name="message" value={this.state.message} onChange={this.handleChange} id="txt"
-                     placeholder="Type your message here ..." onKeyUp={this.handleSubmit}/>
+              <span className="userName" name="userName">{this.props.username}:</span>
+              <input
+                className="msg"
+                name="message"
+                value={this.state.message}
+                onChange={this.handleChange}
+                id="txt"
+                placeholder="Type your message here ..."
+                onKeyUp={this.handleSubmit}
+              />
             </div>
 
           </div>
 
-        ) : (<div id="user" className="row justify-content-center align-self-center">
-            <input onChange={this.handleChange} name="userName" value={this.state.userName} type="text"
-                   placeholder="Enter a nickname" id="userName"/>
-            <button id="enter" className="btn btn-success" onClick={this.updateSubmit}>Start Chatting</button>
-        </div>)}
+        {/*)*/}
+
+          {/*: (*/}
+          {/*<div id="user" className="row justify-content-center align-self-center">*/}
+          {/*  <input*/}
+          {/*    onChange={this.handleChange}*/}
+          {/*    name="userName"*/}
+          {/*    value={this.state.userName}*/}
+          {/*    type="text"*/}
+          {/*    placeholder="Enter a nickname"*/}
+          {/*    id="userName"*/}
+          {/*  />*/}
+          {/*  <button id="enter" className="btn btn-success" onClick={this.updateSubmit}>Start Chatting</button>*/}
+          {/*</div>)}*/}
       </div>
     );
   }

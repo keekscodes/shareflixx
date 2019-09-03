@@ -9,6 +9,7 @@ class Show extends Component {
   };
 
   componentDidMount() {
+    console.log(this.props.location.state.username);
     this.isTokenExpired() ? (this.logOut()) : (this.reloadPage());
   }
 
@@ -43,7 +44,7 @@ class Show extends Component {
             <Youtube/>
           </div>
           <div id="message-form" className="col-md-3">
-            <Chat/>
+            <Chat username={this.props.location.state.username}/>
           </div>
         </div>
       </div>
