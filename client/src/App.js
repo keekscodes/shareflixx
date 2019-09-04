@@ -24,7 +24,7 @@ class App extends Component {
             <Route exact path="/show" component={Show}/>
             <Route exact path="/youtube" component={Youtube}/>
             <Route exact path="/nav" component={Navigation}/>
-            <Route exact path="/dummy" component={Dummy}/>
+            {/*<Route exact path="/dummy" component={Dummy}/>*/}
             <Route path="/profile" component={Profile}/>
 
           </Switch>

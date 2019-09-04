@@ -35,3 +35,12 @@ h2 {
   background: black;
 
 }
+
+.form-inp {
+    width: 100%;
+}
+
+.label-item {
+    background-color: black;
+    font-size: 24px;
+}

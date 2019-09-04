@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 // nodejs library that concatenates classes
@@ -27,15 +27,38 @@ import landingPageStyle from "../../assets/views/landingPage"
 import "../../assets/css/material-kit-react.css"
 import { conatinerFluid } from "../../assets/jss/material-kit-react";
 import Navigation from "../Navigation";
+import axios from "axios";
 
 
 
-class LandingPage extends React.Component {
+class LandingPage extends Component {
+  state = {
+    user: []
+  };
+
+  componentDidMount() {
+    // console.log(this.props.location.state.username);
+    let token = sessionStorage.getItem("token");
+    axios.get("/api/users/current", {
+      headers: {
+        'Content-Type': "application/json",
+        'Authorization': "Token " + token
+      }
+    }).then(response => {
+      console.log(response);
+      this.setState({
+        user: response.data.user
+      });
+      console.log(this.state.user)
+    })
+  };
+
   render() {
     const {classes} = this.props;
+    // const {username} = this.state.user;
     return (
       <nav className="bg">
-              <Navigation></Navigation>
+              <Navigation>{this.state.user.username}</Navigation>
           <div className={classes.container}>
             <GridContainer >
               <GridItem className="col-12">

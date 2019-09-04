@@ -38,7 +38,8 @@ class Show extends Component {
   render() {
     return (
       <div id="show-route" className="container-fluid">
-        <Navigation/>
+        {/*<Navigation username={this.props.location.state.username}/>*/}
+        <Navigation>{this.props.location.state.username}</Navigation>
         <div className="row">
           <div className="col-md-9">
             <Youtube/>

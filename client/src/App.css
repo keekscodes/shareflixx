@@ -48,6 +48,7 @@
 html, body * {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    /*height: 100%;*/
     /* background: black; */
 }
 
@@ -319,7 +320,7 @@ label {
 }
 
 .form-signin input:focus, textarea:focus, .form-signup input:focus, textarea:focus {
-    background: rgba(255, 255, 255, .3); 
+    background: rgba(255, 255, 255, .3);
     border: none;
     padding-right: 40px;
     transition: background .5s ease;
@@ -372,7 +373,7 @@ label {
 
 /* on checked */
 [type="checkbox"]:checked + label:before {
-     background: #0F4FE6; 
+     background: #0F4FE6;
 }
 
 [type="checkbox"]:checked + label:after {
