@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Logo from '../Logo/navWht.png';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import "./style.css";
 
 class Navigation extends Component {
@@ -14,7 +14,7 @@ class Navigation extends Component {
   };
 
   render() {
-    const {pathname} = window.location;
+    // const {pathname} = window.location;
     let token = sessionStorage.getItem("token");
     return (
       <div className="navbar navbar-expand-lg">
