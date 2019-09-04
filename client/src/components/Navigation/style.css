@@ -24,6 +24,11 @@
     background-color: #dddddd;
 }
 
+.dropdown-menu-right.show {
+    position: relative;
+    left: -80px !important;
+}
+
 .dropdown-item {
     padding: 1.25em 1.5em;
 }
