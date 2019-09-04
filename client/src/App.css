@@ -48,7 +48,7 @@
 html, body * {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    background: black;
+    /* background: black; */
 }
 
 #entrance {
@@ -680,6 +680,7 @@ a.btn-goback:hover {
     overflow: hidden;
 }
 
+
 .fa-sync-alt,
 .fa-sync-alt::before {
     background: white !important;
@@ -709,3 +710,6 @@ a.btn-goback:hover {
     background-color: white;
 }
 
+#login-page {
+    background-color: black;
+}

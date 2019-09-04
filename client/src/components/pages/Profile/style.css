@@ -1,6 +1,8 @@
 body {
-    background: #ffffff;
+    background: black;
+    color: white;
 }
+
 
 h1 {
     font-family: 'Roboto', sans-serif;
@@ -11,7 +13,25 @@ h1 {
 }
 
 h2 {
-  color: #ffffff;
   font-family: 'Roboto', sans-serif;
   font-weight: 100
+}
+
+.nav-link {
+  color: white;
+}
+
+
+.nav-tabs .nav-link.active {
+  color: white;
+  background: black;
+  border-bottom: 1px solid white;
+  /* border-bottom-color: white; */
+
+}
+.nav-tabs a:hover,
+.nav-link.active a:hover {
+  color: white;
+  background: black;
+
 }
