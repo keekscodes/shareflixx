@@ -1,5 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import Navigation from "../Navigation/index";
+
 
 function LoginForm (props) {
   const {active, username, handleInputChange, password, loginSubmit, spinner} = props;
@@ -15,7 +17,7 @@ function LoginForm (props) {
         <label htmlFor="checkbox"><span className="ui"/>Keep me signed in</label>
         <div className="btn-animate">
           {/* <Link to="/show" className="btn-signin btn-danger" onClick={loginSubmit}>{loggedIn ? <i class="fas fa-spinner fa-spin"/> : "Sign In"}</Link> */}
-          <Link to="/show" className="btn-signin btn-danger" onClick={loginSubmit}>{spinner ? <i className="fas fa-spinner fa-spin"/> : "Sign In"}</Link>
+          <Link to="/show" className="btn-signin" onClick={loginSubmit}>{spinner ? <i className="fas fa-spinner fa-spin"/> : "Sign In"}</Link>
         </div>
         <a href="/login" className="pw">Forgot your password?</a>
       </form>
@@ -23,3 +25,4 @@ function LoginForm (props) {
 }
 
 export default LoginForm;
+

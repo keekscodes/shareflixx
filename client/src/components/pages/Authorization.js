@@ -3,6 +3,7 @@ import {Redirect} from "react-router-dom"
 import axios from 'axios';
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
+import Navigation from "../Navigation/index";
 
 class Authorization extends Component {
   state = {
@@ -127,14 +128,17 @@ class Authorization extends Component {
   render() {
     const {firstName, lastName, username, email, password, active, spinner} = this.state;
     return (
+      <div className="containter-fluid" id="login-page">
+        <Navigation />
+     
       <div className="container">
         <div className={this.state.active ? "frame frame-short" : "frame frame-long"}>
-          <div className={this.state.active ? "nav" : "nav"}>
-            <ul className="links">
-              <li className={this.state.active ? "signin-active" : "signin-inactive"}>
+          <div className={this.state.active ? "top" : "top"}>
+            <ul className="links" id="ul-link">
+              <li className={this.state.active ? "signin-active" : "signin-inactive"} id="form-bg">
                 <span
                       onClick={this.handleClick}
-                      style={{width: "auto"}}> <i className="fas fa-sync-alt"/>
+                      style={{width: "auto"}}> <i className="fas fa-sync-alt" id="arrow-sync"/>
                 </span>
               </li>
             </ul>
@@ -166,6 +170,7 @@ class Authorization extends Component {
             )}
           </div>
         </div>
+      </div>
       </div>
     );
   }

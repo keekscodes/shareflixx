@@ -45,6 +45,12 @@
 /*    background: #eee;*/
 /*}*/
 
+html, body * {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    background: black;
+}
+
 #entrance {
     height: 610px;
     overflow: auto;
@@ -63,6 +69,15 @@
 /*#user {*/
 /*    height: 100vh;*/
 /*}*/
+.form {
+    background-color: white;
+}
+
+.top {
+    background-color: white;
+    color: black;
+    padding-top: 40px;
+}
 
 .msg {
     width: 100%;
@@ -74,40 +89,19 @@
     /*margin: 20px;*/
 }
 
-html, body * {
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-}
-
-
-/* body {
-    background: linear-gradient(
-            rgba(246, 247, 249, 0.8),
-            rgba(246, 247, 249, 0.8)),
-    url(https://dl.dropboxusercontent.com/u/22006283/preview/codepen/sky-clouds-cloudy-mountain.jpg) no-repeat center center fixed;
-    background-size: cover;
-} */
 
 .container {
     width: 100%;
     padding-top: 60px;
     padding-bottom: 100px;
-    /* background-image: url(../src/assets/img/film.jpg); */
     background-size: cover;
     overflow: hidden;
-
 }
 
 .frame {
     height: 575px;
     width: 450px;
-    /* background: linear-gradient(
-            rgba(35, 43, 85, 0.75),
-            rgba(35, 43, 85, 0.95)); */
-    background: -webkit-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #a90329 0%, #8f0222 44%, #6d0019 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a90329', endColorstr='#6d0019', GradientType=0); /* IE6-9 */
-
+    background-color: white;
     background-size: cover;
     margin-left: auto;
     margin-right: auto;
@@ -120,12 +114,14 @@ html, body * {
 
 .frame-long {
     height: 635px;
+    background-color: white;
 }
 
 .frame-short {
     height: 500px;
     margin-top: 50px;
-    box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.1); */
+    background-color: white;
 }
 
 .nav {
@@ -152,38 +148,43 @@ li {
     color: #ffffff;
 }
 
-.signin-active a {
-    padding-bottom: 10px;
-    color: #ffffff;
-    text-decoration: none;
-    border-bottom: solid 2px #1059FF;
-    transition: all .25s ease;
-    cursor: pointer;
+#arrow-sync {
+    color: black;
 }
 
+.signin-active a {
+    padding-bottom: 10px;
+    /* color: #ffffff; */
+    text-decoration: none;
+    transition: all .25s ease;
+    cursor: pointer;
+    background-color: white;
+}
+
+.links {
+    background-color: white;
+    color: black;
+
+}
 .signin-inactive a {
     padding-bottom: 0;
-    /* color: rgba(255, 255, 255, .3); */
-    background: -webkit-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #a90329 0%, #8f0222 44%, #6d0019 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a90329', endColorstr='#6d0019', GradientType=0); /* IE6-9 */
-
     text-decoration: none;
     border-bottom: none;
     cursor: pointer;
+    color: black;
+    background-color: white;
 }
 
 .signup-active a {
     cursor: pointer;
-    color: #ffffff;
+    background-color: white;
     text-decoration: none;
-    border-bottom: solid 2px #1059FF;
     padding-bottom: 10px;
 }
 
 .signup-inactive a {
     cursor: pointer;
-    color: rgba(255, 255, 255, .3);
+    /* color: rgba(255, 255, 255, .3); */
     text-decoration: none;
     transition: all .25s ease;
 }
@@ -197,6 +198,7 @@ li {
     padding-right: 37px;
     padding-top: 30px;
     transition: opacity .5s ease, transform .5s ease;
+    background-color: white;
 }
 
 .form-signin-left {
@@ -217,6 +219,7 @@ li {
     /* left: 400px; */
     opacity: 0;
     transition: all .5s ease;
+    background-color: white;
 }
 
 .form-signup-left {
@@ -227,8 +230,12 @@ li {
 .form-signup-down {
     top: 0px;
     opacity: 0;
+    background-color: white;
 }
 
+#ul-link {
+    background-color: white;
+}
 .success {
     width: 80%;
     height: 150px;
@@ -272,10 +279,13 @@ li {
 
 .form-signin-down {
     padding: 0px 30px;
+background-color: white;
 }
 
 .form-signin input, .form-signup input, .form-signin-down input {
-    color: #ffffff;
+    /* color: #ffffff; */
+    color: black;
+    background-color: white;
     font-size: 13px;
 }
 
@@ -287,6 +297,7 @@ li {
     border-radius: 20px;
     margin-bottom: 20px;
     background: rgba(255, 255, 255, .2);
+    background-color: white;
 
 }
 
@@ -297,8 +308,10 @@ label {
     font-size: 13px;
     padding-left: 15px;
     padding-bottom: 10px;
-    color: rgba(255, 255, 255, .7);
+    /* color: rgba(255, 255, 255, .7); */
+    /* color: black; */
     display: block;
+    background: white;
 }
 
 :focus {
@@ -306,8 +319,7 @@ label {
 }
 
 .form-signin input:focus, textarea:focus, .form-signup input:focus, textarea:focus {
-    background: rgba(255, 255, 255, .3);
-
+    background: rgba(255, 255, 255, .3); 
     border: none;
     padding-right: 40px;
     transition: background .5s ease;
@@ -360,7 +372,7 @@ label {
 
 /* on checked */
 [type="checkbox"]:checked + label:before {
-    background: #0F4FE6;
+     background: #0F4FE6; 
 }
 
 [type="checkbox"]:checked + label:after {
@@ -411,7 +423,7 @@ label {
     border: none;
     border-radius: 20px;
     margin-top: 23px;
-    /* background-color: #1059FF; */
+    background-color: black;
 
 }
 
@@ -423,6 +435,9 @@ label {
     border: none;
     border-radius: 20px;
     margin-top: -8px;
+    background-color: black;
+    color: white;
+
 }
 
 .btn-animate {
@@ -431,14 +446,13 @@ label {
     text-transform: uppercase;
     font-size: 13px;
     text-align: center;
-    color: rgba(255, 255, 255, 1);
+    /* color: rgba(255, 255, 255, 1); */
     padding-top: 8px;
     width: 100%;
     height: 35px;
     border: none;
     border-radius: 20px;
     margin-top: 23px;
-    background-color: rgba(16, 89, 255, 1);
     left: 0px;
     top: 0px;
     transition: all .5s ease, top .5s ease .5s, height .5s ease .5s, background-color .5s ease .75s;
@@ -481,6 +495,10 @@ label {
     font-weight: 400;
     font-size: 13px;
     text-decoration: none;
+}
+
+a.pw:hover {
+    color: black;
 }
 
 .pw {
@@ -540,13 +558,13 @@ label {
 }
 
 #tg-btn {
-    background-color: #dc3545;
+    background-color: white;
     cursor: pointer;
 }
 
 #tg-btn:hover {
-    background: black;
-    color: white;
+    background: white;
+    color: black;
 }
 
 
@@ -608,9 +626,9 @@ h3 {
     text-transform: uppercase;
     font-size: 13px;
     text-align: center;
-    color: #1059FF;
+    /* color: #1059FF; */
     margin-top: -8px;
-    border: solid 1px #1059FF;
+    /* border: solid 1px #1059FF; */
     opacity: 0;
     transition: top 1.5s ease 0.35s, opacity .75s ease .5s;
 }
@@ -622,7 +640,7 @@ h3 {
 
 a.btn-goback:hover {
     cursor: pointer;
-    background-color: #0F4FE6;
+    /* background-color: #0F4FE6; */
     transition: all .5s;
     color: #ffffff;
 }
@@ -642,14 +660,14 @@ a.btn-goback:hover {
 }
 
 .refreshicon {
-    fill: #d3d3d3;
+    /* fill: #d3d3d3; */
     transform: rotate(0deg);
     transition: fill .25s ease, transform .25s ease;
 }
 
 .refreshicon:hover {
     cursor: pointer;
-    fill: #1059FF;
+    /* fill: #1059FF; */
     transform: rotate(180deg);
 }
 
@@ -662,13 +680,16 @@ a.btn-goback:hover {
     overflow: hidden;
 }
 
-.fa-sync-alt {
-    color: black;
+.fa-sync-alt,
+.fa-sync-alt::before {
+    background: white !important;
+    border: none;
 }
 
 .fa-sync-alt:hover {
     cursor: pointer;
-    color: orange;
+    background: white;
+    border: none;
 }
 
 
@@ -679,7 +700,12 @@ a.btn-goback:hover {
 }
 
 
-#message-form {
-    /*border: 2px solid red;*/
+/*#message-form {
+    border: 2px solid red;
+}*/
+
+
+#form-bg {
+    background-color: white;
 }
 
