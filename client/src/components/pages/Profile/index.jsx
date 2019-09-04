@@ -131,7 +131,7 @@ class Profile extends Component {
                           <label htmlFor="id" className="label-item">Id:</label>
                         </div>
                         <div className="col-md-6">
-                          <input className="form-inp" type="text" name="id" placeholder={_id} disabled/>
+                          <input className="form-inp disabledId" type="text" name="id" placeholder={_id} disabled/>
                         </div>
                       </div>
                       <div className="row">
@@ -166,7 +166,7 @@ class Profile extends Component {
                           <input type="text" name="username" placeholder={username} className="form-inp" value={this.state.username} onChange={this.handleChange}/>
                         </div>
                       </div>
-                      <button className="btn btn-success">Update Profile</button>
+                      <button className="btn btn-success mt-3" style={{width: "100%", padding: "10px", fontSize: "24px"}}>Update Profile</button>
                     </div>
                   )
                   : <h2>Sorry, you are not authorized to view this page. Please sign in to view your profile.</h2>}

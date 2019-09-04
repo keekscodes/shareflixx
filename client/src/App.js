@@ -9,7 +9,6 @@ import Authorization from "./components/pages/Authorization";
 import LandingPage from "./components/pages/LandingPage";
 import Navigation from "./components/Navigation/index";
 import Profile from "./components/pages/Profile/index";
-import axios from "axios";
 // import Dummy from "./components/pages/DummyPage";
 // import Footer from "./components/Footer";
 
