@@ -9,7 +9,7 @@ import Authorization from "./components/pages/Authorization";
 import LandingPage from "./components/pages/LandingPage";
 import Navigation from "./components/Navigation/index";
 import Profile from "./components/pages/Profile/index";
-import Dummy from "./components/pages/DummyPage";
+// import Dummy from "./components/pages/DummyPage";
 // import Footer from "./components/Footer";
 
 class App extends Component {
@@ -24,7 +24,6 @@ class App extends Component {
             <Route exact path="/show" component={Show}/>
             <Route exact path="/youtube" component={Youtube}/>
             <Route exact path="/nav" component={Navigation}/>
-            <Route exact path="/dummy" component={Dummy}/>
             <Route path="/profile" component={Profile}/>
 
           </Switch>

@@ -37,83 +37,154 @@
 
 // export default Profile;
 
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Navigation from "../../Navigation/index";
-import { MDBContainer, MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink } from "mdbreact";
+import {MDBContainer, MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink} from "mdbreact";
+import axios from "axios";
 import "./style.css";
 
-  class Profile extends Component {
-    state = {
-      activeItem: "1"
-    };
+class Profile extends Component {
+  state = {
+    activeItem: "1",
+    firstName: "",
+    lastName: "",
+    email: "",
+    username: "",
+    user: []
+  };
 
-    toggle = tab => e => {
-      if (this.state.activeItem !== tab) {
-        this.setState({
-          activeItem: tab
-        });
+
+  componentDidMount() {
+    // console.log(this.props.location.state.username);
+    let token = sessionStorage.getItem("token");
+    axios.get("/api/users/current", {
+      headers: {
+        'Content-Type': "application/json",
+        'Authorization': "Token " + token
       }
-    };
+    }).then(response => {
+      console.log(response);
+      this.setState({
+        user: response.data.user
+      });
+      console.log(this.state.user)
+    })
+  }
 
-    render() {
-      return (
-        <div className="container-fluid">
-          <Navigation />
+  handleChange = (e) => {
+    const {name, value} = e.target;
+    this.setState({
+      [name]: value
+    })
+  };
+
+  toggle = tab => e => {
+    if (this.state.activeItem !== tab) {
+      this.setState({
+        activeItem: tab
+      });
+    }
+  };
+
+  render() {
+    let token = sessionStorage.getItem("token");
+
+    const {email, firstName, lastName, username, _id} = this.state.user;
+    return (
+      <div className="container-fluid">
+        {/*<Navigation user={this.state.user}/>*/}
+        <Navigation>{username}</Navigation>
         <MDBContainer>
           <section>
             <h2 className="border-bottom border-dark">Manage Your Account</h2>
           </section>
-        <MDBNav className="nav-tabs mt-5">
-          <MDBNavItem >
-            <MDBNavLink to="#" active={this.state.activeItem === "1"} onClick={this.toggle("1")} role="tab" >
-              Settings
-            </MDBNavLink>
-          </MDBNavItem>
-          <MDBNavItem>
-            <MDBNavLink to="#" active={this.state.activeItem === "2"} onClick={this.toggle("2")} role="tab" >
-              Profile
-            </MDBNavLink>
-          </MDBNavItem>
-        </MDBNav>
-        <MDBTabContent activeItem={this.state.activeItem} >
-          <MDBTabPane tabId="1" role="tabpanel">
-            <p className="mt-2">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Nihil odit magnam minima, soluta doloribus reiciendis
-              molestiae placeat unde eos molestias. Quisquam aperiam,
-              pariatur. Tempora, placeat ratione porro voluptate odit
-              minima.
-            </p>
-          </MDBTabPane>
-          <MDBTabPane tabId="2" role="tabpanel">
-            <p className="mt-2">
-              Quisquam aperiam, pariatur. Tempora, placeat ratione porro
-              voluptate odit minima. Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit. Nihil odit magnam minima,
-              soluta doloribus reiciendis molestiae placeat unde eos
-              molestias.
-            </p>
-            <p>
-              Quisquam aperiam, pariatur. Tempora, placeat ratione porro
-              voluptate odit minima. Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit. Nihil odit magnam minima,
-              soluta doloribus reiciendis molestiae placeat unde eos
-              molestias.
-            </p>
-          </MDBTabPane>
-          <MDBTabPane tabId="3" role="tabpanel">
-            <p className="mt-2">
-              Quisquam aperiam, pariatur. Tempora, placeat ratione porro
-              voluptate odit minima. Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit. Nihil odit magnam minima,
-              soluta doloribus reiciendis molestiae placeat unde eos
-              molestias.
-            </p>
-          </MDBTabPane>
-        </MDBTabContent>
-      </MDBContainer>
+          <MDBNav className="nav-tabs mt-5">
+            <MDBNavItem>
+              <MDBNavLink to="#" active={this.state.activeItem === "1"} onClick={this.toggle("1")} role="tab">
+                Settings
+              </MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink to="#" active={this.state.activeItem === "2"} onClick={this.toggle("2")} role="tab">
+                Profile
+              </MDBNavLink>
+            </MDBNavItem>
+          </MDBNav>
+          <MDBTabContent activeItem={this.state.activeItem}>
+            <MDBTabPane tabId="1" role="tabpanel">
+              {
+                token ?
+                  <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquam amet animi autem
+                    consequatur dolorem facere impedit magnam nobis non quam quidem quos recusandae saepe sunt tempora,
+                    ullam voluptatibus voluptatum?</h3>
+                  : <h2>Sorry, you are not authorized to view this page. Please sign in to view your profile.</h2>}
+
+            </MDBTabPane>
+            <MDBTabPane tabId="2" role="tabpanel">
+              {
+                token ?
+                  (
+                    <div className="container">
+                        <h3>Edit your profile:</h3>
+                      <div className="row">
+                        <div className="col-md-6">
+                          <label htmlFor="id" className="label-item">Id:</label>
+                        </div>
+                        <div className="col-md-6">
+                          <input className="form-inp disabledId" type="text" name="id" placeholder={_id} disabled/>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col-md-6">
+                          <label htmlFor="firstName" className="label-item">First Name:</label>
+                        </div>
+                        <div className="col-md-6">
+                          <input type="text" name="firstName" className="form-inp" placeholder={firstName} value={this.state.firstName} onChange={this.handleChange}/>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col-md-6">
+                          <label htmlFor="lastName" className="label-item">Last Name:</label>
+                        </div>
+                        <div className="col-md-6">
+                          <input type="text" name="lastName" className="form-inp" placeholder={lastName} value={this.state.lastName} onChange={this.handleChange}/>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col-md-6">
+                          <label htmlFor="email" className="label-item">Email Address:</label>
+                        </div>
+                        <div className="col-md-6">
+                          <input type="text" name="email" placeholder={email} className="form-inp" value={this.state.email} onChange={this.handleChange}/>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col-md-6">
+                          <label htmlFor="username" className="label-item">Username (Nickname):</label>
+                        </div>
+                        <div className="col-md-6">
+                          <input type="text" name="username" placeholder={username} className="form-inp" value={this.state.username} onChange={this.handleChange}/>
+                        </div>
+                      </div>
+                      <button className="btn btn-success mt-3" style={{width: "100%", padding: "10px", fontSize: "24px"}}>Update Profile</button>
+                    </div>
+                  )
+                  : <h2>Sorry, you are not authorized to view this page. Please sign in to view your profile.</h2>}
+            </MDBTabPane>
+            <MDBTabPane tabId="3" role="tabpanel">
+              <p className="mt-2">
+                Quisquam aperiam, pariatur. Tempora, placeat ratione porro
+                voluptate odit minima. Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit. Nihil odit magnam minima,
+                soluta doloribus reiciendis molestiae placeat unde eos
+                molestias.
+              </p>
+            </MDBTabPane>
+          </MDBTabContent>
+        </MDBContainer>
       </div>
     );
   }
 }
+
 export default Profile;
