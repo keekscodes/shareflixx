@@ -111,4 +111,16 @@ router.get('/current', auth.required, (req, res, next) => {
     });
 });
 
+router.post("/profile", auth.required, (req,res,next) => {
+  const {payload: {id}} = req;
+  const {firstName, lastName, email, username} = req.body;
+  console.log(req);
+  return Users.findById(id).update({firstName, lastName, email, username}).then((user) => {
+    if (!user) {
+      return res.sendStatus(400);
+    }
+    return res.json({user: user.toAuthJSON()});
+  });
+});
+
 module.exports = router;
