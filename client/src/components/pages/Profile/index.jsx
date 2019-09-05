@@ -103,6 +103,8 @@ class Profile extends Component {
       console.log(res);
       // return res.json()
     });
+
+    window.location.reload();
   };
 
   toggle = tab => e => {
@@ -112,6 +114,7 @@ class Profile extends Component {
       });
     }
   };
+  //swap sections
 
   render() {
     let token = sessionStorage.getItem("token");
@@ -128,26 +131,18 @@ class Profile extends Component {
           <MDBNav className="nav-tabs mt-5">
             <MDBNavItem>
               <MDBNavLink to="#" active={this.state.activeItem === "1"} onClick={this.toggle("1")} role="tab">
-                Settings
+                Profile
               </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
               <MDBNavLink to="#" active={this.state.activeItem === "2"} onClick={this.toggle("2")} role="tab">
-                Profile
+                Settings
               </MDBNavLink>
             </MDBNavItem>
           </MDBNav>
           <MDBTabContent activeItem={this.state.activeItem}>
             <MDBTabPane tabId="1" role="tabpanel">
-              {
-                token ?
-                  <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquam amet animi autem
-                    consequatur dolorem facere impedit magnam nobis non quam quidem quos recusandae saepe sunt tempora,
-                    ullam voluptatibus voluptatum?</h3>
-                  : <h2>Sorry, you are not authorized to view this page. Please sign in to view your profile.</h2>}
 
-            </MDBTabPane>
-            <MDBTabPane tabId="2" role="tabpanel">
               {
                 token ?
                   (
@@ -204,6 +199,10 @@ class Profile extends Component {
                     </div>
                   )
                   : <h2>Sorry, you are not authorized to view this page. Please sign in to view your profile.</h2>}
+            </MDBTabPane>
+            <MDBTabPane tabId="2" role="tabpanel">
+
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam eaque error hic itaque nulla optio quae recusandae repudiandae suscipit ut. Amet, similique temporibus. Ea in magni, nesciunt quis similique temporibus.
             </MDBTabPane>
             <MDBTabPane tabId="3" role="tabpanel">
               <p className="mt-2">
