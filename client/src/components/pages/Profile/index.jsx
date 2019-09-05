@@ -78,6 +78,33 @@ class Profile extends Component {
     })
   };
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const {firstName, lastName, email, username} = this.state;
+    let updatedData;
+    updatedData = {
+      firstName,
+      lastName,
+      email,
+      username
+    };
+
+    let token = sessionStorage.getItem("token");
+
+
+    let headers = {
+      'Content-Type': "application/json",
+      'Authorization': "Token " + token
+    };
+
+    axios.post("/api/users/profile", updatedData, {
+      headers: headers
+    }).then(res => {
+      console.log(res);
+      // return res.json()
+    });
+  };
+
   toggle = tab => e => {
     if (this.state.activeItem !== tab) {
       this.setState({
@@ -125,7 +152,7 @@ class Profile extends Component {
                 token ?
                   (
                     <div className="container">
-                        <h3>Edit your profile:</h3>
+                      <h3>Edit your profile:</h3>
                       <div className="row">
                         <div className="col-md-6">
                           <label htmlFor="id" className="label-item">Id:</label>
@@ -139,7 +166,8 @@ class Profile extends Component {
                           <label htmlFor="firstName" className="label-item">First Name:</label>
                         </div>
                         <div className="col-md-6">
-                          <input type="text" name="firstName" className="form-inp" placeholder={firstName} value={this.state.firstName} onChange={this.handleChange}/>
+                          <input type="text" name="firstName" className="form-inp" placeholder={firstName}
+                                 value={this.state.firstName} onChange={this.handleChange}/>
                         </div>
                       </div>
                       <div className="row">
@@ -147,7 +175,8 @@ class Profile extends Component {
                           <label htmlFor="lastName" className="label-item">Last Name:</label>
                         </div>
                         <div className="col-md-6">
-                          <input type="text" name="lastName" className="form-inp" placeholder={lastName} value={this.state.lastName} onChange={this.handleChange}/>
+                          <input type="text" name="lastName" className="form-inp" placeholder={lastName}
+                                 value={this.state.lastName} onChange={this.handleChange}/>
                         </div>
                       </div>
                       <div className="row">
@@ -155,7 +184,8 @@ class Profile extends Component {
                           <label htmlFor="email" className="label-item">Email Address:</label>
                         </div>
                         <div className="col-md-6">
-                          <input type="text" name="email" placeholder={email} className="form-inp" value={this.state.email} onChange={this.handleChange}/>
+                          <input type="text" name="email" placeholder={email} className="form-inp"
+                                 value={this.state.email} onChange={this.handleChange}/>
                         </div>
                       </div>
                       <div className="row">
@@ -163,10 +193,14 @@ class Profile extends Component {
                           <label htmlFor="username" className="label-item">Username (Nickname):</label>
                         </div>
                         <div className="col-md-6">
-                          <input type="text" name="username" placeholder={username} className="form-inp" value={this.state.username} onChange={this.handleChange}/>
+                          <input type="text" name="username" placeholder={username} className="form-inp"
+                                 value={this.state.username} onChange={this.handleChange}/>
                         </div>
                       </div>
-                      <button className="btn btn-success mt-3" style={{width: "100%", padding: "10px", fontSize: "24px"}}>Update Profile</button>
+                      <button className="btn btn-success mt-3"
+                              style={{width: "100%", padding: "10px", fontSize: "24px"}}
+                              onClick={this.handleSubmit}>Update Profile
+                      </button>
                     </div>
                   )
                   : <h2>Sorry, you are not authorized to view this page. Please sign in to view your profile.</h2>}
