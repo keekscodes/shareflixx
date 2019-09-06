@@ -40,6 +40,7 @@ class Navigation extends Component {
                 </span>
               <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 {/*<span className="dropdown-item">Welcome, {this.props.username ? this.props.username : "User"}</span>*/}
+                <img id="profileImage" src={"https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"} alt="" height="50px" width="auto"/>
                 <span className="dropdown-item">Welcome, {this.props.children || "User"}</span>
                 <a className="dropdown-item" href="/profile">
                   Account

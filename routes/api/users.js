@@ -113,9 +113,9 @@ router.get('/current', auth.required, (req, res, next) => {
 
 router.post("/profile", auth.required, (req,res,next) => {
   const {payload: {id}} = req;
-  const {firstName, lastName, email, username} = req.body;
+  const {firstName, lastName, email, username, image} = req.body;
   console.log(req);
-  return Users.findById(id).update({firstName, lastName, email, username}).then((user) => {
+  return Users.findById(id).update({firstName, lastName, email, username, image}).then((user) => {
     if (!user) {
       return res.sendStatus(400);
     }
