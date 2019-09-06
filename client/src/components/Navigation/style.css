@@ -26,11 +26,17 @@
 
 .dropdown-menu-right.show {
     position: relative;
-    left: -80px !important;
+    left: -90px !important;
+    width: 100%;
+}
+
+.upper {
+    text-transform: uppercase;
 }
 
 .dropdown-item {
-    padding: 1.25em 1.5em;
+    padding: 1.25em 0.5em;
+    /*text-align: center;*/
 }
 
 .logoFont {
