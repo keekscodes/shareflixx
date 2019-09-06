@@ -2,19 +2,41 @@ import React, {Component} from "react";
 import Logo from '../Logo/navWht.png';
 import {Link} from 'react-router-dom';
 import "./style.css";
+import axios from "axios";
 
 class Navigation extends Component {
 
   state = {
-    pathName: ""
+    pathName: "",
+    user: []
   };
 
   logOut = () => {
     sessionStorage.removeItem("token");
   };
 
+  componentDidMount() {
+    let token = sessionStorage.getItem("token");
+
+    if (token) {
+      axios.get("/api/users/current", {
+        headers: {
+          'Content-Type': "application/json",
+          'Authorization': "Token " + token
+        }
+      }).then(res => {
+        this.setState({
+          user: res.data.user
+        })
+      });
+    }
+  }
+
+
   render() {
     // const {pathname} = window.location;
+    console.log("DATA -> ",this.state.user);
+    const {image} = this.state.user;
     let token = sessionStorage.getItem("token");
     return (
       <div className="navbar navbar-expand-lg">
@@ -40,7 +62,7 @@ class Navigation extends Component {
                 </span>
               <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 {/*<span className="dropdown-item">Welcome, {this.props.username ? this.props.username : "User"}</span>*/}
-                <img id="profileImage" src={"https://cdn0.iconfinder.com/data/icons/cyptocurrency-line/32/anonymouscryptocurrency_crypto_people-512.png"} alt="" height="50px" width="auto"/>
+                <img id="profileImage" src={image ? `${image}` : "https://cdn0.iconfinder.com/data/icons/cyptocurrency-line/32/anonymouscryptocurrency_crypto_people-512.png"} alt="" height="50px" width="auto"/>
                 <span className="dropdown-item">{this.props.children || "Welcome, User"}</span>
                 <a className="dropdown-item upper" href="/profile">
                   Account
