@@ -16,6 +16,7 @@
     color: red;
 }
 
+
 .dropdown-menu {
     padding: -20px;
 }
@@ -26,8 +27,11 @@
 
 .dropdown-menu-right.show {
     position: relative;
-    left: -90px !important;
-    width: 100%;
+    left: -125px !important;
+    width: 200px;
+    padding: 10px;
+    background-color: black;
+    border: 1px solid white;
 }
 
 .upper {
@@ -36,7 +40,7 @@
 
 .dropdown-item {
     padding: 1.25em 0.5em;
-    /*text-align: center;*/
+    color: white;
 }
 
 .logoFont {
@@ -52,4 +56,5 @@
     border-radius: 50%;
     display: block;
     margin: 0 auto;
+    border: 2px solid white;
 }
