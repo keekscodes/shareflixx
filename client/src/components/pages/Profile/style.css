@@ -1,0 +1,51 @@
+body {
+    background: black;
+    color: white;
+}
+
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100
+}
+.dropdown-item a:hover {
+  background-color: grey;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100
+}
+
+.nav-link {
+  color: white;
+}
+
+
+.nav-tabs .nav-link.active {
+  color: white;
+  background: black;
+  border-bottom: 1px solid white;
+  /* border-bottom-color: white; */
+
+}
+.nav-tabs a:hover,
+.nav-link.active a:hover {
+  color: white;
+  background: black;
+
+}
+
+.form-inp {
+    width: 100%;
+}
+
+.label-item {
+    background-color: black;
+    font-size: 24px;
+}
+
+
+.disabledId {
+    cursor: not-allowed;
+}
