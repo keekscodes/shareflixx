@@ -35,7 +35,7 @@ class Navigation extends Component {
 
   render() {
     // const {pathname} = window.location;
-    console.log("DATA -> ",this.state.user);
+    // console.log("DATA -> ",this.state.user);
     const {image} = this.state.user;
     let token = sessionStorage.getItem("token");
     return (
@@ -62,8 +62,9 @@ class Navigation extends Component {
                 </span>
               <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 {/*<span className="dropdown-item">Welcome, {this.props.username ? this.props.username : "User"}</span>*/}
-                <img id="profileImage" src={image ? `${image}` : "https://cdn0.iconfinder.com/data/icons/cyptocurrency-line/32/anonymouscryptocurrency_crypto_people-512.png"} alt="" height="50px" width="auto"/>
+                <img id="profileImage" className="mb-2" src={image ? `${image}` : "https://cdn0.iconfinder.com/data/icons/cyptocurrency-line/32/anonymouscryptocurrency_crypto_people-512.png"} alt="" height="50px" width="auto"/>
                 <span className="dropdown-item">{this.props.children || "Welcome, User"}</span>
+                <a href="/" className="dropdown-item upper">Home</a>
                 <a className="dropdown-item upper" href="/profile">
                   Account
                 </a>
