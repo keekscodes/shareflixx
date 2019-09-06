@@ -50,6 +50,7 @@ class Profile extends Component {
     lastName: "",
     email: "",
     username: "",
+    image: "",
     user: []
   };
 
@@ -80,13 +81,14 @@ class Profile extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const {firstName, lastName, email, username} = this.state;
+    const {firstName, lastName, email, username, image} = this.state;
     let updatedData;
     updatedData = {
       firstName,
       lastName,
       email,
-      username
+      username,
+      image
     };
 
     let token = sessionStorage.getItem("token");
@@ -114,12 +116,13 @@ class Profile extends Component {
       });
     }
   };
+
   //swap sections
 
   render() {
     let token = sessionStorage.getItem("token");
 
-    const {email, firstName, lastName, username, _id} = this.state.user;
+    const {email, firstName, lastName, username, _id, image} = this.state.user;
     return (
       <div className="container-fluid">
         {/*<Navigation user={this.state.user}/>*/}
@@ -192,6 +195,15 @@ class Profile extends Component {
                                  value={this.state.username} onChange={this.handleChange}/>
                         </div>
                       </div>
+                      <div className="row">
+                        <div className="col-md-6">
+                          <label htmlFor="image" className="label-item">Image (URL):</label>
+                        </div>
+                        <div className="col-md-6">
+                          <input type="text" name="image" placeholder={image} className="form-inp"
+                                 value={this.state.image} onChange={this.handleChange}/>
+                        </div>
+                      </div>
                       <button className="btn btn-success mt-3"
                               style={{width: "100%", padding: "10px", fontSize: "24px"}}
                               onClick={this.handleSubmit}>Update Profile
@@ -202,7 +214,9 @@ class Profile extends Component {
             </MDBTabPane>
             <MDBTabPane tabId="2" role="tabpanel">
 
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam eaque error hic itaque nulla optio quae recusandae repudiandae suscipit ut. Amet, similique temporibus. Ea in magni, nesciunt quis similique temporibus.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam eaque error hic itaque nulla optio quae
+              recusandae repudiandae suscipit ut. Amet, similique temporibus. Ea in magni, nesciunt quis similique
+              temporibus.
             </MDBTabPane>
             <MDBTabPane tabId="3" role="tabpanel">
               <p className="mt-2">
