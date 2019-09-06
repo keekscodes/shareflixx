@@ -153,6 +153,10 @@ li {
     color: black;
 }
 
+#arrow-sync:hover {
+    color: red;
+}
+
 .signin-active a {
     padding-bottom: 10px;
     /* color: #ffffff; */
@@ -381,7 +385,7 @@ label {
 
 /* on checked */
 [type="checkbox"]:checked + label:before {
-     background: #0F4FE6;
+     background: red;
 }
 
 [type="checkbox"]:checked + label:after {
@@ -436,6 +440,14 @@ label {
 
 }
 
+.btn-signup:visited {
+    color: white;
+}
+
+.btn-signup:hover {
+    color: red;
+}
+
 .btn-signin {
     float: left;
     padding-top: 8px;
@@ -447,6 +459,14 @@ label {
     background-color: black;
     color: white;
 
+}
+
+.btn-signin:visited {
+    color: white;
+}
+
+.btn-signin:hover {
+    color: red;
 }
 
 .btn-animate {
@@ -722,3 +742,6 @@ a.btn-goback:hover {
 #login-page {
     background-color: black;
 }
+
+
+
