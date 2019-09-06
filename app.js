@@ -39,7 +39,8 @@ app.get('*', (request, response) => {
 	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 //Configure Mongoose
-mongoose.connect('mongodb://user:sharefliXX2019@ds219078.mlab.com:19078/heroku_ck5c5l5m', {useNewUrlParser: true});
+// mongoose.connect('mongodb://user:sharefliXX2019@ds219078.mlab.com:19078/heroku_ck5c5l5m', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost/shareflix', {useNewUrlParser: true});
 mongoose.set('debug', true);
 
 //Models & routes
