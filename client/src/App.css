@@ -771,7 +771,7 @@ a.btn-goback:hover {
     background-color: white;
 }
 
-#room-search {
+.room-search {
     border: none;
     border-bottom: 2px solid red;
     width: 100%;

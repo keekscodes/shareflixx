@@ -18,7 +18,7 @@ class Room extends Component {
             <label htmlFor="roomName" className="room-styles"><span className="vert-align">Room Name:</span></label>
           </div>
           <div className="col-md">
-            <input className="room-styles" type="text" style={{width: "30%"}} name="roomName" placeholder="Enter a room name"/>
+            <input className="room-search" type="text" style={{width: "30%"}} name="roomName" placeholder="Enter a room name"/>
           </div>
         </div>
 
@@ -27,7 +27,7 @@ class Room extends Component {
             <label htmlFor="roomPass" className="room-styles"><span className="vert-align">Room Password:</span></label>
           </div>
           <div className="col-md">
-            <input type="password" className="room-styles" style={{width: "30%"}} placeholder="Enter a password (Optional)"/>
+            <input type="password" className="room-search" style={{width: "30%"}} placeholder="Enter a password (Optional)"/>
           </div>
         </div>
 
@@ -50,7 +50,7 @@ class Room extends Component {
           </div>
           <div className="row">
             <div className="col-md-12">
-              <input type="text" placeholder="Search by room name" className="mb-3" id="room-search"/>
+              <input type="text" placeholder="Search by room name" className="mb-3 room-search"/>
             </div>
             <div className="col-md-4">
               <div className="red"><button className="btn-dark" style={{position: "absolute", height: "50px", width: "350px", top: "150px"}}>Join room</button></div>
