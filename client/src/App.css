@@ -171,6 +171,7 @@ li {
     color: black;
 
 }
+
 .signin-inactive a {
     padding-bottom: 0;
     text-decoration: none;
@@ -241,6 +242,7 @@ li {
 #ul-link {
     background-color: white;
 }
+
 .success {
     width: 80%;
     height: 150px;
@@ -385,7 +387,7 @@ label {
 
 /* on checked */
 [type="checkbox"]:checked + label:before {
-     background: red;
+    background: red;
 }
 
 [type="checkbox"]:checked + label:after {
@@ -744,4 +746,42 @@ a.btn-goback:hover {
 }
 
 
+.room-styles {
+    background-color: black;
+    color: white;
+}
 
+.vert-align {
+    vertical-align: center;
+    font-size: 24px;
+}
+
+
+.border-color {
+    background-color: white;
+    height: 100px;
+    width: 300px;
+}
+
+
+.red {
+    position: relative;
+    height: 200px;
+    width: 350px;
+    background-color: white;
+}
+
+.room-search {
+    border: none;
+    border-bottom: 2px solid red;
+    width: 100%;
+    background: transparent;
+    color: white;
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+
+textarea, select, input, button {
+    outline: none !important;
+    box-shadow: none !important;
+}
