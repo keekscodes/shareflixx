@@ -777,4 +777,5 @@ a.btn-goback:hover {
     background: transparent;
     color: white;
     font-size: 18px;
+    padding-bottom: 10px;
 }
