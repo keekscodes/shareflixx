@@ -745,3 +745,13 @@ a.btn-goback:hover {
 
 
 
+.room-styles {
+    background-color: black;
+    color: white;
+}
+
+.vert-align {
+    vertical-align: center;
+    font-size: 24px;
+}
+
