@@ -42,6 +42,26 @@ class Room extends Component {
               <p>* Please note that an id and a link will be automatically generated for you to copy and send to your person of choice.</p>
             </div>
           </div>
+        <hr style={{background: "white"}}/>
+          <div className="row text-center">
+            <div className="col-md">
+              <h2>Join an existing room</h2>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <input type="text" placeholder="Search by room name" className="mb-3" id="room-search"/>
+            </div>
+            <div className="col-md-4">
+              <div className="red"></div>
+            </div>
+            <div className="col-md-4">
+              <div className="red"></div>
+            </div>
+            <div className="col-md-4">
+              <div className="red"></div>
+            </div>
+          </div>
         </div>
       </div>
     );

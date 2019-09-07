@@ -755,3 +755,26 @@ a.btn-goback:hover {
     font-size: 24px;
 }
 
+
+
+.border-color {
+    background-color: white;
+    height: 100px;
+    width: 300px;
+}
+
+
+.red {
+    height: 200px;
+    width: 350px;
+    background-color: white;
+}
+
+#room-search {
+    border: none;
+    border-bottom: 2px solid red;
+    width: 100%;
+    background: transparent;
+    color: white;
+    font-size: 18px;
+}
