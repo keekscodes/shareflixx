@@ -53,13 +53,13 @@ class Room extends Component {
               <input type="text" placeholder="Search by room name" className="mb-3" id="room-search"/>
             </div>
             <div className="col-md-4">
-              <div className="red"></div>
+              <div className="red"><button className="btn-dark" style={{position: "absolute", height: "50px", width: "350px", top: "150px"}}>Join room</button></div>
             </div>
             <div className="col-md-4">
-              <div className="red"></div>
+              <div className="red"><button className="btn-dark" style={{position: "absolute", height: "50px", width: "350px", top: "150px"}}>Join room</button></div>
             </div>
             <div className="col-md-4">
-              <div className="red"></div>
+              <div className="red"><button className="btn-dark" style={{position: "absolute", height: "50px", width: "350px", top: "150px"}}>Join room</button></div>
             </div>
           </div>
         </div>

@@ -171,6 +171,7 @@ li {
     color: black;
 
 }
+
 .signin-inactive a {
     padding-bottom: 0;
     text-decoration: none;
@@ -241,6 +242,7 @@ li {
 #ul-link {
     background-color: white;
 }
+
 .success {
     width: 80%;
     height: 150px;
@@ -385,7 +387,7 @@ label {
 
 /* on checked */
 [type="checkbox"]:checked + label:before {
-     background: red;
+    background: red;
 }
 
 [type="checkbox"]:checked + label:after {
@@ -744,7 +746,6 @@ a.btn-goback:hover {
 }
 
 
-
 .room-styles {
     background-color: black;
     color: white;
@@ -756,7 +757,6 @@ a.btn-goback:hover {
 }
 
 
-
 .border-color {
     background-color: white;
     height: 100px;
@@ -765,6 +765,7 @@ a.btn-goback:hover {
 
 
 .red {
+    position: relative;
     height: 200px;
     width: 350px;
     background-color: white;
@@ -778,4 +779,9 @@ a.btn-goback:hover {
     color: white;
     font-size: 18px;
     padding-bottom: 10px;
+}
+
+textarea, select, input, button {
+    outline: none !important;
+    box-shadow: none !important;
 }
