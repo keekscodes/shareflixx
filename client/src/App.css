@@ -58,6 +58,10 @@ html, body * {
     /*position: relative;*/
 }
 
+#chatForm {
+    position: relative;
+}
+
 #userName {
     padding: 10px;
     vertical-align: middle;

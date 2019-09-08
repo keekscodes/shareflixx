@@ -40,7 +40,7 @@ class Navigation extends Component {
     let token = sessionStorage.getItem("token");
     return (
       <div className="navbar navbar-expand-lg">
-        <a className="navbar-brand js-scroll-trigger" href="/show">
+        <a className="navbar-brand js-scroll-trigger" href="/room">
           <img src={Logo} alt="App logo"/>
           {/* <img src="../assets/img/logo.png" alt="App logo" height="70px"width="100px"/> */}
 
