@@ -19,7 +19,7 @@ class Authorization extends Component {
   };
 
   componentDidMount() {
-    this.isTokenExpired() ? (console.log("Please sign in or sign up")) : (window.location.href = "/show");
+    this.isTokenExpired() ? (console.log("Please sign in or sign up")) : (window.location.href = "/room");
   }
 
   handleClick = () => {

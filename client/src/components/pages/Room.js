@@ -1,8 +1,31 @@
 import React, {Component} from "react";
 import Navigation from "../Navigation";
+import axios from "axios";
 
 class Room extends Component {
+  state = {
+    roomName: "",
+    roomPassword: ""
+  };
+
+  handleChange = (e) => {
+    const {name, value} = e.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleSubmit = () => {
+    const {roomName} = this.state;
+    let id = roomName;
+    axios.post(`/api/users/show/${id}`).then(res => {
+      console.log(res);
+    })
+
+  };
+
   render() {
+    const {roomName} = this.state;
     return (
       <div className="container-fluid">
         <Navigation/>
@@ -18,7 +41,7 @@ class Room extends Component {
             <label htmlFor="roomName" className="room-styles"><span className="vert-align">Room Name:</span></label>
           </div>
           <div className="col-md">
-            <input className="room-search" type="text" style={{width: "30%"}} name="roomName" placeholder="Enter a room name"/>
+            <input className="room-search" type="text" style={{width: "30%"}} name="roomName" value={this.state.roomName} onChange={this.handleChange} placeholder="Enter a room name"/>
           </div>
         </div>
 
@@ -27,14 +50,14 @@ class Room extends Component {
             <label htmlFor="roomPass" className="room-styles"><span className="vert-align">Room Password:</span></label>
           </div>
           <div className="col-md">
-            <input type="password" className="room-search" style={{width: "30%"}} placeholder="Enter a password (Optional)"/>
+            <input type="password" className="room-search" style={{width: "30%"}} value={this.state.roomPassword} onChange={this.handleChange} placeholder="Enter a password (Optional)"/>
           </div>
         </div>
 
         <div className="container">
           <div className="row">
             <div className="col-md">
-              <a className="btn btn-outline-danger" style={{width: "100%", fontSize: "20px"}} href="/show">Create Room</a>
+              <a className="btn btn-outline-danger" style={{width: "100%", fontSize: "20px"}} href={`/show/${roomName}`} onClick={this.handleSubmit}>Create Room</a>
             </div>
           </div>
           <div className="row">
