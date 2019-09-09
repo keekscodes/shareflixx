@@ -78,6 +78,7 @@ io.on("connection", socket => {
   socket.on("disconnect", (username) => socket.username ? socket.broadcast.emit("username", '🔴' + socket.username + ' left the chat..') : "");
 });
 
+
 //Error handlers & middlewares
 // if(!isProduction) {
 //   app.use((err, req, res, next) => {

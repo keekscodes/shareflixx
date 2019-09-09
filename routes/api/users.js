@@ -55,6 +55,12 @@ router.post('/', auth.optional, (req, res, next) => {
     .then(() => res.json({user: finalUser.toAuthJSON()}));
 });
 
+router.post("/show/:id", auth.optional, (req, res, next) => {
+  let id = req.params.id;
+  console.log(id);
+});
+
+
 //POST login route (optional, everyone has access)
 router.post('/login', auth.optional, (req, res, next) => {
   const {body: {user}} = req;
