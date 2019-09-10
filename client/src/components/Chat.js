@@ -59,6 +59,17 @@ class Chat extends Component {
   };
 
 
+  onKeyDown = () => {
+    this.socket.emit("typing", this.props.username);
+    this.socket.on("typing", username => {
+      console.log(username.user + username.message);
+      this.setState({
+        isTyping: username.user + username.message
+      });
+    });
+  };
+
+
   handleSubmit = (e) => {
     e.preventDefault();
     const body = e.target.value;
@@ -73,9 +84,20 @@ class Chat extends Component {
         message: ""
       });
       this.socket.emit("message", message)
-
+      this.socket.emit("stopTyping", "");
+      this.socket.on("stopTyping", username => {
+        this.setState({
+          isTyping: username
+        });
+      })
+    } else if (!body) {
+      this.socket.emit("stopTyping", "");
+      this.socket.on("stopTyping", username => {
+        this.setState({
+          isTyping: username
+        });
+      })
     }
-
   };
 
   componentWillUnmount() {
@@ -122,8 +144,10 @@ class Chat extends Component {
               onChange={this.handleChange}
               id="txt"
               placeholder="Type your message here ..."
+              onKeyDown={this.onKeyDown}
               onKeyUp={this.handleSubmit}
             />
+            {this.state.isTyping}
           </div>
 
         </div>

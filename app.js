@@ -68,6 +68,16 @@ io.on("connection", socket => {
     });
   });
 
+  socket.on("typing", (username) => {
+    socket.username = username;
+    io.emit("typing", {user: username, message: " is typing..."})
+  });
+
+  socket.on("stopTyping", (username) => {
+    socket.username = username;
+    io.emit("stopTyping", "")
+  });
+
   socket.on("create", (room) => {
     // console.log(id);
     console.log(room);
