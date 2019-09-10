@@ -9,6 +9,7 @@ const UsersSchema = new Schema({
   lastName: String,
   username: String,
   email: String,
+  message: Array,
   image: String,
   hash: String,
   salt: String,
@@ -43,6 +44,7 @@ UsersSchema.methods.toAuthJSON = function () {
     firstName: this.firstName,
     lastName: this.lastName,
     username: this.username,
+    message: this.message,
     email: this.email,
     image: this.image,
     token: this.generateJWT()

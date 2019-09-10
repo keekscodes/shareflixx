@@ -40,6 +40,7 @@ if (isProduction) {
 // mongoose.connect('mongodb://user:sharefliXX2019@ds219078.mlab.com:19078/heroku_ck5c5l5m', {useNewUrlParser: true});
 mongoose.connect('mongodb://localhost/shareflix', {useNewUrlParser: true});
 mongoose.set('debug', true);
+// const Users = mongoose.model('Users');
 
 //Models & routes
 require('./models/Users');
@@ -49,7 +50,9 @@ var routes = require('./routes');
 app.use("/", routes);
 
 
+
 io.on("connection", socket => {
+  console.log(socket.id);
   console.log("New client connected");
   // console.log(socket.handshake);
 
@@ -77,7 +80,6 @@ io.on("connection", socket => {
 
   socket.on("disconnect", (username) => socket.username ? socket.broadcast.emit("username", '🔴' + socket.username + ' left the chat..') : "");
 });
-
 
 //Error handlers & middlewares
 // if(!isProduction) {

@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import io from "socket.io-client";
 import moment from "moment";
+import axios from "axios";
 
 class Chat extends Component {
   constructor() {
@@ -82,6 +83,29 @@ class Chat extends Component {
     this.socket.disconnect()
   }
 
+
+  handleClick = (e) => {
+    const {message} = this.state;
+      let msg = {
+        message,
+        from: this.props.username
+      };
+    let token = sessionStorage.getItem("token");
+    axios.post("/api/users/messages", msg, {
+      headers: {
+        'Content-Type': "application/json",
+        'Authorization': "Token " + token
+      }
+    }).then(res => {
+      console.log(res);
+      this.setState({
+        message: ""
+      })
+      // return obj;
+      // return res.json(obj);
+    });
+  };
+
   render() {
     const messages = this.state.messages.map((msg, i) => {
       console.log(this.state.messages);
@@ -124,6 +148,7 @@ class Chat extends Component {
               placeholder="Type your message here ..."
               onKeyUp={this.handleSubmit}
             />
+            <button className="btn btn-danger" onClick={this.handleClick}>Send Message</button>
           </div>
 
         </div>

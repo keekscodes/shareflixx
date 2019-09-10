@@ -129,4 +129,19 @@ router.post("/profile", auth.required, (req,res,next) => {
   });
 });
 
+router.post("/messages", auth.required, (req, res, next) => {
+  const {payload: {id}} = req;
+  console.log(id);
+  const {message} = req.body;
+  return Users.findById(id).then(user => {
+    user.message.push(message);
+    user.save();
+    if (!user) {
+      return res.sendStatus(400);
+    }
+    return res.json({user: user.toAuthJSON()});
+  });
+  // console.log(req.body);
+});
+
 module.exports = router;
