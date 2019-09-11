@@ -129,7 +129,7 @@ class Profile extends Component {
         <Navigation>{username}</Navigation>
         <MDBContainer>
           <section>
-            <h2 className="border-bottom border-dark">Manage Your Account</h2>
+            <h1 className="border-bottom border-dark text-left text-uppercase" id="boycott">Manage Your Account</h1>
           </section>
           <MDBNav className="nav-tabs mt-5">
             <MDBNavItem>
