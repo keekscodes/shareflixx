@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Show from './components/pages/Show';
-import Room from './components/pages/Room';
+import Room from './components/pages/Room/Room';
 import "./App.css";
 import Youtube from "./components/Youtube";
 import Authorization from "./components/pages/Authorization";

@@ -52,6 +52,10 @@ html, body * {
     /* background: black; */
 }
 
+h2 {
+    font-family: 'Roboto', sans-serif;
+ 
+}
 #entrance {
     height: 610px;
     overflow: auto;
