@@ -177,14 +177,14 @@ import "./style.css";
             <label htmlFor="roomPass" className="room-styles"><span className="vert-align">Room Password:</span></label>
           </div>
           <div className="col-md">
-            <input type="password" className="room-search" style={{width: "30%"}} value={this.state.roomPassword} onChange={this.handleChange} placeholder="Enter a password (Optional)"/>
+            <input type="password" className="room-search" style={{width: "30%"}} value={this.state.roomPassword} onChange={this.handleChange} placeholder="Enter a password"/>
           </div>
         </div>
 
         <div className="container">
           <div className="row">
             <div className="col-md">
-              <a className="btn btn-outline-danger" style={{width: "100%", fontSize: "20px"}} href={`/show/${this.state.roomName}`} onClick={this.handleSubmit}>Create Room</a>
+              <a className="btn btn-outline-danger" style={{width: "100%", fontSize: "20px"}} href={`/show?${this.state.roomName}`} onClick={this.handleSubmit}>Create Room</a>
             </div>
           </div>
           <div className="row">
