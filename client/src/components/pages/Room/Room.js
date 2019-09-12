@@ -197,7 +197,7 @@ import "./style.css";
           </div> */}
           <MDBRow>
       <MDBCol md="4">
-        <MDBCard>
+        <MDBCard style={{marginTop:"50px"}}>
           <MDBCardImage
             top
             src='https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%28131%29.jpg'
