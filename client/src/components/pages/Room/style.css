@@ -11,3 +11,29 @@ h3 {
   font-family: 'Roboto', sans-serif;
 }
 
+.color-blk {
+  font-family: 'Roboto', sans-serif;
+  color: black;
+}
+
+.room-search {
+  border: none;
+  /* border-bottom: 2px solid red; */
+  width: 100%;
+  background: transparent;
+  font-size: 18px;
+  padding-bottom: 10px;
+  font-family: 'Roboto', sans-serif;
+  color: black;
+}
+
+textarea, select, input, button {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.border-bottom {
+  border: none;
+  border-bottom: 1px solid red;
+  vertical-align: middle;
+}

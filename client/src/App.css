@@ -781,10 +781,9 @@ a.btn-goback:hover {
 
 .room-search {
     border: none;
-    border-bottom: 2px solid red;
+    /* border-bottom: 2px solid red; */
     width: 100%;
     background: transparent;
-    color: white;
     font-size: 18px;
     padding-bottom: 10px;
 }
