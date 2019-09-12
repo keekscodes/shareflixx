@@ -1,6 +1,7 @@
 // import React, {Component} from "react";
 import React, { Component } from "react";
 import { MDBContainer, MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink } from "mdbreact";
+import CardGroup from "../../CardGroup/CardGroup";
 import axios from "axios";
 import Navigation from "../../Navigation";
 import "./style.css";
@@ -134,7 +135,7 @@ import "./style.css";
           <Navigation></Navigation>
         <MDBContainer>
         <section>
-            <h1 className="border-bottom border-dark text-left text-uppercase" id="boycott">Rooms</h1>
+            <h1 className="border-bottom border-dark text-right text-uppercase" id="boycott">Rooms</h1>
           </section>
         <MDBNav className="nav-tabs mt-5">
           <MDBNavItem>
@@ -212,13 +213,7 @@ import "./style.css";
             </p>
           </MDBTabPane>
           <MDBTabPane tabId="3" role="tabpanel">
-            <p className="mt-2">
-              Quisquam aperiam, pariatur. Tempora, placeat ratione porro
-              voluptate odit minima. Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit. Nihil odit magnam minima,
-              soluta doloribus reiciendis molestiae placeat unde eos
-              molestias.
-            </p>
+            <CardGroup></CardGroup>
           </MDBTabPane>
         </MDBTabContent>
       </MDBContainer>
