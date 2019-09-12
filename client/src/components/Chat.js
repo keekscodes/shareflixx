@@ -11,7 +11,7 @@ class Chat extends Component {
       nameSubmitted: false,
       messages: [],
       users: [],
-      endpoint: "http://localhost:3001/"
+      endpoint: location.origin || "http://localhost:3001/"
     }
   }
 
